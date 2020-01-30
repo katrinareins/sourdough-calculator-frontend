@@ -7,6 +7,7 @@ import newBakeScreen from './newBake_page/newBakeScreen';
 import viewBakesScreen from './viewBakes_page/viewBakesScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+
 class App extends React.Component {
 
   constructor(props) {
@@ -16,8 +17,16 @@ class App extends React.Component {
        loggedIn: false,
        email: '',
        password: '',
-       bakes: []
+       bake: [],
+       note: []
     }
+  }
+
+  //toggle login function
+  toggleLogin = () => {
+    this.setState(prevState => {
+      return {loggedIn: !prevState.loggedIn}
+    })
   }
   
   
@@ -27,10 +36,20 @@ class App extends React.Component {
         <div>
           <Nav />
           <Switch>
-            <Route path='/' exact component={loginScreen} />
+            <Route 
+              path='/' exact 
+              component={loginScreen} 
+              render={() => 
+                <loginScreen />
+              } 
+              />
+
             <Route path='/newBake' component={newBakeScreen} />
+
             <Route path='/addnotes' component={addNotesScreen} />
-            <Route path='/viewbakes' component={viewBakesScreen} />
+
+            <Route path='/viewbakes' component={viewBakesScreen} 
+            />
           </Switch>
         </div>
       </Router>
