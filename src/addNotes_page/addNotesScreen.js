@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class addNotes_screen extends Component {
+export class AddNotesScreen extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ export class addNotes_screen extends Component {
     }
 }
 
-export default addNotes_screen
+export default AddNotesScreen

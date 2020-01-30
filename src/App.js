@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import Nav from './other/Nav';
-import loginScreen from './login_page/loginScreen';
-import addNotesScreen from './addNotes_page/addNotesScreen';
-import newBakeScreen from './newBake_page/newBakeScreen';
-import viewBakesScreen from './viewBakes_page/viewBakesScreen';
+import LoginScreen from './login_page/LoginScreen';
+import AddNotesScreen from './addNotes_page/AddNotesScreen';
+import NewBakeScreen from './newBake_page/NewBakeScreen';
+import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -28,6 +28,12 @@ class App extends React.Component {
       return {loggedIn: !prevState.loggedIn}
     })
   }
+
+  // handle login form submit
+  handleFormSubmit = (values) => {
+    
+    console.log("Login request gets to app", values)
+  }
   
   
   render() {
@@ -38,17 +44,17 @@ class App extends React.Component {
           <Switch>
             <Route 
               path='/' exact 
-              component={loginScreen} 
+              // component={loginScreen} 
               render={() => 
-                <loginScreen />
+                <LoginScreen handleSubmitProps={this.handleFormSubmit} />
               } 
               />
 
-            <Route path='/newBake' component={newBakeScreen} />
+            <Route path='/newBake' component={NewBakeScreen} />
 
-            <Route path='/addnotes' component={addNotesScreen} />
+            <Route path='/addnotes' component={AddNotesScreen} />
 
-            <Route path='/viewbakes' component={viewBakesScreen} 
+            <Route path='/viewbakes' component={ViewBakesScreen} 
             />
           </Switch>
         </div>
