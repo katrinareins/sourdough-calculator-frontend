@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class navBar extends Component {
+export class addNotes_screen extends Component {
     render() {
         return (
             <div>
-                
+                <h1>add notes screen</h1>
             </div>
         )
     }
 }
 
-export default navBar
+export default addNotes_screen

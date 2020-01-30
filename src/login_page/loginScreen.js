@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class viewBakes_screen extends Component {
+export class login_screen extends Component {
     render() {
         return (
             <div>
-                
+                <h1>login screen</h1>
             </div>
         )
     }
 }
 
-export default viewBakes_screen
+export default login_screen
