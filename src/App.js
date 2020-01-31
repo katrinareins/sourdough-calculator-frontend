@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
+import Nav from './other/Nav'
 import Home from './other/Home'
 import LoginScreen from './login_page/LoginScreen';
 import AddNotesScreen from './addNotes_page/AddNotesScreen';
 import NewBakeScreen from './newBake_page/NewBakeScreen';
 import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -50,6 +51,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <Nav />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route 
