@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
 
@@ -6,6 +7,9 @@ export default class Home extends Component {
         return (
             <div>
                 <h1>Home</h1>
+                <Link to='/login'>
+                    <button>Click here to enter</button>
+                </Link>
             </div>
         )
     }

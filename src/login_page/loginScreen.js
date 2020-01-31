@@ -2,6 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 const LoginScreen = ({handleSubmitProps}) => (
 
@@ -56,9 +57,11 @@ const LoginScreen = ({handleSubmitProps}) => (
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
-          <button type="submit" disabled={isSubmitting}>
-            Login
-          </button>
+          <Link to='/newBake'>
+            <button type="submit" disabled={isSubmitting}>
+              Login
+            </button>
+          </Link>
         </form>
       );
     }}
