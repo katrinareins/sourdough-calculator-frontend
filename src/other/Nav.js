@@ -6,7 +6,9 @@ function Nav() {
     return (
         <div>
             <nav className='nav'>
-                <h3>Absolute Baking Success</h3>
+                <Link to='/'>
+                    <h3>Absolute Baking Success</h3>
+                </Link>
                 <ul className='nav-links'>
                     <Link to='/newBake'>
                         <li>Create new bake</li>

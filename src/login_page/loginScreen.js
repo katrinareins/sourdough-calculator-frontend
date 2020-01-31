@@ -8,13 +8,6 @@ const LoginScreen = ({handleSubmitProps}) => (
   <Formik
     initialValues={{ email: "", password: "" }}
 
-    // onSubmit={(values, { setSubmitting }) => {
-    //   setTimeout(() => {
-    //     handleSubmitProps(values);
-    //     setSubmitting(false);
-    //   }, 500);
-    // }}
-
     onSubmit={values => handleSubmitProps(values)}
 
     validationSchema={Yup.object().shape({
