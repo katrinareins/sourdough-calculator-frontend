@@ -10,6 +10,12 @@ const LoginScreen = ({handleSubmitProps}) => (
     initialValues={{ email: "", password: "" }}
 
     onSubmit={values => handleSubmitProps(values)}
+    // onSubmit={(values, { setSubmitting }) => {
+    //   setTimeout(() => {
+    //     console.log("Logging in", values);
+    //     setSubmitting(false);
+    //   }, 500);
+    // }}
 
     validationSchema={Yup.object().shape({
       email: Yup.string()
@@ -57,11 +63,11 @@ const LoginScreen = ({handleSubmitProps}) => (
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
-          <Link to='/newBake'>
+          {/* <Link to='/newBake'> */}
             <button type="submit" disabled={isSubmitting}>
               Login
             </button>
-          </Link>
+          {/* </Link> */}
         </form>
       );
     }}

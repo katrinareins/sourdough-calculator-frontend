@@ -31,6 +31,7 @@ class App extends React.Component {
 
   // handle login form submit
   handleFormSubmit = (values) => {
+    console.log('form submit doing stuff')
     this.setState({
       loggedIn: true,
       email: values.email,
@@ -44,8 +45,13 @@ class App extends React.Component {
         },
         body: JSON.stringify(values)
         })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+        })
   }
 
+  // new bake post request
   handlePost = () => {
     console.log('post request received')
   }

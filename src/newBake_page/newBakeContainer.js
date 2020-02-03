@@ -1,7 +1,7 @@
-import React from 'react'
-import newBakeComponent from './newBakeComponent'
+import React, { Component } from 'react'
+import NewBakeComponent from './NewBakeComponent'
 
-export default class newBakeContainer extends React {
+export default class NewBakeContainer extends Component {
     constructor(props) {
         super(props)
     
@@ -13,7 +13,7 @@ export default class newBakeContainer extends React {
     render(){
         return (
             <div>
-                
+                <NewBakeComponent />
             </div>
         )
     }
