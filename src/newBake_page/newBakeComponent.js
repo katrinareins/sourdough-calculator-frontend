@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default function newBakeComponent() {
+export default function newBakeComponent({updateState}) {
+
+    const handleChange = (event) => {
+        updateState(event) 
+    }
+
     return (
         <div>
             <h1>Create a New Bake</h1>
@@ -10,21 +15,28 @@ export default function newBakeComponent() {
             </p>
             <form>
                 <label>Name your bake</label>
-                <input type='text' name='bakeName'></input>
+                <input type='text' name='bakeName' onChange={handleChange} ></input>
                 <p>Hydration percentage desired</p>
                 <input type='text' name='hydrationPerc'></input>
                 <p>Ingredients</p>
                 <p>Weight(g)</p>
                 <p>Baker's Percentage</p>
                 <label>Total Flour</label>
-                <input type='text' placeholder='Enter desired total flour' name='totalFlour'></input>
+                <input type='text' placeholder='Enter desired total flour' name='total_flour_g'></input>
                 <p>100%</p>
+
                 <label>Water</label>
-                <input type='text' name='totalWater'></input>
+                <input type='text' name='water_g' placeholder='water grams' ></input>
+                <input type='text' name='water_p' placeholder='water percentage' ></input>
+
                 <label>Leaven</label>
-                <input type='text' name='totalLeaven'></input>
+                <input type='text' name='leaven_g' placeholder='leaven grams' ></input>
+                <input type='text' name='leaven_p' placeholder='leaven percentage' ></input>
+
                 <label>Salt</label>
-                <input type='text' name='totalSalt'></input>
+                <input type='text' name='salt_g' placeholder='salt grams' ></input>
+                <input type='text' name='salt_p' placeholder='salt percentage' ></input>
+
                 <button>Continue</button>
             </form>
         </div>

@@ -8,7 +8,7 @@ export default class NewBakeContainer extends Component {
         this.state = {
             userId: this.props.userId,
             total_flour_g: '',
-            total_flour_p: '',
+            total_flour_p: 100,
             water_g: '',
             water_p: '',
             salt_g: '',
@@ -22,10 +22,14 @@ export default class NewBakeContainer extends Component {
         }
     }
 
+    updateState = event => {
+        console.log(event)
+    }
+
     render(){
         return (
             <div>
-                <NewBakeComponent />
+                <NewBakeComponent updateState={this.updateState} />
             </div>
         )
     }
