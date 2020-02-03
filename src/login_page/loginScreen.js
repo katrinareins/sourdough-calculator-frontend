@@ -2,28 +2,22 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import '../App.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 const LoginScreen = ({handleSubmitProps}) => (
 
   <Formik
-    initialValues={{ email: "", password: "" }}
-
-    onSubmit={values => handleSubmitProps(values)}
-    // onSubmit={(values, { setSubmitting }) => {
-    //   setTimeout(() => {
-    //     console.log("Logging in", values);
-    //     setSubmitting(false);
-    //   }, 500);
-    // }}
-
-    validationSchema={Yup.object().shape({
-      email: Yup.string()
-        .email()
-        .required("Required"),
-      password: Yup.string()
-        .required("No password provided.")
-    })}
+  initialValues={{ email: "", password: "" }}
+  
+  onSubmit={values => handleSubmitProps(values)}
+  
+  validationSchema={Yup.object().shape({
+    email: Yup.string()
+    .email()
+    .required("Required"),
+    password: Yup.string()
+    .required("No password provided.")
+  })}
   >
     {props => {
       const {
@@ -35,6 +29,7 @@ const LoginScreen = ({handleSubmitProps}) => (
         handleBlur,
         handleSubmit
       } = props;
+
       return (
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
@@ -63,11 +58,9 @@ const LoginScreen = ({handleSubmitProps}) => (
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
-          {/* <Link to='/newBake'> */}
-            <button type="submit" disabled={isSubmitting}>
+          <button type="submit" disabled={isSubmitting} >
               Login
             </button>
-          {/* </Link> */}
         </form>
       );
     }}

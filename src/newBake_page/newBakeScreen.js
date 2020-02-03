@@ -5,7 +5,7 @@ export class NewBakeScreen extends Component {
     render() {
         return (
             <div>
-                <NewBakeContainer handlePost={this.props.handlePost} />
+                <NewBakeContainer handlePost={this.props.handlePost} userId={this.props.userId} />
             </div>
         )
     }

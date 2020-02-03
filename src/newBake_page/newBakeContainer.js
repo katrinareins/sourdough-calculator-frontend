@@ -6,7 +6,19 @@ export default class NewBakeContainer extends Component {
         super(props)
     
         this.state = {
-             
+            userId: this.props.userId,
+            total_flour_g: '',
+            total_flour_p: '',
+            water_g: '',
+            water_p: '',
+            salt_g: '',
+            salt_p: '',
+            leaven_g: '',
+            leaven_p: '',
+            hydration: '',
+            rating: '',
+            name: '',
+            date: this.props.date
         }
     }
 
