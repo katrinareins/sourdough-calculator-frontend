@@ -20,8 +20,7 @@ class App extends React.Component {
        date: '',
        email: '',
        password: '',
-       bake: [],
-       note: []
+       bake: []
     }
   }
 
@@ -106,7 +105,11 @@ class App extends React.Component {
 
             <Route path='/addnotes' component={AddNotesScreen} />
 
-            <Route path='/viewbakes' component={ViewBakesScreen} />
+            <Route path='/viewbakes' 
+              render={() => 
+                <ViewBakesScreen userId={this.state.userId} />
+              } 
+            />
 
           </Switch>
         </div>

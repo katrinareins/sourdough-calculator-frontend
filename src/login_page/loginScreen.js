@@ -2,7 +2,6 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import '../App.css';
-import {Link} from 'react-router-dom'
 
 const LoginScreen = ({handleSubmitProps}) => (
 

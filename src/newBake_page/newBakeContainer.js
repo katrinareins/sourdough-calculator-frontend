@@ -47,5 +47,3 @@ export default class NewBakeContainer extends Component {
         )
     }
 }
-
-// this.props.handlePost
