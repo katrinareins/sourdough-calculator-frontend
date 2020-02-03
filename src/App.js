@@ -45,6 +45,10 @@ class App extends React.Component {
         body: JSON.stringify(values)
         })
   }
+
+  handlePost = () => {
+    console.log('post request received')
+  }
   
   
   render() {
@@ -56,13 +60,16 @@ class App extends React.Component {
             <Route path='/' exact component={Home} />
             <Route 
               path='/login' 
-              // component={loginScreen} 
               render={() => 
                 <LoginScreen handleSubmitProps={this.handleFormSubmit} />
               } 
               />
 
-            <Route path='/newBake' component={NewBakeScreen} />
+            <Route path='/newBake'               
+            render={() => 
+                <NewBakeScreen handlePost={this.handlePost} />
+              }  
+              />
 
             <Route path='/addnotes' component={AddNotesScreen} />
 
