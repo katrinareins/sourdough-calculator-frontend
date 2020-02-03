@@ -15,29 +15,29 @@ export default function newBakeComponent({updateState}) {
             </p>
             <form>
                 <label>Name your bake</label>
-                <input type='text' name='bakeName' onChange={handleChange} ></input>
+                <input type='text' name='name' onChange={handleChange} ></input>
                 <p>Hydration percentage desired</p>
-                <input type='text' name='hydrationPerc'></input>
+                <input type='text' name='hydration' onChange={handleChange}></input>
                 <p>Ingredients</p>
                 <p>Weight(g)</p>
                 <p>Baker's Percentage</p>
                 <label>Total Flour</label>
-                <input type='text' placeholder='Enter desired total flour' name='total_flour_g'></input>
+                <input type='text' placeholder='Enter desired total flour' name='total_flour_g' onChange={handleChange}></input>
                 <p>100%</p>
 
                 <label>Water</label>
-                <input type='text' name='water_g' placeholder='water grams' ></input>
-                <input type='text' name='water_p' placeholder='water percentage' ></input>
+                <input type='text' name='water_g' placeholder='water grams' onChange={handleChange} ></input>
+                <input type='text' name='water_p' placeholder='water percentage' onChange={handleChange} ></input>
 
                 <label>Leaven</label>
-                <input type='text' name='leaven_g' placeholder='leaven grams' ></input>
-                <input type='text' name='leaven_p' placeholder='leaven percentage' ></input>
+                <input type='text' name='leaven_g' placeholder='leaven grams' onChange={handleChange} ></input>
+                <input type='text' name='leaven_p' placeholder='leaven percentage' onChange={handleChange} ></input>
 
                 <label>Salt</label>
-                <input type='text' name='salt_g' placeholder='salt grams' ></input>
-                <input type='text' name='salt_p' placeholder='salt percentage' ></input>
+                <input type='text' name='salt_g' placeholder='salt grams' onChange={handleChange} ></input>
+                <input type='text' name='salt_p' placeholder='salt percentage' onChange={handleChange} ></input>
 
-                <button>Continue</button>
+                <button>Continue</button> 
             </form>
         </div>
     )

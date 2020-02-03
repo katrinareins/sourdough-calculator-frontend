@@ -6,24 +6,34 @@ export default class NewBakeContainer extends Component {
         super(props)
     
         this.state = {
-            userId: this.props.userId,
-            total_flour_g: '',
-            total_flour_p: 100,
-            water_g: '',
-            water_p: '',
-            salt_g: '',
-            salt_p: '',
-            leaven_g: '',
-            leaven_p: '',
-            hydration: '',
-            rating: '',
-            name: '',
-            date: this.props.date
+            newBake: {
+                userId: this.props.userId,
+                total_flour_g: '',
+                total_flour_p: 100,
+                water_g: '',
+                water_p: '',
+                salt_g: '',
+                salt_p: '',
+                leaven_g: '',
+                leaven_p: '',
+                hydration: '',
+                rating: '',
+                name: '',
+                date: this.props.date
+            }
         }
     }
 
     updateState = event => {
-        console.log(event)
+        console.log('name', event.target.name)
+        console.log('value', event.target.value)
+        let value = event.target.value
+        let item = event.target.name
+        this.setState(prevState => {
+            return {
+                newBake: {...prevState.newBake, [item]: value}
+            }
+        }, () => console.log('state after user changes', this.state.newBake))
     }
 
     render(){
