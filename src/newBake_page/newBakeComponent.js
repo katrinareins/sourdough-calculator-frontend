@@ -1,9 +1,14 @@
 import React from 'react'
 
-export default function newBakeComponent({updateState}) {
+export default function newBakeComponent({updateState, sendPostRequest}) {
 
     const handleChange = (event) => {
         updateState(event) 
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        sendPostRequest()
     }
 
     return (
@@ -37,7 +42,7 @@ export default function newBakeComponent({updateState}) {
                 <input type='text' name='salt_g' placeholder='salt grams' onChange={handleChange} ></input>
                 <input type='text' name='salt_p' placeholder='salt percentage' onChange={handleChange} ></input>
 
-                <button>Continue</button> 
+                <button onClick={handleSubmit}>Continue</button> 
             </form>
         </div>
     )

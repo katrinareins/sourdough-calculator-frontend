@@ -7,7 +7,7 @@ export default class NewBakeContainer extends Component {
     
         this.state = {
             newBake: {
-                userId: this.props.userId,
+                user_id: this.props.userId,
                 total_flour_g: '',
                 total_flour_p: 100,
                 water_g: '',
@@ -19,14 +19,12 @@ export default class NewBakeContainer extends Component {
                 hydration: '',
                 rating: '',
                 name: '',
-                date: this.props.date
+                date: '2020/02/01'
             }
         }
     }
 
     updateState = event => {
-        console.log('name', event.target.name)
-        console.log('value', event.target.value)
         let value = event.target.value
         let item = event.target.name
         this.setState(prevState => {
@@ -36,10 +34,15 @@ export default class NewBakeContainer extends Component {
         }, () => console.log('state after user changes', this.state.newBake))
     }
 
+    sendPostRequest = () => {
+        let newBake = this.state.newBake
+        this.props.handlePost(newBake)
+    }
+
     render(){
         return (
             <div>
-                <NewBakeComponent updateState={this.updateState} />
+                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
             </div>
         )
     }

@@ -59,15 +59,29 @@ class App extends React.Component {
   }
 
   // new bake post request
-  handlePost = () => {
-    console.log('post request received')
+  handlePost = (event) => {
+    console.log('post request received', event)
+    fetch('http://localhost:3000/bakes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        },
+        body: JSON.stringify(event)
+        })
+        .then(res => res.json())
+        .then(data => { console.log('data returned from post request', data)
+          this.setState({
+            userId: data.id,
+            date: data.created_at
+          })
+        })
+
   }
   
   redirectLogin = () => {
     console.log('redirect requested')
-
     return <Redirect to='/newBake' />
-
   }
   
   render() {
