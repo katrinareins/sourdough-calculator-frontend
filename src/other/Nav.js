@@ -10,18 +10,11 @@ export class Nav extends Component {
     }   
 
     render() {
+        console.log('props in nav bar', this.props)
         return (
             <div>
                 {
-                    (this.props.loggedInBoolean === false) ?   
-                        <div>
-                            <nav className='nav-logged-out'>
-                                <Link to='/'>
-                                    <h3>Absolute Baking Success</h3>
-                                </Link>
-                            </nav>
-                        </div>
-                    :
+                    (this.props.loggedInUser) ?   
                     <div> 
                         <nav className='nav-logged-in'>
                             <div>
@@ -40,11 +33,19 @@ export class Nav extends Component {
                                 <button>Logged in as: {this.props.loggedInUser}</button>
 
                                 <Link to='/'>
-                                <button onClick={this.handleClick}>Log out</button>
+                                <button type="submit" onClick={this.handleClick}>Log out</button>
                                 </Link>
                             </div>
                         </nav>
                     </div>
+                    :
+                    <div>
+                    <nav className='nav-logged-out'>
+                        <Link to='/'>
+                            <h3>Absolute Baking Success</h3>
+                        </Link>
+                    </nav>
+                </div>
                 }
             </div>
         )

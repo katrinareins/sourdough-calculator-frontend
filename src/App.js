@@ -111,7 +111,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Nav loggedInUser={this.state.email} loggedInBoolean={this.state.loggedInUser} handleLogOut={this.handleLogOut} />
+          <Nav loggedInUser={this.state.email} handleLogOut={this.handleLogOut} />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route 
