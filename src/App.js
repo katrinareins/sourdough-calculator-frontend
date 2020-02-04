@@ -25,11 +25,11 @@ class App extends React.Component {
   }
 
   //toggle login function
-  toggleLogin = () => {
-    this.setState(prevState => {
-      return {loggedIn: !prevState.loggedIn}
-    })
-  }
+  // toggleLogin = () => {
+  //   this.setState(prevState => {
+  //     return {loggedIn: !prevState.loggedIn}
+  //   })
+  // }
 
   // handle login form submit
   handleFormSubmit = (values) => {
@@ -117,7 +117,7 @@ class App extends React.Component {
 
             <Route path='/addnotes' 
               render={() => 
-                <AddNotesScreen userId={this.state.userId} bakeId={this.state.bakeId} handleNotePost={this.handleNotePost} />
+                <AddNotesScreen userId={this.state.userId} bakeId={this.state.bakeId} handleNotePost={this.handleNotePost} bakes={this.state.bakes} />
               } 
             />
 
