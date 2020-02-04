@@ -88,7 +88,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Nav />
+          <Nav loggedInUser={this.state.email} />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route 
@@ -104,7 +104,11 @@ class App extends React.Component {
               }  
               />
 
-            <Route path='/addnotes' component={AddNotesScreen} />
+            <Route path='/addnotes' 
+              render={() => 
+                <AddNotesScreen userId={this.state.userId} />
+              } 
+            />
 
             <Route path='/viewbakes' 
               render={() => 

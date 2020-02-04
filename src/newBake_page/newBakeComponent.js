@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function newBakeComponent({updateState, sendPostRequest}) {
 
@@ -42,7 +43,9 @@ export default function newBakeComponent({updateState, sendPostRequest}) {
                 <input type='text' name='salt_g' placeholder='salt grams' onChange={handleChange} ></input>
                 <input type='text' name='salt_p' placeholder='salt percentage' onChange={handleChange} ></input>
 
+                <Link to ='/addnotes'>
                 <button onClick={handleSubmit}>Continue</button> 
+                </Link>
             </form>
         </div>
     )

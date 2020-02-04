@@ -14,9 +14,10 @@ export default function ViewBakesComponent(props) {
             <p>Water (g): {water_g}</p>
             <p>Water (p): {water_p}</p>
             <p>Salt (g): {salt_g}</p>
-            <p>Salut (p): {salt_p}</p>
+            <p>Salt (p): {salt_p}</p>
             <p>Leaven (g): {leaven_g}</p>
             <p>Leaven (p): {leaven_p}</p>
+            <button>View notes +</button>
         </div>
     )
 }
