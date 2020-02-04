@@ -12,10 +12,8 @@ export class newBakeComponent extends Component {
     }
 
     handleSubmit = (e) => {
-        console.log('handle submit')
         e.preventDefault()
         this.props.sendPostRequest()
-        // .then(() => this.props.history.push('/addnotes')) --> doesn't work??? 
 
         this.setState({
             toAddNotes: true
@@ -62,10 +60,6 @@ export class newBakeComponent extends Component {
                     <button onClick={this.handleSubmit}>Create new bake</button> 
     
                 </form>
-    
-                    {/* <Link to ='/addnotes'>
-                        <button>Add notes to my bake</button>
-                    </Link> */}
             </div>
         )
     }
