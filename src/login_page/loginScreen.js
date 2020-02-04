@@ -19,9 +19,8 @@ export class LoginScreen extends Component {
   }, () => console.log('state after user login', this.state.newUser))
   }
 
-  handleClick = event => {
-    event.preventDefault()
-    this.props.handleLogin(event)
+  handleClick = () => {
+    this.props.handleLogin(this.state.newUser)
   }
 
   render() {
@@ -44,7 +43,7 @@ export class LoginScreen extends Component {
               onChange={(e) => this.handleInputChange(e)}
             />      
 
-            <button type="submit" onClick={e => this.handleClick(e)} >
+            <button type="submit" onClick={this.handleClick} >
                 Login
               </button>
         </form> 

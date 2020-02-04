@@ -1,38 +1,50 @@
-import React from 'react'
+import React, { Component } from 'react'
 import '../App.css'
 import { Link } from 'react-router-dom'
 
-function Nav(props) {
+export class Nav extends Component {
 
-    return (
-        <div>
-            <nav className='nav'>
+    render() {
+        return (
+            <div>
+                {
+                    (this.props.loggedInBoolean === false) ?   
+                        <div>
+                            <nav className='nav-logged-out'>
+                                <Link to='/'>
+                                    <h3>Absolute Baking Success</h3>
+                                </Link>
+                            </nav>
+                        </div>
+                    :
+                    <div> 
+                        <nav className='nav-logged-in'>
+                            <div>
+                                <Link to='/'>
+                                    <h3>Absolute Baking Success</h3>
+                                </Link>
 
-                <Link to='/'>
-                    <h3>Absolute Baking Success</h3>
-                </Link>
+                                <Link to='/newBake'>
+                                    <button>Create new bake</button>
+                                </Link>
 
-                <ul className='nav-links'>
-                    <Link to='/newBake'>
-                        <li>Create new bake</li>
-                    </Link>
+                                <Link to='/viewbakes'>
+                                    <button>View my bakes</button>
+                                </Link>
 
-                    <Link to='/viewbakes'>
-                        <li>View my bakes</li>
-                    </Link>
+                                <button>Logged in as: {this.props.loggedInUser}</button>
 
-                    <li>Logged in as:{props.loggedInUser} </li>
-
-                </ul>
-
-                <Link to='/'>
-                <button>Log out</button>
-                </Link>
-                
-            </nav>
-        </div>
-    )
+                                <Link to='/'>
+                                <button>Log out</button>
+                                </Link>
+                            </div>
+                        </nav>
+                    </div>
+                }
+            </div>
+        )
+    }
 }
 
-export default Nav;
+export default Nav
 

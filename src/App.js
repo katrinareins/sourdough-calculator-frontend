@@ -99,7 +99,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Nav loggedInUser={this.state.email} />
+          <Nav loggedInUser={this.state.email} loggedInBoolean={this.state.loggedInUser} />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route 
