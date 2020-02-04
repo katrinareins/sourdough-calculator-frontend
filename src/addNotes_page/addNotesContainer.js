@@ -9,7 +9,7 @@ export class AddNotesContainer extends Component {
     
         this.state = {
             newNote: {
-                id: this.props.bakeId,
+                bake_id: this.props.bakeId,
                  title: '',
                  content: ''
             } 
@@ -22,7 +22,7 @@ export class AddNotesContainer extends Component {
         let item = event.target.name
         this.setState(prevState => {
             return {
-                newNote: {...prevState.newNote, [item]: value}
+                newNote: {...prevState.newNote, [item]: value, bake_id: this.props.bakeId}
             }
         }, () => console.log('state after user changes', this.state.newNote))
     }
@@ -30,11 +30,14 @@ export class AddNotesContainer extends Component {
     // handlesubmit function
     sendPostRequest = (e) => {
         e.preventDefault()
+        console.log(this.state.newNote)
         let newNote = this.state.newNote
         this.props.handleNotePost(newNote)
     }
 
     render() {
+        console.log('state before user changes', this.state.newNote)
+        console.log("these are the props in Add Notes Container", this.props.bakeId)
         return (
             <div>
                 <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} />

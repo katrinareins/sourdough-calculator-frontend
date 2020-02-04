@@ -16,7 +16,7 @@ class App extends React.Component {
     this.state = {
        loggedIn: false,
        userId: '',
-       breadId: '',
+       bakeId: '',
        date: '',
        email: '',
        password: '',
@@ -47,13 +47,13 @@ class App extends React.Component {
         body: JSON.stringify(values)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from post request', data) 
+        .then(data => { console.log('data returned from user post request', data) 
           this.setState({
             userId: data.id,
             bakes: data.bakes
           })
         })
-        .then(console.log('is this line 57', this.state))
+        .then(console.log('state after user login', this.state))
         // console.log('state after login form submitted', this.state)
     // this.redirectLogin();
   }
@@ -70,12 +70,12 @@ class App extends React.Component {
         body: JSON.stringify(event)
         })
         .then(res => res.json())
-        .then(data => { 
-          console.log('data returned from post request', data);
-          this.setState({
-            breadId: data.id
-          })
+        .then(data => { console.log('data returned from bake post request', data) 
+        this.setState({
+          bakeId: data.id,
         })
+      })
+        .then(console.log('state after bread post', this.state))
   }
 
   handleNotePost = event => {
@@ -105,7 +105,7 @@ class App extends React.Component {
 
             <Route path='/addnotes' 
               render={() => 
-                <AddNotesScreen userId={this.state.userId} bakeId={this.state.bakeId} />
+                <AddNotesScreen userId={this.state.userId} bakeId={this.state.bakeId} handleNotePost={this.handleNotePost} />
               } 
             />
 
