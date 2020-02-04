@@ -1,12 +1,80 @@
-import React from "react";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import '../App.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
 
-const LoginScreen = ({handleSubmitProps}) => (
+export class LoginScreen extends Component {
 
-  <Formik
+  state = {
+    newUser: {
+      email: '',
+      password: ''
+    }
+  }
+
+  handleInputChange = event => {
+    let value = event.target.value
+    let item = event.target.name
+    this.setState(prevState => {
+      return {
+          newUser: {...prevState.newUser, [item]: value}
+      }
+  }, () => console.log('state after user login', this.state.newUser))
+  }
+
+  handleClick = event => {
+    event.preventDefault()
+    this.props.handleLogin(event)
+  }
+
+  render() {
+    return (
+      <div>
+        <form>
+            <label>Email</label>
+            <input
+              name="email"
+              type="text"
+              placeholder="Enter your email"
+              onChange={(e) => this.handleInputChange(e)}
+            />
+
+          <label>Password</label>
+            <input
+              name="password"
+              type="text"
+              placeholder="Enter your password"
+              onChange={(e) => this.handleInputChange(e)}
+            />      
+
+            <button type="submit" onClick={e => this.handleClick(e)} >
+                Login
+              </button>
+        </form> 
+      </div>
+    )
+  }
+}
+
+export default LoginScreen
+
+
+
+
+// export default function LoginScreen(props) {
+
+//   const onSubmit = (values) => {
+//     props.handleSubmitProps(values)
+//   }
+
+//   return (
+//     <div>
+//       <form>
+
+//       </form>
+//     </div>
+//   )
+// }
+
+
+{/* <Formik
   initialValues={{ email: "", password: "" }}
   
   onSubmit={values => handleSubmitProps(values)}
@@ -72,7 +140,4 @@ const LoginScreen = ({handleSubmitProps}) => (
         </div>
       );
     }}
-  </Formik>
-);
-
-export default LoginScreen;
+  </Formik> */}

@@ -32,7 +32,7 @@ class App extends React.Component {
   // }
 
   // handle login form submit
-  handleFormSubmit = (values) => {
+  handleLogin = (values) => {
     this.setState({
       loggedIn: true,
       email: values.email,
@@ -105,7 +105,7 @@ class App extends React.Component {
             <Route 
               path='/login' 
               render={() => 
-                <LoginScreen handleSubmitProps={this.handleFormSubmit} />
+                <LoginScreen handleLogin={this.handleLogin} />
               } 
               />
 
