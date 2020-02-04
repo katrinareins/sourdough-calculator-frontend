@@ -15,7 +15,7 @@ export class ViewBakesContainer extends Component {
         console.log('props in container', this.props.bakes)
         return (
             <div>
-                {this.userMap}
+                {this.userMap()}
             </div>
         )
     }

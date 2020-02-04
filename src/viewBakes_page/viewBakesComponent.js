@@ -1,10 +1,9 @@
 import React from 'react'
 
-export default function ViewBakesComponent(props) {
+export default function ViewBakesComponent() {
     return (
         <div>
-            <h1>view bakes screen</h1>
-            <p>{props}</p>
+            <h1>Is this working???</h1>
         </div>
     )
 }

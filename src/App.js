@@ -49,12 +49,13 @@ class App extends React.Component {
         .then(res => res.json())
         .then(data => { console.log('data returned from post request', data) 
           this.setState({
-            userId: data.id
+            userId: data.id,
+            bakes: data.bakes
           })
         })
         .then(console.log('is this line 57', this.state))
         // console.log('state after login form submitted', this.state)
-    this.redirectLogin();
+    // this.redirectLogin();
   }
 
   // new bake post request
@@ -78,10 +79,10 @@ class App extends React.Component {
 
   }
   
-  redirectLogin = () => {
-    console.log('redirect requested')
-    return <Redirect to='/newBake' />
-  }
+  // redirectLogin = () => {
+  //   console.log('redirect requested')
+  //   return <Redirect to='/newBake' />
+  // }
   
   render() {
     return (
@@ -107,7 +108,7 @@ class App extends React.Component {
 
             <Route path='/viewbakes' 
               render={() => 
-                <ViewBakesScreen userId={this.state.userId} />
+                <ViewBakesScreen userId={this.state.userId} bakes={this.state.bakes} />
               } 
             />
 
