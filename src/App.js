@@ -16,8 +16,8 @@ class App extends React.Component {
     this.state = {
        loggedIn: false,
        userId: '',
-       bakeId: '',
-       date: '',
+      //  bakeId: '',
+      //  date: '',
        email: '',
        password: '',
        bakes: []
@@ -26,11 +26,11 @@ class App extends React.Component {
 
   // handle login form submit
   handleLogin = (values) => {
-    this.setState({
-      loggedIn: true,
-      email: values.email,
-      password: values.password
-    })
+    // this.setState({
+    //   loggedIn: true,
+    //   email: values.email,
+    //   password: values.password
+    // })
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -41,24 +41,36 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from user post request', data) 
-          this.setState({
-            userId: data.id,
-            bakes: data.bakes
-          })
+        this.fetchLoggedInUser(data.id)
+          // this.setState({
+          //   userId: data.id,
+          //   bakes: data.bakes
+          // })
         })
-        .then(console.log('state after user login', this.state))
+        // .then(console.log('state after user login', this.state))
   }
 
-  updateState = () => {
+  fetchLoggedInUser = (userId) => {
+    fetch(`http://localhost:3000/users/${userId}`)
+    .then(resp => resp.json())
+    .then(data => this.updateState(data))
+  }
 
+  updateState = (data) => {
+    console.log('am i really updating?', data)
+    this.setState({
+      loggedIn: true,
+      userId: data.id,
+      email: data.email,
+      password: data.password,
+      bakes: data.bakes
+    })
   }
 
   handleLogOut = () => {
     this.setState({
       loggedIn: false,
       userId: '',
-      bakeId: '',
-      date: '',
       email: '',
       password: '',
       bakes: []
