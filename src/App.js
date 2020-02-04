@@ -58,6 +58,18 @@ class App extends React.Component {
     // this.redirectLogin();
   }
 
+  handleLogOut = () => {
+    this.setState({
+      loggedIn: false,
+      userId: '',
+      bakeId: '',
+      date: '',
+      email: '',
+      password: '',
+      bakes: []
+    })
+  }
+
   // new bake post request
   handlePost = (event) => {
     console.log('post request received', event)
@@ -99,7 +111,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Nav loggedInUser={this.state.email} loggedInBoolean={this.state.loggedInUser} />
+          <Nav loggedInUser={this.state.email} loggedInBoolean={this.state.loggedInUser} handleLogOut={this.handleLogOut} />
           <Switch>
             <Route path='/' exact component={Home} />
             <Route 

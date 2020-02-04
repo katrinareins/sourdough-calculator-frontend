@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom'
 
 export class Nav extends Component {
 
+    handleClick = (event) => {
+        event.preventDefault()
+        this.props.handleLogOut()
+    }   
+
     render() {
         return (
             <div>
@@ -35,7 +40,7 @@ export class Nav extends Component {
                                 <button>Logged in as: {this.props.loggedInUser}</button>
 
                                 <Link to='/'>
-                                <button>Log out</button>
+                                <button onClick={this.handleClick}>Log out</button>
                                 </Link>
                             </div>
                         </nav>
