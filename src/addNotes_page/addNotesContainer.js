@@ -8,9 +8,23 @@ export class AddNotesContainer extends Component {
         super(props)
     
         this.state = {
-             title: '',
-             content: ''
+            newNote: {
+                id: this.props.bakeId,
+                 title: '',
+                 content: ''
+            } 
         }
+    }
+
+    // update state with inputs
+    updateState = event => {
+        let value = event.target.value
+        let item = event.target.name
+        this.setState(prevState => {
+            return {
+                newNote: {...prevState.newNote, [item]: value}
+            }
+        }, () => console.log('state after user changes', this.state.newNote))
     }
 
     // handlesubmit function
@@ -19,7 +33,7 @@ export class AddNotesContainer extends Component {
     render() {
         return (
             <div>
-                
+                <AddNotesForm updateState={this.updateState} />
             </div>
         )
     }
