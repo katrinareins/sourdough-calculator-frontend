@@ -15,18 +15,18 @@ export class ViewBakesScreen extends Component {
         fetch(`http://localhost:3000/users/${this.props.userId}`)
         .then(resp => resp.json())
         .then(data => {
-            console.log('inside component did mount', data)
+            console.log('data from fetch request in view bakes screen', data)
              this.setState({
                 userData: data
             })
-            console.log('right after return', this.state)
+            console.log('after state update in view bakes screen', this.state)
         })
     }
 
     render() {
         return (
             <div>
-                <ViewBakesContainer userId={this.props.userId} userDetails={this.state}/>
+                <ViewBakesContainer userId={this.props.userId} bakes={this.state.userData.bakes}/>
             </div>
         )
     }

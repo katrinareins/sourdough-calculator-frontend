@@ -33,7 +33,6 @@ class App extends React.Component {
 
   // handle login form submit
   handleFormSubmit = (values) => {
-    console.log('login submitted')
     this.setState({
       loggedIn: true,
       email: values.email,
@@ -48,10 +47,9 @@ class App extends React.Component {
         body: JSON.stringify(values)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from post request', data)
+        .then(data => { console.log('data returned from post request', data) 
           this.setState({
-            userId: data.id,
-            bakes: data.bakes
+            userId: data.id
           })
         })
         .then(console.log('is this line 57', this.state))
@@ -72,10 +70,10 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from post request', data)
-          this.setState({
-            userId: data.id,
-            date: data.created_at
-          })
+          // this.setState({
+          //   userId: data.id,
+          //   date: data.created_at
+          // })
         })
 
   }
