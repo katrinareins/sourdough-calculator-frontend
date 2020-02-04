@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function ViewBakesComponent() {
+export default function ViewBakesComponent(props) {
     return (
         <div>
-            <h1>Is this working???</h1>
+        {/* const { name } = props; */}
+            <p>Is this working</p>
+            <p>{props.bake.name}</p>
         </div>
     )
 }
+
