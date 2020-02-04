@@ -24,7 +24,7 @@ export class AddNotesContainer extends Component {
             return {
                 newNote: {...prevState.newNote, [item]: value, bake_id: this.props.bakeId}
             }
-        }, () => console.log('state after user changes', this.state.newNote))
+        })
     }
 
     // handlesubmit function
@@ -36,8 +36,6 @@ export class AddNotesContainer extends Component {
     }
 
     render() {
-        console.log('state before user changes', this.state.newNote)
-        console.log("these are the props in Add Notes Container", this.props.bakeId)
         return (
             <div>
                 <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} />

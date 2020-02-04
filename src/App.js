@@ -80,6 +80,18 @@ class App extends React.Component {
 
   handleNotePost = event => {
     console.log('new note post request received', event)
+    fetch('http://localhost:3000/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        },
+        body: JSON.stringify(event)
+        })
+        .then(res => res.json())
+        .then(data => { console.log('data returned from bake post request', data) 
+      })
+
   }
 
   
