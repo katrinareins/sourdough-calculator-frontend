@@ -24,13 +24,6 @@ class App extends React.Component {
     }
   }
 
-  //toggle login function
-  // toggleLogin = () => {
-  //   this.setState(prevState => {
-  //     return {loggedIn: !prevState.loggedIn}
-  //   })
-  // }
-
   // handle login form submit
   handleLogin = (values) => {
     this.setState({
@@ -54,8 +47,10 @@ class App extends React.Component {
           })
         })
         .then(console.log('state after user login', this.state))
-        // console.log('state after login form submitted', this.state)
-    // this.redirectLogin();
+  }
+
+  updateState = () => {
+
   }
 
   handleLogOut = () => {

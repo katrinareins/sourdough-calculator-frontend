@@ -1,16 +1,28 @@
 import React, { Component } from 'react'
 import '../App.css'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 export class Nav extends Component {
 
-    handleClick = (event) => {
-        event.preventDefault()
+    state = {
+        redirectHome: false
+    }
+
+    handleClick = () => {
+        // event.preventDefault()
         this.props.handleLogOut()
+        this.setState({
+            redirectHome: true
+        })
     }   
 
     render() {
         console.log('props in nav bar', this.props)
+
+        if (this.state.redirectHome === true){
+            return <Redirect to='/login' />
+        }
+
         return (
             <div>
                 {
@@ -32,9 +44,7 @@ export class Nav extends Component {
 
                                 <button>Logged in as: {this.props.loggedInUser}</button>
 
-                                <Link to='/'>
-                                <button type="submit" onClick={this.handleClick}>Log out</button>
-                                </Link>
+                                <button onClick={this.handleClick}>Log out</button>
                             </div>
                         </nav>
                     </div>
