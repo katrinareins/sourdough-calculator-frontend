@@ -59,9 +59,11 @@ const LoginScreen = ({handleSubmitProps}) => (
             {errors.password && touched.password && (
               <div className="input-feedback">{errors.password}</div>
             )}
+
             <button type="submit" disabled={isSubmitting} >
                 Login
               </button>
+
           </form>
               <Link to='/viewbakes'>
                 <button>Go to my bakes!</button>

@@ -7,7 +7,6 @@ import AddNotesScreen from './addNotes_page/AddNotesScreen';
 import NewBakeScreen from './newBake_page/NewBakeScreen';
 import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -17,6 +16,7 @@ class App extends React.Component {
     this.state = {
        loggedIn: false,
        userId: '',
+       breadId: '',
        date: '',
        email: '',
        password: '',
@@ -70,19 +70,14 @@ class App extends React.Component {
         body: JSON.stringify(event)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from post request', data)
-          // this.setState({
-          //   userId: data.id,
-          //   date: data.created_at
-          // })
+        .then(data => { 
+          console.log('data returned from post request', data);
+          this.setState({
+            breadId: data.id
+          })
         })
-
   }
-  
-  // redirectLogin = () => {
-  //   console.log('redirect requested')
-  //   return <Redirect to='/newBake' />
-  // }
+
   
   render() {
     return (
@@ -106,7 +101,7 @@ class App extends React.Component {
 
             <Route path='/addnotes' 
               render={() => 
-                <AddNotesScreen userId={this.state.userId} />
+                <AddNotesScreen userId={this.state.userId} bakeId={this.state.bakeId} />
               } 
             />
 

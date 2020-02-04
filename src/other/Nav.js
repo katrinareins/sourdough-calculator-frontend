@@ -22,8 +22,13 @@ function Nav(props) {
                     </Link>
 
                     <li>Logged in as:{props.loggedInUser} </li>
+
                 </ul>
 
+                <Link to='/'>
+                <button>Log out</button>
+                </Link>
+                
             </nav>
         </div>
     )
