@@ -78,6 +78,10 @@ class App extends React.Component {
         })
   }
 
+  handleNotePost = event => {
+    console.log('new note post request received', event)
+  }
+
   
   render() {
     return (

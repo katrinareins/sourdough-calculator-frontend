@@ -28,12 +28,16 @@ export class AddNotesContainer extends Component {
     }
 
     // handlesubmit function
-
+    sendPostRequest = (e) => {
+        e.preventDefault()
+        let newNote = this.state.newNote
+        this.props.handleNotePost(newNote)
+    }
 
     render() {
         return (
             <div>
-                <AddNotesForm updateState={this.updateState} />
+                <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
             </div>
         )
     }
