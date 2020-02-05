@@ -90,7 +90,7 @@ class App extends React.Component {
           return{
             bakes: [...prevState.bakes, data]
           }
-        })
+        }, () => console.log('new bake added, state is', this.state))
       })
   }
 
@@ -106,7 +106,12 @@ class App extends React.Component {
         body: JSON.stringify(event)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from bake post request', data) 
+        .then(data => { console.log('data returned from bake post request', data)
+        this.setState(prevState => {
+          return{
+            notes: [...prevState.notes, data]
+          }
+        }, () => console.log('new note added, state is', this.state))
       })
 
   }
@@ -114,12 +119,17 @@ class App extends React.Component {
   // note patch request
 
   // delete bake
-  handleDelete = bake => {
-    console.log('delete being triggered, number is bake id', bake)
-    fetch(`http://localhost:3000/bakes/${bake}`, {
+  handleDelete = bakeID => {
+    console.log('delete being triggered, number is bake id', bakeID)
+    fetch(`http://localhost:3000/bakes/${bakeID}`, {
       method: "DELETE",
     })
     .then(res => res.json())
+    this.setState(prevState => {
+      return{
+        bakes: prevState.bakes.filter(bake => bake.id !== bakeID)
+      }
+    })
   }
   
   render() {
