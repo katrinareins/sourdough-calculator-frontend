@@ -45,7 +45,7 @@ export class ViewBakesComponent extends Component {
                     : null}
                 </div>
                 <div>
-                    {this.state.viewNotes ? this.mapNotes : null}
+                    {this.state.viewNotes ? this.mapNotes() : null}
                 </div>
             </div>
         )
