@@ -108,14 +108,22 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from bake post request', data)
-        this.setState(prevState => {
-          return{
-            notes: [...prevState.notes, data]
-          }
-        }, () => console.log('new note added, state is', this.state))
-      })
+        // this.setState({
+  
+        //     ...this.state.bakes, [
+        //       notes: data
+        //     ]
 
+        // }, () => console.log('new note added, state is', this.state))
+      })
   }
+
+  // this.setState({
+  //   addressInfo: {
+  //     ...this.state.addressInfo,
+  //     city: 'New York City'
+  //   }
+  // });
 
   addNewNote = bakeID => {
     this.setState({
@@ -143,19 +151,30 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Nav loggedInUser={this.state.email} handleLogOut={this.handleLogOut} />
+          <Nav 
+          loggedInUser={this.state.email} 
+          handleLogOut={this.handleLogOut} />
+
           <Switch>
+
             <Route path='/' exact component={Home} />
+
             <Route 
               path='/login' 
               render={() => 
-                <LoginScreen handleLogin={this.handleLogin} />
+                <LoginScreen 
+                handleLogin={this.handleLogin} 
+                alternate="/viewbakes" />
               } 
               />
 
             <Route path='/newBake'               
             render={() => 
-                <NewBakeScreen handlePost={this.handlePost} userId={this.state.userId} redirectLogin={this.redirectLogin} date={this.state.date} />
+                <NewBakeScreen 
+                handlePost={this.handlePost} 
+                userId={this.state.userId} 
+                redirectLogin={this.redirectLogin} 
+                date={this.state.date} />
               }  
               />
 
@@ -167,7 +186,11 @@ class App extends React.Component {
 
             <Route path='/viewbakes' 
               render={() => 
-                <ViewBakesScreen userId={this.state.userId} bakes={this.state.bakes} handleDelete={this.handleDelete} />
+                <ViewBakesScreen 
+                userId={this.state.userId} 
+                bakes={this.state.bakes} 
+                handleDelete={this.handleDelete} 
+                handleNotePost={this.handleNotePost} />
               } 
             />
 

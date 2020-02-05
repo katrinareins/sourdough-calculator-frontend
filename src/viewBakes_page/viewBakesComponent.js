@@ -9,6 +9,7 @@ export class ViewBakesComponent extends Component {
     
         this.state = {
             viewNotes: false,
+            addNotes: false,
             newNote: {
                 bake_id: this.props.bake.id,
                  title: '',
@@ -39,7 +40,9 @@ export class ViewBakesComponent extends Component {
     // send up bake id and create function 
     handleAddNoteClick = () => {
         console.log('add note clicked')
-        return <AddNotesContainer updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
+        this.setState(prevState => {
+            return {addNotes: !prevState.addNotes}
+          })
     }
     
     // state = {
@@ -61,6 +64,10 @@ export class ViewBakesComponent extends Component {
         return this.props.bake.notes.map((note, index) => {
             return <ViewBakeNotesComponent note={note} key={index} />
         })
+    }
+
+    showNoteForm = () => {
+        return <AddNotesContainer updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
     }
 
     render() {
@@ -91,6 +98,10 @@ export class ViewBakesComponent extends Component {
 
                 <div>
                     <button onClick={this.handleAddNoteClick}>Add note</button>
+                </div>
+
+                <div>
+                    {this.state.addNotes ? this.showNoteForm() : null}
                 </div>
             </div>
         )

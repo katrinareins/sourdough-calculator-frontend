@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import LoginHOC from '../other/LoginHOC'
 
 export class LoginScreen extends Component {
 

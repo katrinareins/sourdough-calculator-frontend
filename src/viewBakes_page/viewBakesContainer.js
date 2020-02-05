@@ -5,7 +5,7 @@ export class ViewBakesContainer extends Component {
 
     userMap = () => {
         return this.props.bakes.map((bake, index) => {
-            return <ViewBakesComponent bake={bake} key={index} renderNotes={this.renderNotes} handleDelete={this.props.handleDelete} />
+            return <ViewBakesComponent bake={bake} key={index} renderNotes={this.renderNotes} handleDelete={this.props.handleDelete} handleNotePost={this.props.handleNotePost} />
         } )
     }
 
