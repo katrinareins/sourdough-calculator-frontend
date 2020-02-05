@@ -40,7 +40,7 @@ class App extends React.Component {
         body: JSON.stringify(values)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from user post request', data) 
+        .then(data => { 
         this.fetchLoggedInUser(data.id)
           // this.setState({
           //   userId: data.id,
@@ -57,7 +57,7 @@ class App extends React.Component {
   }
 
   updateState = (data) => {
-    console.log('am i really updating?', data)
+    console.log('state after login', data)
     this.setState({
       loggedIn: true,
       userId: data.id,

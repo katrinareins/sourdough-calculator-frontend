@@ -17,7 +17,7 @@ export class LoginScreen extends Component {
       return {
           newUser: {...prevState.newUser, [item]: value}
       }
-  }, () => console.log('state after user login', this.state.newUser))
+  })
   }
 
   handleClick = () => {

@@ -26,7 +26,7 @@ export class Nav extends Component {
         return (
             <div>
                 {
-                    (this.props.loggedInUser) ?   
+                    // (this.props.loggedInUser) ?   
                     <div> 
                         <nav className='nav-logged-in'>
                             <div>
@@ -48,14 +48,14 @@ export class Nav extends Component {
                             </div>
                         </nav>
                     </div>
-                    :
-                    <div>
-                    <nav className='nav-logged-out'>
-                        <Link to='/'>
-                            <h3>Absolute Baking Success</h3>
-                        </Link>
-                    </nav>
-                </div>
+                //     :
+                //     <div>
+                //     <nav className='nav-logged-out'>
+                //         <Link to='/'>
+                //             <h3>Absolute Baking Success</h3>
+                //         </Link>
+                //     </nav>
+                // </div>
                 }
             </div>
         )
