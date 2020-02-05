@@ -16,7 +16,6 @@ class App extends React.Component {
     this.state = {
        loggedIn: false,
        userId: '',
-      //  bakeId: '',
       //  date: '',
        email: '',
        password: '',
@@ -53,17 +52,14 @@ class App extends React.Component {
   fetchLoggedInUser = (userId) => {
     fetch(`http://localhost:3000/users/${userId}`)
     .then(resp => resp.json())
-    .then(data => this.updateState(data))
-  }
-
-  updateState = (data) => {
-    console.log('am i really updating?', data)
-    this.setState({
-      loggedIn: true,
-      userId: data.id,
-      email: data.email,
-      password: data.password,
-      bakes: data.bakes
+    .then(data => {
+        this.setState({
+          loggedIn: true,
+          userId: data.id,
+          email: data.email,
+          password: data.password,
+          bakes: data.bakes
+    })
     })
   }
 
@@ -90,13 +86,15 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from bake post request', data) 
-        this.setState({
-          bakeId: data.id,
+        this.setState(prevState => {
+          return{
+            bakes: [...prevState.bakes, data]
+          }
         })
       })
-        .then(console.log('state after bread post', this.state))
   }
 
+  // new note post request
   handleNotePost = event => {
     console.log('new note post request received', event)
     fetch('http://localhost:3000/notes', {
@@ -113,13 +111,16 @@ class App extends React.Component {
 
   }
 
+  // note patch request
+
+  // delete bake
   handleDelete = bake => {
     console.log('delete being triggered, number is bake id', bake)
     fetch(`http://localhost:3000/bakes/${bake}`, {
       method: "DELETE",
-    });
+    })
+    .then(res => res.json())
   }
-
   
   render() {
     return (
@@ -143,7 +144,7 @@ class App extends React.Component {
 
             <Route path='/addnotes' 
               render={() => 
-                <AddNotesScreen userId={this.state.userId} bakeId={this.state.bakeId} handleNotePost={this.handleNotePost} bakes={this.state.bakes} />
+                <AddNotesScreen userId={this.state.userId} handleNotePost={this.handleNotePost} bakes={this.state.bakes} />
               } 
             />
 

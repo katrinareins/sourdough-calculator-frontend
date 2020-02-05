@@ -5,7 +5,7 @@ export class ViewBakeNotesComponent extends Component {
         const { title, content } = this.props.note
         return (
             <div>
-                <p>{title}</p>
+                <h4>{title}</h4>
                 <p>{content}</p>
             </div>
         )
