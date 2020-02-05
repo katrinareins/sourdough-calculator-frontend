@@ -36,21 +36,21 @@ export class AddNotesContainer extends Component {
     }
 
     // map through bakes to find notes
-    mapBakes = () => {
-        return this.props.bakes.map((bake, index) => {
-            if (bake.id === this.props.bakeId){
-                console.log(bake, index)
+    // mapBakes = () => {
+    //     return this.props.bakes.map((bake, index) => {
+    //         if (bake.id === this.props.bakeId){
+    //             console.log(bake, index)
                 // return <AddNotesCard  key={index} bake={bake} />
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 
     render() {
         return (
             <div>
                 <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
                 <AddNotesCard cardstate={this.state.newNote} />
-                {this.mapBakes()}
+                {/* {this.mapBakes()} */}
             </div>
         )
     }

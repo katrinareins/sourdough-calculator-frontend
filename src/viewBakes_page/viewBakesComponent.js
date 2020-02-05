@@ -8,13 +8,14 @@ export class ViewBakesComponent extends Component {
     }
 
     handleClick = () => {
-        this.setState({
-            viewNotes: true
-        })
+        this.setState(prevState => {
+            return {viewNotes: !prevState.viewNotes}
+          })
     }
 
     handleDeleteClick = () => {
         console.log('delete bake', this.props.bake.id)
+        this.props.handleDelete(this.props.bake.id)
     }
 
     mapNotes = () => {

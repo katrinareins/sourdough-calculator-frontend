@@ -40,7 +40,7 @@ class App extends React.Component {
         body: JSON.stringify(values)
         })
         .then(res => res.json())
-        .then(data => { 
+        .then(data => { console.log('data returned from user post request', data) 
         this.fetchLoggedInUser(data.id)
           // this.setState({
           //   userId: data.id,
@@ -57,7 +57,7 @@ class App extends React.Component {
   }
 
   updateState = (data) => {
-    console.log('state after login', data)
+    console.log('am i really updating?', data)
     this.setState({
       loggedIn: true,
       userId: data.id,
@@ -113,6 +113,13 @@ class App extends React.Component {
 
   }
 
+  handleDelete = bake => {
+    console.log('delete being triggered, number is bake id', bake)
+    fetch(`http://localhost:3000/bakes/${bake}`, {
+      method: "DELETE",
+    });
+  }
+
   
   render() {
     return (
@@ -142,7 +149,7 @@ class App extends React.Component {
 
             <Route path='/viewbakes' 
               render={() => 
-                <ViewBakesScreen userId={this.state.userId} bakes={this.state.bakes} />
+                <ViewBakesScreen userId={this.state.userId} bakes={this.state.bakes} handleDelete={this.handleDelete} />
               } 
             />
 

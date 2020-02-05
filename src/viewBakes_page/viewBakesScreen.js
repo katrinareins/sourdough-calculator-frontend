@@ -27,7 +27,7 @@ export class ViewBakesScreen extends Component {
         return (
             <div>
                 <ViewBakesContainer userId={this.props.userId}
-                bakes={this.props.bakes}
+                bakes={this.props.bakes} handleDelete={this.props.handleDelete}
                 //  bakes={this.state.userData.bakes}
                  />
             </div>
