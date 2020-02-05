@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './other/Nav'
 import Home from './other/Home'
 import LoginScreen from './login_page/LoginScreen';
-import AddNotesScreen from './addNotes_page/AddNotesScreen';
+// import AddNotesScreen from './addNotes_page/AddNotesScreen';
 import NewBakeScreen from './newBake_page/NewBakeScreen';
 import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {
        loggedIn: false,
        userId: '',
+       bakeId: '',
       //  date: '',
        email: '',
        password: '',
@@ -116,6 +117,12 @@ class App extends React.Component {
 
   }
 
+  addNewNote = bakeID => {
+    this.setState({
+      bakeId: bakeID
+    })
+  }
+
   // note patch request
 
   // delete bake
@@ -152,11 +159,11 @@ class App extends React.Component {
               }  
               />
 
-            <Route path='/addnotes' 
+            {/* <Route path='/addnotes' 
               render={() => 
-                <AddNotesScreen userId={this.state.userId} handleNotePost={this.handleNotePost} bakes={this.state.bakes} />
+                <AddNotesScreen userId={this.state.userId} handleNotePost={this.handleNotePost} bakes={this.state.bakes} bakeId={this.state.bakeId} />
               } 
-            />
+            /> */}
 
             <Route path='/viewbakes' 
               render={() => 

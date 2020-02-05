@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AddNotesContainer from './AddNotesContainer'
+// import AddNotesContainer from './AddNotesContainer'
 
 export class AddNotesScreen extends Component {
     
@@ -8,7 +8,7 @@ export class AddNotesScreen extends Component {
             <div>
                 <h1>Add notes to my bake</h1>
                 <button>Add note</button>
-                <AddNotesContainer handleNotePost={this.props.handleNotePost} bakes={this.props.bakes} />
+                <AddNotesContainer handleNotePost={this.props.handleNotePost} bakes={this.props.bakes} bakeId={this.props.bakeId} />
             </div>
         )
     }

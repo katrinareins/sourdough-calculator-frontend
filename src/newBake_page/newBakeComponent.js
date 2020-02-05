@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 export class newBakeComponent extends Component {
 
     state = {
-        toAddNotes: false,
+        goToBakes: false
     }
 
     handleChange = (event) => {
@@ -16,14 +16,14 @@ export class newBakeComponent extends Component {
         this.props.sendPostRequest()
 
         this.setState({
-            toAddNotes: true
+            goToBakes: true
         })
     }
 
     render() {
 
-        if (this.state.toAddNotes === true){
-            return <Redirect to='/addnotes' />
+        if (this.state.goToBakes === true){
+            return <Redirect to='/viewbakes' />
         }
 
         return (
