@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import LoginHOC from '../other/LoginHOC'
+// import LoginHOC from '../other/LoginHOC'
 
 export class LoginScreen extends Component {
 
@@ -56,4 +56,5 @@ export class LoginScreen extends Component {
   }
 }
 
+// export default LoginHOC(LoginScreen)
 export default LoginScreen

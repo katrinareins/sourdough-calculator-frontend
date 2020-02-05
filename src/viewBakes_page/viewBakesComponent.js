@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ViewBakeNotesComponent from './ViewBakeNotesComponent';
 import AddNotesContainer from './AddNotesContainer';
+import EditNotesComponent from './EditNotesComponent'
 
 export class ViewBakesComponent extends Component {
 
@@ -14,7 +15,13 @@ export class ViewBakesComponent extends Component {
                 bake_id: this.props.bake.id,
                  title: '',
                  content: ''
-            } 
+            },
+            editing: false,
+            editNote: {
+                id: '',
+                title: '',
+                content: ''
+            }
         }
     }
 
@@ -44,10 +51,6 @@ export class ViewBakesComponent extends Component {
             return {addNotes: !prevState.addNotes}
           })
     }
-    
-    // state = {
-    //     viewNotes: false
-    // }
 
     handleClick = () => {
         this.setState(prevState => {
@@ -62,12 +65,25 @@ export class ViewBakesComponent extends Component {
 
     mapNotes = () => {
         return this.props.bake.notes.map((note, index) => {
-            return <ViewBakeNotesComponent note={note} key={index} />
+            return <ViewBakeNotesComponent note={note} key={index} deleteNote={this.props.deleteNote} handleEditNoteClick={this.handleEditNoteClick} />
         })
     }
 
     showNoteForm = () => {
         return <AddNotesContainer updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
+    }
+
+    handleEditNoteClick = (id, title, content) => {
+        this.setState(prevState => {
+            return {
+                editNote: {...prevState.editNote, [id]: id, [title]: title, [content]: content}
+            }
+          })
+    }
+
+    showEditNoteForm = () => {
+        console.log('show edit note form clicked')
+        return < EditNotesComponent noteContent={this.state.editNote} />
     }
 
     render() {
@@ -103,9 +119,14 @@ export class ViewBakesComponent extends Component {
                 <div>
                     {this.state.addNotes ? this.showNoteForm() : null}
                 </div>
+
+                <div>
+                    {this.state.editing ? this.showEditNoteForm() : null}
+                </div>
             </div>
         )
     }
 }
 
 export default ViewBakesComponent
+

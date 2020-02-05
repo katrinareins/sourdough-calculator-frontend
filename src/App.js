@@ -118,6 +118,15 @@ class App extends React.Component {
       })
   }
 
+  // note delete 
+  deleteNote = noteID => {
+    console.log('fetch request called with note ID:', noteID)
+    fetch(`http://localhost:3000/notes/${noteID}`, {
+      method: "DELETE",
+    })
+    .then(res => res.json())
+  }
+
   // this.setState({
   //   addressInfo: {
   //     ...this.state.addressInfo,
@@ -163,6 +172,7 @@ class App extends React.Component {
               path='/login' 
               render={() => 
                 <LoginScreen 
+                loggedIn={!this.state.loggedIn}
                 handleLogin={this.handleLogin} 
                 alternate="/viewbakes" />
               } 
@@ -174,7 +184,8 @@ class App extends React.Component {
                 handlePost={this.handlePost} 
                 userId={this.state.userId} 
                 redirectLogin={this.redirectLogin} 
-                date={this.state.date} />
+                date={this.state.date} 
+                />
               }  
               />
 
@@ -190,7 +201,9 @@ class App extends React.Component {
                 userId={this.state.userId} 
                 bakes={this.state.bakes} 
                 handleDelete={this.handleDelete} 
-                handleNotePost={this.handleNotePost} />
+                handleNotePost={this.handleNotePost} 
+                deleteNote={this.deleteNote}
+                />
               } 
             />
 
