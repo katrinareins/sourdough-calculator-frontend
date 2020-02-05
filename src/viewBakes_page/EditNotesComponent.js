@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 export class EditNotesComponent extends Component {
+
+    handleClick = e => {
+        e.preventDefault();
+        this.props.sendPatchRequest()
+    }
+
     render() {
         console.log('edit note props: ', this.props)
         const { title, content } = this.props.noteContent
@@ -8,9 +14,9 @@ export class EditNotesComponent extends Component {
             <div>
                 <form>
                     <label>Edit Note</label>
-                    <input type='text' name='title' placeholder="Note Title" value={title} onChange={e => this.props.editNoteState(e)}></input>
-                    <input type='textarea' name='content' placeholder="Note Content" value={content}onChange={e => this.props.editNoteState(e)}></input>
-                    <button type='submit' onClick={this.props.sendPatchRequest}>Save</button>
+                    <input type='text' name='title' value={title} onChange={e => this.props.editNoteState(e)}></input>
+                    <input type='textarea' name='content' value={content}onChange={e => this.props.editNoteState(e)}></input>
+                    <button type='submit' onClick={this.handleClick}>Save</button>
                 </form>
             </div>
         )

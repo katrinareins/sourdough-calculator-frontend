@@ -141,6 +141,9 @@ class App extends React.Component {
   }
 
   // note patch request
+  notePatchRequest = e => {
+    console.log('this is note PATCH request!!!', e)
+  }
 
   // delete bake
   handleDelete = bakeID => {
@@ -203,6 +206,7 @@ class App extends React.Component {
                 handleDelete={this.handleDelete} 
                 handleNotePost={this.handleNotePost} 
                 deleteNote={this.deleteNote}
+                notePatchRequest={this.notePatchRequest}
                 />
               } 
             />

@@ -26,14 +26,22 @@ export class ViewBakesComponent extends Component {
     }
 
     editNoteState = e => {
-        console.log('is this editing', e)
+        console.log('is this editing', e.target.value)
+        let value = e.target.value
+        let item = e.target.name
+        this.setState(prevState => {
+          return {
+              editNote: {...prevState.editNote, [item]: value}
+          }
+      })
     }
 
     sendPatchRequest = () => {
+        
         this.setState({
             editing: false
         })
-
+        this.props.notePatchRequest(this.state.editNote)
     }
 
     // update state with inputs
@@ -95,7 +103,7 @@ export class ViewBakesComponent extends Component {
 
     showEditNoteForm = () => {
         console.log('show edit note form clicked')
-        return < EditNotesComponent noteContent={this.state.editNote} sendPatchRequest={this.sendPatchRequest} />
+        return < EditNotesComponent noteContent={this.state.editNote} editNoteState={this.editNoteState} sendPatchRequest={this.sendPatchRequest} />
     }
 
     render() {

@@ -12,6 +12,7 @@ export class ViewBakesContainer extends Component {
             handleDelete={this.props.handleDelete} 
             handleNotePost={this.props.handleNotePost} 
             deleteNote={this.props.deleteNote}
+            notePatchRequest={this.props.notePatchRequest}
             />
         } )
     }
