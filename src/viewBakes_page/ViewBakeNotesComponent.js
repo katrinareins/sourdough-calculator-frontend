@@ -5,7 +5,7 @@ export class ViewBakeNotesComponent extends Component {
         console.log('props in note component', this.props) 
         return (
             <div>
-                <p>these are supposed to be notes</p>
+                {/* <p>{this.props.notes}</p> */}
             </div>
         )
     }

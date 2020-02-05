@@ -10,22 +10,21 @@ export class ViewBakesContainer extends Component {
         } )
     }
 
-    renderNotes = (bakeID) => {
-        console.log('trying to add notes', bakeID)
-        // return this.props.bakes.id.filter(bakeID)
-        return this.props.bakes.map((bake, index) => {
-            if(bake.id === bakeID){
-                console.log('inside map', bake)
-                return <ViewBakeNotesComponent key={index} bake={bake.notes} />
-            } 
+    // renderNotes = (bakeID) => {
+    //     console.log('trying to add notes', bakeID)
+    //     // return this.props.bakes.id.filter(bakeID)
+    //     this.props.bakes.forEach(bake => {
+    //         if(bake.id === bakeID){
+    //             return bake.notes
+    //         } 
             // else {
             //     console.log('no notes on this bake!')
             // }
-        })
-    }
+    //     })
+    // }
 
     render() {
-        console.log('props in container', this.props.bakes)
+        console.log('props in container', this.props.bakes) 
         return (
             <div>
                 {this.userMap()} 
