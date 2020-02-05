@@ -141,8 +141,21 @@ class App extends React.Component {
   }
 
   // note patch request
-  notePatchRequest = e => {
-    console.log('this is note PATCH request!!!', e)
+  notePatchRequest = values => {
+    console.log('this is note PATCH request!!!', values)
+
+    fetch(`http://localhost:3000/notes/${values.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        },
+        body: JSON.stringify(values)
+        })
+        .then(res => res.json())
+        .then(data => { console.log('data returned from note PATCH request', data)
+        
+      })
   }
 
   // delete bake
