@@ -25,6 +25,17 @@ export class ViewBakesComponent extends Component {
         }
     }
 
+    editNoteState = e => {
+        console.log('is this editing', e)
+    }
+
+    sendPatchRequest = () => {
+        this.setState({
+            editing: false
+        })
+
+    }
+
     // update state with inputs
     updateState = event => {
         let value = event.target.value
@@ -76,14 +87,15 @@ export class ViewBakesComponent extends Component {
     handleEditNoteClick = (id, title, content) => {
         this.setState(prevState => {
             return {
-                editNote: {...prevState.editNote, [id]: id, [title]: title, [content]: content}
+                editing: true,
+                editNote: {...prevState.editNote, id: id, title: title, content: content}
             }
           })
     }
 
     showEditNoteForm = () => {
         console.log('show edit note form clicked')
-        return < EditNotesComponent noteContent={this.state.editNote} />
+        return < EditNotesComponent noteContent={this.state.editNote} sendPatchRequest={this.sendPatchRequest} />
     }
 
     render() {
