@@ -41,16 +41,12 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from user post request', data) 
-        this.fetchLoggedInUser(data.id)
-          // this.setState({
-          //   userId: data.id,
-          //   bakes: data.bakes
-          // })
+        this.setCurrentUserData(data.id)
         })
-        // .then(console.log('state after user login', this.state))
   }
 
-  fetchLoggedInUser = (userId) => {
+
+  setCurrentUserData = (userId) => {
     fetch(`http://localhost:3000/users/${userId}`)
     .then(resp => resp.json())
     .then(data => {
@@ -108,28 +104,10 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from bake post request', data)
-        // this.setState({
-  
-        //     ...this.state.bakes, [
-        //       notes: data
-        //     ]
-
-        // }, () => console.log('new note added, state is', this.state))
+        
       })
+      this.setCurrentUserData(this.state.userId)
   }
-
-  // this.setState({
-  //   addressInfo: {
-  //     ...this.state.addressInfo,
-  //     city: 'New York City'
-  //   }
-  // });
-
-  // this.setState(prevState => {
-  //   const team = [...prevState.team];
-  //   team[index] = { ...team[index], [name]: value };
-  //   return { team };
-  // });
 
   // note delete 
   deleteNote = noteID => {

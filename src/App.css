@@ -107,3 +107,6 @@ button:hover {
   color: rgb(70, 153, 179);
 }
 
+.bake-cards {
+  display: flex;
+}
