@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import AddNotesContainer from './AddNotesContainer'
 
 export class AddNotesScreen extends Component {
     
