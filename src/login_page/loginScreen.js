@@ -40,7 +40,7 @@ export class LoginScreen extends Component {
           <label>Password</label>
             <input
               name="password"
-              type="text"
+              type="password"
               placeholder="Enter your password"
               onChange={(e) => this.handleInputChange(e)}
             />      

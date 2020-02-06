@@ -118,6 +118,19 @@ class App extends React.Component {
       })
   }
 
+  // this.setState({
+  //   addressInfo: {
+  //     ...this.state.addressInfo,
+  //     city: 'New York City'
+  //   }
+  // });
+
+  // this.setState(prevState => {
+  //   const team = [...prevState.team];
+  //   team[index] = { ...team[index], [name]: value };
+  //   return { team };
+  // });
+
   // note delete 
   deleteNote = noteID => {
     console.log('fetch request called with note ID:', noteID)
@@ -126,13 +139,6 @@ class App extends React.Component {
     })
     .then(res => res.json())
   }
-
-  // this.setState({
-  //   addressInfo: {
-  //     ...this.state.addressInfo,
-  //     city: 'New York City'
-  //   }
-  // });
 
   addNewNote = bakeID => {
     this.setState({
