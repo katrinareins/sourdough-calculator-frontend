@@ -42,8 +42,14 @@ export default class NewBakeContainer extends Component {
             return {
                 newBake: {...prevState.newBake, date: today}
             }
-        }, () => console.log('with date...?', this.state.newBake))
+        })
     }
+
+    // 
+    calculate = (percentage, totalFlour) => {
+
+        return (100 * partialValue) / totalValue;
+     } 
 
     updateState = event => {
         let value = event.target.value
@@ -52,7 +58,7 @@ export default class NewBakeContainer extends Component {
             return {
                 newBake: {...prevState.newBake, [item]: value}
             }
-        }, () => console.log('state after user changes', this.state.newBake))
+        })
     }
 
     sendPostRequest = () => {
@@ -63,7 +69,7 @@ export default class NewBakeContainer extends Component {
     render(){
         return (
             <div>
-                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} getTodaysDate={this.getTodaysDate} />
+                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} getTodaysDate={this.getTodaysDate} calculate={this.calculate} />
             </div>
         )
     }
