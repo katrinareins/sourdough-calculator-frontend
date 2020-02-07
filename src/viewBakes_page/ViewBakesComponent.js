@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
 import AddNotesContainer from './AddNotesForm';
-import EditNotesComponent from './EditNotesForm'
+import EditNotesComponent from './EditNotesForm';
+
 
 export class ViewBakesComponent extends Component {
 
@@ -9,6 +10,7 @@ export class ViewBakesComponent extends Component {
         super(props)
     
         this.state = {
+            loggedIn: true,
             viewNotes: false,
             addNotes: false,
             newNote: {
@@ -113,6 +115,7 @@ export class ViewBakesComponent extends Component {
 
         return (
             <div>
+
                 <div>
                     <h3>{name}</h3>
                     <p>Hydration: {hydration}</p>
@@ -143,6 +146,7 @@ export class ViewBakesComponent extends Component {
                 <div>
                     {this.state.editing ? this.showEditNoteForm() : null}
                 </div>
+
             </div>
         )
     }

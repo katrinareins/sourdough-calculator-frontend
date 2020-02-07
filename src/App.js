@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props)
   
     this.state = {
-       loggedIn: false,
+       loggedIn: true,
        userId: '',
        bakeId: '',
       //  date: '',
@@ -21,6 +21,14 @@ class App extends React.Component {
        password: '',
        bakes: []
     }
+  }
+
+  componentWillMount() {
+    let currentUserId = localStorage.getItem('id');
+    console.log('who is logged in on component will mount', currentUserId)
+    window.addEventListener('beforeunload', () =>{
+      this.setCurrentUserData(currentUserId)
+    });
   }
 
   // handle login form submit
@@ -41,9 +49,9 @@ class App extends React.Component {
   }
 
   setCurrentUserData = (userId) => {
-    // localStorage.setItem('id', userId)
-    // localStorage.setItem('loggedIn', 'true')
-    // console.log(localStorage)
+    localStorage.setItem('id', userId)
+    localStorage.setItem('loggedIn', 'true')
+    console.log(localStorage)
 
     fetch(`http://localhost:3000/users/${userId}`)
     .then(resp => resp.json())
@@ -69,15 +77,15 @@ class App extends React.Component {
   //   }
   // }
 
-  // makeLoggedInTrue = () =>{
-  //   this.setState({
-  //     loggedIn: true
-  //   })
-  // }
+  makeLoggedInTrue = () =>{
+    this.setState({
+      loggedIn: true
+    })
+  }
 
-  // componentDidMount(){
-  //   this.checkLocalStorage()
-  // }
+  componentDidMount(){
+    this.makeLoggedInTrue()
+  }
 
 
   handleLogOut = () => {
@@ -202,6 +210,7 @@ class App extends React.Component {
                 userId={this.state.userId} 
                 redirectLogin={this.redirectLogin} 
                 date={this.state.date} 
+                loggedIn={this.state.loggedIn}
                 />
               }  
               />
@@ -216,6 +225,7 @@ class App extends React.Component {
                 handleNotePost={this.handleNotePost} 
                 deleteNote={this.deleteNote}
                 notePatchRequest={this.notePatchRequest}
+                loggedIn={this.state.loggedIn}
                 />
               } 
             />

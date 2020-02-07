@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import '../BakeCards.css';
 
 export class newBakeComponent extends Component {
 
@@ -9,6 +10,7 @@ export class newBakeComponent extends Component {
 
     handleChange = (event) => {
         this.props.updateState(event) 
+        this.props.getTodaysDate()
     }
 
     handleSubmit = (e) => {

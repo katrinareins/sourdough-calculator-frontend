@@ -19,9 +19,30 @@ export default class NewBakeContainer extends Component {
                 hydration: '',
                 rating: '',
                 name: '',
-                date: '2020/02/01'
+                date: ''
             }
         }
+    }
+
+    getTodaysDate = () => {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        } 
+        if (mm < 10) {
+            mm = '0' + mm;
+        } 
+        var today = dd + '/' + mm + '/' + yyyy;
+
+        this.setState(prevState => {
+            return {
+                newBake: {...prevState.newBake, date: today}
+            }
+        }, () => console.log('with date...?', this.state.newBake))
     }
 
     updateState = event => {
@@ -42,7 +63,7 @@ export default class NewBakeContainer extends Component {
     render(){
         return (
             <div>
-                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
+                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} getTodaysDate={this.getTodaysDate} />
             </div>
         )
     }
