@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import NewBakeComponent from './NewBakeComponent'
+import React, { Component } from 'react';
+import NewBakeComponent from './NewBakeComponent';
+import UploadImage from '../viewBakes_page/UploadImage'
 
 export default class NewBakeContainer extends Component {
     constructor(props) {
@@ -48,7 +49,7 @@ export default class NewBakeContainer extends Component {
     // 
     calculate = (percentage, totalFlour) => {
 
-        return (100 * partialValue) / totalValue;
+        // return (100 * partialValue) / totalValue;
      } 
 
     updateState = event => {
