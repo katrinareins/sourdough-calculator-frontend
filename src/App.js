@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './other/Nav'
 import Home from './other/Home'
 import LoginScreen from './login_page/LoginScreen';
-// import AddNotesScreen from './addNotes_page/AddNotesScreen';
 import NewBakeScreen from './newBake_page/NewBakeScreen';
 import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -26,11 +25,7 @@ class App extends React.Component {
 
   // handle login form submit
   handleLogin = (values) => {
-    // this.setState({
-    //   loggedIn: true,
-    //   email: values.email,
-    //   password: values.password
-    // })
+    console.log('login values', values)
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -45,20 +40,45 @@ class App extends React.Component {
         })
   }
 
-
   setCurrentUserData = (userId) => {
+    // localStorage.setItem('id', userId)
+    // localStorage.setItem('loggedIn', 'true')
+    // console.log(localStorage)
+
     fetch(`http://localhost:3000/users/${userId}`)
     .then(resp => resp.json())
-    .then(data => {
-        this.setState({
-          loggedIn: true,
-          userId: data.id,
-          email: data.email,
-          password: data.password,
-          bakes: data.bakes
-    })
+    .then(data => { console.log('Data in fetch request with loggedin user id', data)
+          this.setState({
+            loggedIn: true,
+            userId: data.id,
+            email: data.email,
+            password: data.password,
+            bakes: data.bakes
+      })
     })
   }
+
+  // run in every route / most parent component (app)
+  // component did mount
+  // checkLocalStorage = () => {
+  //   if(localStorage.getItem('loggedIn') === true){
+  //     console.log('this local storage thing says the user is logged in')
+  //     return true;
+  //   }else{
+  //     console.log('local storage says the user is NOT logged in.... :(', localStorage)
+  //   }
+  // }
+
+  // makeLoggedInTrue = () =>{
+  //   this.setState({
+  //     loggedIn: true
+  //   })
+  // }
+
+  // componentDidMount(){
+  //   this.checkLocalStorage()
+  // }
+
 
   handleLogOut = () => {
     this.setState({
@@ -68,6 +88,8 @@ class App extends React.Component {
       password: '',
       bakes: []
     })
+    // localStorage.setItem('loggedIn', 'false')
+    // localStorage.setItem('id', '')
   }
 
   // new bake post request
@@ -116,12 +138,7 @@ class App extends React.Component {
       method: "DELETE",
     })
     .then(res => res.json())
-  }
-
-  addNewNote = bakeID => {
-    this.setState({
-      bakeId: bakeID
-    })
+    this.setCurrentUserData(this.state.userId)
   }
 
   // note patch request
@@ -138,8 +155,8 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from note PATCH request', data)
-        
       })
+      this.setCurrentUserData(this.state.userId)
   }
 
   // delete bake
@@ -172,7 +189,7 @@ class App extends React.Component {
               path='/login' 
               render={() => 
                 <LoginScreen 
-                loggedIn={!this.state.loggedIn}
+                // loggedIn={!this.state.loggedIn}
                 handleLogin={this.handleLogin} 
                 alternate="/viewbakes" />
               } 
@@ -189,15 +206,10 @@ class App extends React.Component {
               }  
               />
 
-            {/* <Route path='/addnotes' 
-              render={() => 
-                <AddNotesScreen userId={this.state.userId} handleNotePost={this.handleNotePost} bakes={this.state.bakes} bakeId={this.state.bakeId} />
-              } 
-            /> */}
-
             <Route path='/viewbakes' 
               render={() => 
                 <ViewBakesScreen 
+
                 userId={this.state.userId} 
                 bakes={this.state.bakes} 
                 handleDelete={this.handleDelete} 
