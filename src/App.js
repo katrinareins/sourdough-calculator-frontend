@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Nav from './other/Nav'
-import Home from './other/Home'
-import LoginScreen from './login_page/LoginScreen';
+// import Nav from './other/Nav'
+// import Home from './other/Home'
+import LoginScreen from './other/LoginScreen';
 import NewBakeScreen from './newBake_page/NewBakeScreen';
 import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -185,16 +185,16 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Nav 
+          {/* <Nav 
           loggedInUser={this.state.email} 
-          handleLogOut={this.handleLogOut} />
+          handleLogOut={this.handleLogOut} /> */}
 
           <Switch>
 
-            <Route path='/' exact component={Home} />
+            {/* <Route path='/' exact component={Home} /> */}
 
             <Route 
-              path='/login' 
+              path='/' exact  
               render={() => 
                 <LoginScreen 
                 // loggedIn={!this.state.loggedIn}
@@ -211,6 +211,8 @@ class App extends React.Component {
                 redirectLogin={this.redirectLogin} 
                 date={this.state.date} 
                 loggedIn={this.state.loggedIn}
+                loggedInUser={this.state.email} 
+                handleLogOut={this.handleLogOut}
                 />
               }  
               />
@@ -226,6 +228,8 @@ class App extends React.Component {
                 deleteNote={this.deleteNote}
                 notePatchRequest={this.notePatchRequest}
                 loggedIn={this.state.loggedIn}
+                loggedInUser={this.state.email} 
+                handleLogOut={this.handleLogOut}
                 />
               } 
             />

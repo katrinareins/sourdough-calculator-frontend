@@ -23,3 +23,13 @@ body {
   background-color: darkslateblue;
   grid-column: 1;
 }
+
+.button {
+  border-radius: 5px;
+  background-color: darkturquoise;
+}
+
+.nav {
+  background-color: deeppink;
+  padding: 30px;
+}

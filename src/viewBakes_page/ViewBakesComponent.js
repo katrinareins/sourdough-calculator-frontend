@@ -115,7 +115,7 @@ export class ViewBakesComponent extends Component {
         const hasNotes = notes.length > 0
 
         return (
-            <div>
+            <div className='bake-item'>
 
                 <div>
                     <h3>{name}</h3>
