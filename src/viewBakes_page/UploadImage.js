@@ -9,11 +9,6 @@ export class uploadImage extends Component {
         this.state = {
             selectedFile: null
         }
-        
-        
-        // header("Access-Control-Allow-Origin: *");
-        // header("Access-Control-Allow-Methods: POST");
-        // header("Access-Control-Allow-Headers: Origin, Methods, Content-Type");
     }
     
     
