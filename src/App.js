@@ -1,5 +1,5 @@
 import React from 'react';
-// import './App.css';
+import './Styles.css';
 // import Nav from './other/Nav'
 // import Home from './other/Home'
 import LoginScreen from './other/LoginScreen';

@@ -115,40 +115,41 @@ export class ViewBakesComponent extends Component {
         return (
             <div className='bake-item'>
 
-                <div>
-                    <h3>{name}</h3>
-                    <p>Hydration: {hydration}</p>
-                    <p>Rating: {rating}</p>
-                    <p>Total flour (g): {total_flour_g}</p>
-                    <p>Salt (p): {salt_p}</p>
-                    <p>Leaven (p): {leaven_p}</p>
-                    <button onClick={this.handleDeleteClick}>Delete</button>
-                </div>
-                
-                <div>
-                    {hasNotes ? <button onClick={this.handleClick}>View notes +</button>
-                    : null}
-                </div>
+                    <div>
+                        <h3>{name}</h3>
+                        <p>Hydration: {hydration}</p>
+                        <p>Rating: {rating}</p>
+                        <p>Total flour (g): {total_flour_g}</p>
+                        <p>Salt (p): {salt_p}</p>
+                        <p>Leaven (p): {leaven_p}</p>
+                        <button className='button' onClick={this.handleDeleteClick}>Delete</button>
+                    </div>
+                    
+                    <div>
+                        {hasNotes ? <button className='button' onClick={this.handleClick}>View notes +</button>
+                        : null}
+                    </div>
 
-                <div>
-                    {this.state.viewNotes ? this.mapNotes() : null}
-                </div>
+                    <div>
+                        {this.state.viewNotes ? this.mapNotes() : null}
+                    </div>
 
-                <div>
-                    <button onClick={this.handleAddNoteClick}>Add note</button>
-                </div>
+                    <div>
+                        <button className='button' onClick={this.handleAddNoteClick}>Add note</button>
+                    </div>
 
-                <div>
-                    {this.state.addNotes ? this.showNoteForm() : null}
-                </div>
+                    <div>
+                        {this.state.addNotes ? this.showNoteForm() : null}
+                    </div>
 
-                <div>
-                    {this.state.editing ? this.showEditNoteForm() : null}
-                </div>
+                    <div>
+                        {this.state.editing ? this.showEditNoteForm() : null}
+                    </div>
 
-                <div>
-                    <UploadImage />
-                </div>
+                    <div>
+                        <UploadImage />
+                    </div>
+
 
             </div>
         )

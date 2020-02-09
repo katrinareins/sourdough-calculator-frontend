@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import '../App.css'
 import { Link, Redirect } from 'react-router-dom'
-import '../BakeCards.css'
+import '../Styles.css'
 
 export class Nav extends Component {
 
@@ -25,7 +24,7 @@ export class Nav extends Component {
         }
 
         return (
-            <div>
+            <div className='nav-container'>
                 {
                     // (this.props.loggedInUser) ?   
                     <div> 
@@ -36,16 +35,16 @@ export class Nav extends Component {
                                 </Link>
 
                                 <Link to='/newBake'>
-                                    <button className='button' >Create new bake</button>
+                                    <button className='nav-button' >Create new bake</button>
                                 </Link>
 
                                 <Link to='/viewbakes'>
-                                    <button className='button'>View my bakes</button>
+                                    <button className='nav-button'>View my bakes</button>
                                 </Link>
 
-                                <button className='button'>Logged in as: {this.props.loggedInUser}</button>
+                                <button className='nav-button'>Logged in as: {this.props.loggedInUser}</button>
 
-                                <button className='button' onClick={this.handleClick}>Log out</button>
+                                <button className='nav-button' onClick={this.handleClick}>Log out</button>
                             </div>
                         </nav>
                     </div>

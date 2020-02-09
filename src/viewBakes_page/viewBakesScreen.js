@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ViewBakesContainer from './ViewBakesContainer'
-import '../BakeCards.css'
+import '../Styles.css'
 import Nav from '../other/Nav'
 
 export class ViewBakesScreen extends Component {
@@ -8,7 +8,7 @@ export class ViewBakesScreen extends Component {
 
     render() {
         return (
-            <div className='.main-container'>
+            <div >
 
                 <Nav 
                 loggedInUser={this.props.email} 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import '../BakeCards.css';
+import '../Styles.css';
 
 export class newBakeComponent extends Component {
 
@@ -59,7 +59,7 @@ export class newBakeComponent extends Component {
                     <input type='text' name='salt_g' placeholder='salt grams' onChange={(e) => this.handleChange(e)} ></input>
                     <input type='text' name='salt_p' placeholder='salt percentage' onChange={(e) => this.handleChange(e)} ></input>
     
-                    <button onClick={this.handleSubmit}>Create new bake</button> 
+                    <button className='button' onClick={this.handleSubmit}>Create new bake</button> 
     
                 </form>
             </div>

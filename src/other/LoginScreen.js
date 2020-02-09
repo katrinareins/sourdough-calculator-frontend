@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 // import LoginHOC from '../other/LoginHOC'
-import '../Login.css'
+import '../Styles.css'
 
 export class LoginScreen extends Component {
 

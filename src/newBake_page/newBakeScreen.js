@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NewBakeContainer from '../newBake_page/NewBakeContainer'
 import Nav from '../other/Nav'
+import '../Styles.css'
 
 export class NewBakeScreen extends Component {
 

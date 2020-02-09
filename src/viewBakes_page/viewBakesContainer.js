@@ -20,7 +20,7 @@ export class ViewBakesContainer extends Component {
     render() {
         console.log('props in container', this.props.bakes) 
         return (
-            <div>
+            <div className='main-container'>
                 {this.mapThroughBakes()} 
             </div>
         )
