@@ -22,11 +22,9 @@ export class Nav extends Component {
         if (this.state.redirectHome === true){
             return <Redirect to='/' />
         }
-
         return (
             <div className='nav-container'>
                 {
-                    // (this.props.loggedInUser) ?   
                     <div> 
                         <nav className='nav'>
                             <div>
@@ -41,21 +39,11 @@ export class Nav extends Component {
                                 <Link to='/viewbakes'>
                                     <button className='nav-button'>View my bakes</button>
                                 </Link>
-
                                 <button className='nav-button'>Logged in as: {this.props.loggedInUser}</button>
-
                                 <button className='nav-button' onClick={this.handleClick}>Log out</button>
                             </div>
                         </nav>
                     </div>
-                //     :
-                //     <div>
-                //     <nav className='nav-logged-out'>
-                //         <Link to='/'>
-                //             <h3>Absolute Baking Success</h3>
-                //         </Link>
-                //     </nav>
-                // </div>
                 }
             </div>
         )

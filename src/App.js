@@ -49,9 +49,9 @@ class App extends React.Component {
   }
 
   setCurrentUserData = (userId) => {
-    localStorage.setItem('id', userId)
-    localStorage.setItem('loggedIn', 'true')
-    console.log(localStorage)
+    // localStorage.setItem('id', userId)
+    // localStorage.setItem('loggedIn', 'true')
+    // console.log(localStorage)
 
     fetch(`http://localhost:3000/users/${userId}`)
     .then(resp => resp.json())
@@ -133,10 +133,22 @@ class App extends React.Component {
         body: JSON.stringify(event)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from bake post request', data)
-        
+        .then(data => { console.log('data returned from note post request', data)
+          // this.setState(prevState => {
+          //   return {
+          //     bakes: [...prevState.bakes, [...notes, data]]
+          //   }
+          // })
       })
-      this.setCurrentUserData(this.state.userId)
+      this.setCurrentUserData(this.state.userId) 
+  }
+
+  newNoteHelper = (prev, obj) => {
+    console.log('new note helper function input', prev, obj)
+    let temp = prev.map(o => {
+      return o.id !== obj.id ? o:  obj
+    })
+    return temp
   }
 
   // note delete 
@@ -183,60 +195,64 @@ class App extends React.Component {
   
   render() {
     return (
-      <Router>
-        <div>
-          {/* <Nav 
-          loggedInUser={this.state.email} 
-          handleLogOut={this.handleLogOut} /> */}
 
-          <Switch>
+          <div>
 
-            {/* <Route path='/' exact component={Home} /> */}
+            <Router>
+              <div>
 
-            <Route 
-              path='/' exact  
-              render={() => 
-                <LoginScreen 
-                // loggedIn={!this.state.loggedIn}
-                handleLogin={this.handleLogin} 
-                alternate="/viewbakes" />
-              } 
-              />
+                <Switch>
+                  {/* {<Nav 
+                  loggedInUser={this.state.email} 
+                  handleLogOut={this.handleLogOut} />} */}
 
-            <Route path='/newBake'               
-            render={() => 
-                <NewBakeScreen 
-                handlePost={this.handlePost} 
-                userId={this.state.userId} 
-                redirectLogin={this.redirectLogin} 
-                date={this.state.date} 
-                loggedIn={this.state.loggedIn}
-                loggedInUser={this.state.email} 
-                handleLogOut={this.handleLogOut}
-                />
-              }  
-              />
+                  {/* <Route path='/' exact component={Home} /> */}
 
-            <Route path='/viewbakes' 
-              render={() => 
-                <ViewBakesScreen 
+                  <Route 
+                    path='/' exact  
+                    render={() => 
+                      <LoginScreen 
+                      // loggedIn={!this.state.loggedIn}
+                      handleLogin={this.handleLogin} 
+                      alternate="/viewbakes" />
+                    } 
+                    />
 
-                userId={this.state.userId} 
-                bakes={this.state.bakes} 
-                handleDelete={this.handleDelete} 
-                handleNotePost={this.handleNotePost} 
-                deleteNote={this.deleteNote}
-                notePatchRequest={this.notePatchRequest}
-                loggedIn={this.state.loggedIn}
-                loggedInUser={this.state.email} 
-                handleLogOut={this.handleLogOut}
-                />
-              } 
-            />
+                  <Route path='/newBake'               
+                  render={() => 
+                      <NewBakeScreen 
+                      handlePost={this.handlePost} 
+                      userId={this.state.userId} 
+                      redirectLogin={this.redirectLogin} 
+                      date={this.state.date} 
+                      loggedIn={this.state.loggedIn}
+                      loggedInUser={this.state.email} 
+                      handleLogOut={this.handleLogOut}
+                      />
+                    }  
+                    />
 
-          </Switch>
-        </div>
-      </Router>
+                  <Route path='/viewbakes' 
+                    render={() => 
+                      <ViewBakesScreen 
+
+                      userId={this.state.userId} 
+                      bakes={this.state.bakes} 
+                      handleDelete={this.handleDelete} 
+                      handleNotePost={this.handleNotePost} 
+                      deleteNote={this.deleteNote}
+                      notePatchRequest={this.notePatchRequest}
+                      loggedIn={this.state.loggedIn}
+                      loggedInUser={this.state.email} 
+                      handleLogOut={this.handleLogOut}
+                      />
+                    } 
+                  />
+
+                </Switch>
+              </div>
+            </Router>
+          </div>
     );
   }
 }

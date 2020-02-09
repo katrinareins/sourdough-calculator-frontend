@@ -28,36 +28,51 @@ export class LoginScreen extends Component {
 
   render() {
     return (
-      <div className='background'>
-        <h1>Absolute Baking Success</h1>
+      <div className='home-container'>
+          <div className='home-photos'>
+            <img src={require('../images/12385.jpeg')}/>
+          </div>
+          <div className='home-photos'>
+            <img src={require('../images/21400.jpeg')}/>
+          </div>
+          <div className='home-photos'>
+            <img src={require('../images/13652.jpeg')}/>
+          </div>
+          <div className='home-photos'>
+            <img src={require('../images/13636.jpeg')}/>
+          </div>
+          <div className='home-photos'>
+            <img src={require('../images/37449.jpeg')}/>
+          </div>
 
-        <h4>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
+        {/* <div className='home-login-form'>
+          <h1>Absolute Baking Success</h1>
+          <h4>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
+          <form>
+              <label>Email</label>
+              <input
+                name="email"
+                type="text"
+                placeholder="Enter your email"
+                onChange={(e) => this.handleInputChange(e)}
+              />
 
-        <img src={require('../images/AbsoluteBS-drawing-Shawn.png')}/>
+            <label>Password</label>
+              <input
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                onChange={(e) => this.handleInputChange(e)}
+              />      
 
-        <form>
-            <label>Email</label>
-            <input
-              name="email"
-              type="text"
-              placeholder="Enter your email"
-              onChange={(e) => this.handleInputChange(e)}
-            />
+              <Link to='/viewbakes'>            
+              <button type="submit" onClick={this.handleClick} >
+                  Login
+              </button>
+              </Link>
+          </form> 
+        </div> */}
 
-          <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              placeholder="Enter your password"
-              onChange={(e) => this.handleInputChange(e)}
-            />      
-
-            <Link to='/viewbakes'>            
-            <button type="submit" onClick={this.handleClick} >
-                Login
-            </button>
-            </Link>
-        </form> 
       </div>
     )
   }

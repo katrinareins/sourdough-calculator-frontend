@@ -1,10 +1,78 @@
-
+/* ------------------------ Global attributes ------------------------ */
 body {
-  background-color: brown;
+  background-color: white;
   font-family: "Montserrat";
 }
 
-/* the main container holding all the bake cards */
+div p {
+  font-size: large;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: rgb(212, 131, 179)
+
+}
+
+/* ------------------------------- Nav ------------------------------- */
+
+.nav {
+  background-color: rgb(67, 56, 62);
+  padding: 30px;
+}
+
+.nav-button {
+  padding: 10px;
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns:  6;    
+  grid-template-rows: 1;
+}
+
+.nav-ul {
+  text-decoration: none;
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+
+/* ------------------------ Home Page & Login ------------------------ */
+
+.home-container {
+  display: grid;
+  justify-items: center;
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  align-items: center;
+}
+
+.home-photos {
+  /* width: 100%;
+  height: max-content; */
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* .home-login-form {
+
+} */
+
+/* --------------------------- New Bake Form ------------------------- */
+
+.new-bake-container {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: black;
+  color: white;
+}
+
+/* --------------------------- View Bakes Page ------------------------- */
+
+/* Main container holding all the bake cards */
 .main-container-view-bakes {
   background-color: blue;
   display: grid;
@@ -29,31 +97,3 @@ body {
   background-color: darkslateblue;
   grid-column: 1;
 } */
-
-.button {
-  border-radius: 5px;
-  background-color: rgb(212, 131, 179)
-
-}
-
-.nav {
-  background-color: rgb(67, 56, 62);
-  padding: 30px;
-}
-
-.nav-button {
-  padding: 10px;
-}
-
-/* .nav-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-} */
-
-.new-bake-container {
-  padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: black;
-  color: white;
-}
