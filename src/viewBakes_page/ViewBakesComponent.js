@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
-import AddNotesContainer from './AddNotesForm';
+import AddNotesForm from './AddNotesForm';
 import EditNotesComponent from './EditNotesForm';
 import UploadImage from './UploadImage'
 
@@ -40,7 +40,6 @@ export class ViewBakesComponent extends Component {
     }
 
     sendPatchRequest = () => {
-        
         this.setState({
             editing: false
         })
@@ -59,14 +58,13 @@ export class ViewBakesComponent extends Component {
     }
 
     // handlesubmit function
-    sendPostRequest = (e) => {
-        e.preventDefault()
+    sendPostRequest = () => {
+        // e.preventDefault()
         console.log(this.state.newNote)
         let newNote = this.state.newNote
         this.props.handleNotePost(newNote)
     }
 
-    // send up bake id and create function 
     handleAddNoteClick = () => {
         console.log('add note clicked')
         this.setState(prevState => {
@@ -92,7 +90,7 @@ export class ViewBakesComponent extends Component {
     }
 
     showNoteForm = () => {
-        return <AddNotesContainer updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
+        return <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} sendPostRequest={this.sendPostRequest} />
     }
 
     handleEditNoteClick = (id, title, content) => {

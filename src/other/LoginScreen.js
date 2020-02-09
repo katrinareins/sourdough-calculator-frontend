@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 // import LoginHOC from '../other/LoginHOC'
+import '../Login.css'
 
 export class LoginScreen extends Component {
 
@@ -27,7 +28,13 @@ export class LoginScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div className='background'>
+        <h1>Absolute Baking Success</h1>
+
+        <h4>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
+
+        <img src={require('../images/AbsoluteBS-drawing-Shawn.png')}/>
+
         <form>
             <label>Email</label>
             <input
