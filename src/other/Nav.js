@@ -20,7 +20,7 @@ export class Nav extends Component {
         console.log('props in nav bar', this.props)
 
         if (this.state.redirectHome === true){
-            return <Redirect to='/login' />
+            return <Redirect to='/' />
         }
 
         return (
