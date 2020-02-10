@@ -34,6 +34,12 @@ div h5 {
   font-size: 20px;
 }
 
+label {
+  font-family: 'Noto Sans JP', sans-serif; 
+  font-size: 25px;
+  font-weight: lighter;
+}
+
 .login-button {
   display: inline;
   padding: 0.35em 1.2em;
@@ -152,6 +158,36 @@ font-family: 'Dancing Script', cursive;*/
   grid-row-end: 3;
   padding: 50px;
   color: black;
+}
+
+.new-form-table {
+  margin-top: 40px;
+  border-spacing: 2rem;
+}
+
+.name-your-bake {
+ margin-top: 30px;
+}
+
+.hydration-required {
+  margin-top: 30px;
+}
+
+.create-bake-button {
+  display: inline;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  margin-top: 20px;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  color:white;
+  background-color: black;
+  text-align:center;
+  transition: all 0.2s;
 }
 
 /* --------------------------- View Bakes Page ------------------------- */

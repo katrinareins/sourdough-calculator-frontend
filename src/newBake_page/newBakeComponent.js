@@ -38,14 +38,19 @@ export class newBakeComponent extends Component {
                         Novice bakers - begin with lower hydration doughs (between 70-75%).
                         </p>
 
+                        <div className='name-your-bake'>
+                            <label>Name your bake</label>
+                            <input className="w3-input w3-border w3-round" type='text' name='name' onChange={(e) => this.handleChange(e)} ></input>
+                        </div>
+
+                        <div className='hydration-required'>
+                            <label>Hydration percentage desired</label>
+                            <input className="w3-input w3-border w3-round" type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
+                        </div>
+
                             <div className='new-bake-form'>
                                 <form>
-                                    <label>Name your bake: </label>
-                                    <input type='text' name='name' onChange={(e) => this.handleChange(e)} ></input>
-                                    <p>Hydration percentage desired</p>
-                                    <input type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
-
-                                    <table>
+                                    <table className='new-form-table'>
                                         <tr>
                                             <th>Ingredients</th>
                                             <th>Weight(g)</th> 
@@ -93,7 +98,7 @@ export class newBakeComponent extends Component {
                                     <input type='text' name='salt_g' placeholder='salt grams' onChange={(e) => this.handleChange(e)} ></input>
                                     <input type='text' name='salt_p' placeholder='salt percentage' onChange={(e) => this.handleChange(e)} ></input> */}
                     
-                                    <button className='button' onClick={this.handleSubmit}>Create new bake</button> 
+                                    <button className='create-bake-button' onClick={this.handleSubmit}>Submit</button> 
                     
                                 </form>
                             </div>
