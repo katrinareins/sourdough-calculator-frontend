@@ -13,10 +13,9 @@ class App extends React.Component {
     super(props)
   
     this.state = {
-       loggedIn: true,
+       loggedIn: false,
        userId: '',
        bakeId: '',
-      //  date: '',
        email: '',
        password: '',
        bakes: [
@@ -48,14 +47,6 @@ class App extends React.Component {
     }
   }
 
-  componentWillMount() {
-    let currentUserId = localStorage.getItem('id');
-    console.log('who is logged in on component will mount', currentUserId)
-    window.addEventListener('beforeunload', () =>{
-      this.setCurrentUserData(currentUserId)
-    });
-  }
-
   // handle login form submit
   handleLogin = (values) => {
     console.log('login values', values)
@@ -69,15 +60,12 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from user post request', data) 
-        this.setCurrentUserData(data.id)
+          this.setCurrentUserData(data.id)
         })
   }
 
+  // after login, get user details and update state
   setCurrentUserData = (userId) => {
-    // localStorage.setItem('id', userId)
-    // localStorage.setItem('loggedIn', 'true')
-    // console.log(localStorage)
-
     fetch(`http://localhost:3000/users/${userId}`)
     .then(resp => resp.json())
     .then(data => { console.log('Data in fetch request with loggedin user id', data)
@@ -89,40 +77,6 @@ class App extends React.Component {
             bakes: data.bakes
       })
     })
-  }
-
-  // run in every route / most parent component (app)
-  // component did mount
-  // checkLocalStorage = () => {
-  //   if(localStorage.getItem('loggedIn') === true){
-  //     console.log('this local storage thing says the user is logged in')
-  //     return true;
-  //   }else{
-  //     console.log('local storage says the user is NOT logged in.... :(', localStorage)
-  //   }
-  // }
-
-  makeLoggedInTrue = () =>{
-    this.setState({
-      loggedIn: true
-    })
-  }
-
-  componentDidMount(){
-    this.makeLoggedInTrue()
-  }
-
-
-  handleLogOut = () => {
-    this.setState({
-      loggedIn: false,
-      userId: '',
-      email: '',
-      password: '',
-      bakes: []
-    })
-    // localStorage.setItem('loggedIn', 'false')
-    // localStorage.setItem('id', '')
   }
 
   // new bake post request
@@ -142,13 +96,13 @@ class App extends React.Component {
           return{
             bakes: [...prevState.bakes, data]
           }
-        }, () => console.log('new bake added, state is', this.state))
+        }, () => console.log('new bake added, state is: ', this.state))
       })
   }
 
   // new note post request
   handleNotePost = event => {
-    console.log('new note post request received', event)
+    console.log('new note post request received with following data: ', event)
     fetch('http://localhost:3000/notes', {
       method: 'POST',
       headers: {
@@ -159,25 +113,38 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from note post request', data)
+
          console.log('state after note post', this.state)
          console.log('bakes: ', event)
-         this.setState(prevState => {
-           return {
-             bakes: [...prevState.bakes[0].notes, data]
+
+         let currentBakes = this.state.bakes
+         currentBakes.map(bake => {
+          if (bake.id === data.bake_id){
+            console.log('THIS MAP FUNCTION FOUND MY ID: ', bake)
+              this.setState(prevState => {
+                return {
+                  bakes: [...prevState.bakes[0].notes, data]
+                }
+              })
+        } 
+        })
+        //  this.setState(prevState => {
+        //    return {
+            //  bakes: [...prevState.bakes[0].notes, data]
+          //   bakes: this.newNoteHelper(...prevState.bakes, data)
              
-            }
-          })
+          //   }
+          // })
           console.log('state after post request for new note', this.state.bakes)
       })
-      this.setCurrentUserData(this.state.userId) 
+      // this.setCurrentUserData(this.state.userId) 
   }
 
   newNoteHelper = (prev, obj) => {
-    console.log('new note helper function input', prev, obj)
-    let temp = prev.map(o => {
-      return o.id !== obj.id ? o:  obj
-    })
-    return temp
+    // console.log('new note helper function input', prev, obj)
+    
+
+    // return temp
   }
 
   // note delete 
@@ -220,6 +187,42 @@ class App extends React.Component {
         bakes: prevState.bakes.filter(bake => bake.id !== bakeID)
       }
     })
+  }
+
+  handleLogOut = () => {
+    this.setState({
+      loggedIn: false,
+      userId: '',
+      bakeId: '',
+      email: '',
+      password: '',
+      bakes: [
+       {
+           id: '',
+           user_id: '',
+           total_flour_g: '',
+           total_flour_p: '',
+           water_g: '',
+           water_p: '',
+           salt_g: '',
+           salt_p: '',
+           leaven_g: '',
+           leaven_p: '',
+           hydration: '',
+           rating: '',
+           name: '',
+           date: '',
+           notes: [
+             {
+               id: '',
+               bake_id: '',
+               title: '',
+               content: ''
+             }
+           ]
+         }
+      ]
+   })
   }
   
   render() {
@@ -287,3 +290,23 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+  // run in every route / most parent component (app)
+  // component did mount
+  // checkLocalStorage = () => {
+  //   if(localStorage.getItem('loggedIn') === true){
+  //     console.log('this local storage thing says the user is logged in')
+  //     return true;
+  //   }else{
+  //     console.log('local storage says the user is NOT logged in.... :(', localStorage)
+  //   }
+  // }
+
+    // componentWillMount() {
+  //   let currentUserId = localStorage.getItem('id');
+  //   console.log('who is logged in on component will mount', currentUserId)
+  //   window.addEventListener('beforeunload', () =>{
+  //     this.setCurrentUserData(currentUserId)
+  //   });
+  // }
