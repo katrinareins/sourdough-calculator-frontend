@@ -87,7 +87,7 @@ export class newBakeComponent extends Component {
                 </div>
 
                 <div className='new-bake-img'>
-                    <img src={require('../images/pic-combo-2.png')}></img>
+                    <img alt='' src={require('../images/pic-combo-2.png')}></img>
                 </div>
 
             </div>

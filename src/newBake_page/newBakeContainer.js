@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewBakeComponent from './NewBakeComponent';
-import UploadImage from '../viewBakes_page/UploadImage'
+// import UploadImage from '../viewBakes_page/UploadImage'
 
 export default class NewBakeContainer extends Component {
     constructor(props) {
@@ -26,22 +26,22 @@ export default class NewBakeContainer extends Component {
     }
 
     getTodaysDate = () => {
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth() + 1; //January is 0!
         
-        var yyyy = today.getFullYear();
+        let yyyy = today.getFullYear();
         if (dd < 10) {
             dd = '0' + dd;
         } 
         if (mm < 10) {
             mm = '0' + mm;
         } 
-        var today = dd + '/' + mm + '/' + yyyy;
+        let todayFormatted = dd + '/' + mm + '/' + yyyy;
 
         this.setState(prevState => {
             return {
-                newBake: {...prevState.newBake, date: today}
+                newBake: {...prevState.newBake, date: todayFormatted}
             }
         })
     }

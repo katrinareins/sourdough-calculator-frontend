@@ -270,7 +270,7 @@ handleNotePost = event => {
                       <LoginScreen 
                       // loggedIn={!this.state.loggedIn}
                       handleLogin={this.handleLogin} 
-                      alternate="/viewbakes" />
+                      alternate="/" exact />
                     } 
                     />
 
@@ -284,6 +284,7 @@ handleNotePost = event => {
                       loggedIn={this.state.loggedIn}
                       loggedInUser={this.state.email} 
                       handleLogOut={this.handleLogOut}
+                      alternate="/" exact
                       />
                     }  
                     />
@@ -301,6 +302,7 @@ handleNotePost = event => {
                       loggedIn={this.state.loggedIn}
                       loggedInUser={this.state.email} 
                       handleLogOut={this.handleLogOut}
+                      alternate="/" exact
                       />
                     } 
                   />

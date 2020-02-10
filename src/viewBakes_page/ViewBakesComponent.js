@@ -90,7 +90,7 @@ export class ViewBakesComponent extends Component {
     }
 
     showNoteForm = () => {
-        return <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} sendPostRequest={this.sendPostRequest} />
+        return <AddNotesForm updateState={this.updateState} sendPostRequest={this.sendPostRequest} />
     }
 
     handleEditNoteClick = (id, title, content) => {
@@ -161,4 +161,3 @@ export class ViewBakesComponent extends Component {
 }
 
 export default ViewBakesComponent
-
