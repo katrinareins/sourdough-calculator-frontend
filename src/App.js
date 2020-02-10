@@ -35,86 +35,93 @@ class App extends React.Component {
             name: '',
             date: '',
             notes: [
-              // {
-              //   id: '',
-              //   bake_id: '',
-              //   title: '',
-              //   content: ''
-              // }
             ]
           }
        ]
     }
   }
 
-    // new note post request
-    handleNotePost = event => {
-      console.log('new note post request received with following data: ', event)
-      fetch('http://localhost:3000/notes', {
-        method: 'POST',
+// new note post request
+handleNotePost = event => {
+  fetch('http://localhost:3000/notes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      },
+      body: JSON.stringify(event)
+      })
+      .then(res => res.json())
+      .then(data => { 
+
+        let newBake = this.state.bakes.find(bake => bake.id === data.bake_id)
+        newBake.notes.push(data)
+
+        this.setState(prevState => {
+          let newBakes = prevState.bakes.map(bake => {
+            if(bake.id === data.bake_id){
+              return newBake
+            }else{
+              return bake
+            }
+          })
+          return {
+            ...prevState,
+            bakes: newBakes
+          }
+        })
+      })
+  }
+
+    // note delete 
+    deleteNote = noteID => {
+      console.log('fetch request called with note ID:', noteID)
+      fetch(`http://localhost:3000/notes/${noteID}`, {
+        method: "DELETE",
+      })
+      .then(res => res.json())
+      // .then(data => {
+        
+      // })
+    }
+  
+    // note patch request
+    notePatchRequest = values => {
+      console.log('this is note PATCH request!!!', values)
+  
+      fetch(`http://localhost:3000/notes/${values.id}`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
           },
-          body: JSON.stringify(event)
+          body: JSON.stringify(values)
           })
           .then(res => res.json())
-          .then(data => { console.log('data returned from note post request', data)
-  
-           console.log('state after note post', this.state)
-           console.log('bakes: ', event)
+          .then(data => { 
 
-           let newBake = this.state.bakes.find(bake => bake.id === data.bake_id)
-           newBake.notes.push(data)
-
-           this.setState(prevState => {
-             let newBakes = prevState.bakes.map(bake => {
-               if(bake.id === data.bake_id){
-                  return newBake
-               }else{
-                 return bake
-               }
-             })
-             return {
-               ...prevState,
-               bakes: newBakes
-             }
-           }, () => console.log('IS THIS WORKING???', this.state))
-          })
-        }
-  
-          //  let currentBakes = this.state.bakes
-          //  currentBakes.map(bake => {
-          //   if (bake.id === data.bake_id){
-          //     console.log('THIS MAP FUNCTION FOUND MY ID: ', bake)
-          //       this.setState(prevState => {
-          //         return {
-          //           // bakes: [...prevState.bakes[0].notes, data]
-          //           bakes: [...prevState.bakes]
-          //         }
-          //       })
-          // } 
-          // })
-
-
-
-        //    this.setState(prevState => {
-        //      return {
-        //       //  bakes: [...prevState.bakes[0].notes, data]
-        //       bakes: this.newNoteHelper(...prevState.bakes, data)
-               
-        //       }
-        //     })
-        //     console.log('state after post request for new note', this.state.bakes)
-        // })
-        // this.setCurrentUserData(this.state.userId) 
-  // }
-
-    // newNoteHelper = (prev, obj) => {
-    //   console.log('new note helper function input', prev, obj)
+            let newBake = this.state.bakes.find(bake => bake.id === data.bake_id)
+            let newNote = newBake.notes.find(note => note.id === data.id).delete();
+            
       
-      // return temp
-    // }
+            newBake.notes.push(data)
+            console.log('edited note', newNote)
+    
+            this.setState(prevState => {
+              let newBakes = prevState.bakes.map(bake => {
+                if(bake.id === data.bake_id){
+                  return newBake
+                }else{
+                  return bake
+                }
+              })
+              return {
+                ...prevState,
+                bakes: newBakes
+              }
+            })
+          })
+    }
 
   // handle login form submit
   handleLogin = (values) => {
@@ -128,7 +135,7 @@ class App extends React.Component {
         body: JSON.stringify(values)
         })
         .then(res => res.json())
-        .then(data => { console.log('data returned from user post request', data) 
+        .then(data => { 
           this.setCurrentUserData(data.id)
         })
   }
@@ -169,41 +176,8 @@ class App extends React.Component {
       })
   }
 
-
-
-
-
-  // note delete 
-  deleteNote = noteID => {
-    console.log('fetch request called with note ID:', noteID)
-    fetch(`http://localhost:3000/notes/${noteID}`, {
-      method: "DELETE",
-    })
-    .then(res => res.json())
-    this.setCurrentUserData(this.state.userId)
-  }
-
-  // note patch request
-  notePatchRequest = values => {
-    console.log('this is note PATCH request!!!', values)
-
-    fetch(`http://localhost:3000/notes/${values.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-        },
-        body: JSON.stringify(values)
-        })
-        .then(res => res.json())
-        .then(data => { console.log('data returned from note PATCH request', data)
-      })
-      this.setCurrentUserData(this.state.userId)
-  }
-
   // delete bake
   handleDelete = bakeID => {
-    console.log('delete being triggered, number is bake id', bakeID)
     fetch(`http://localhost:3000/bakes/${bakeID}`, {
       method: "DELETE",
     })
@@ -238,14 +212,7 @@ class App extends React.Component {
            rating: '',
            name: '',
            date: '',
-           notes: [
-             {
-               id: '',
-               bake_id: '',
-               title: '',
-               content: ''
-             }
-           ]
+           notes: []
          }
       ]
    })

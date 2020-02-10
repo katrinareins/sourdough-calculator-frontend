@@ -108,7 +108,7 @@ export class ViewBakesComponent extends Component {
     }
 
     render() {
-        console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
+        // console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
         const { name, rating, hydration, total_flour_g, salt_p, leaven_p, notes } = this.props.bake
 
         const hasNotes = notes.length > 0
