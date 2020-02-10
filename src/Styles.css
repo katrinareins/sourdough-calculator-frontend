@@ -8,6 +8,32 @@ div p {
   font-size: large;
 }
 
+div h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 70px;
+}
+
+div h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
+}
+
+div h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 55px;
+}
+
+div h4 {
+  font-family: 'Noto Sans JP', sans-serif; 
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+div h5 {
+  font-family: 'Noto Sans JP', sans-serif; 
+  font-size: 20px;
+}
+
 .login-button {
   display: inline;
   padding: 0.35em 1.2em;
@@ -93,24 +119,39 @@ font-family: 'Dancing Script', cursive;*/
 
 .new-bake-container {
   display: grid;
-  grid-template-columns: 400px 1fr 1fr 400px ;
-  grid-template-rows: 6;
+  grid-template-columns: 50px 1fr 1fr 50px;
+  grid-template-rows: 25% 100px auto;
   color: white;
 }
+
+/* .form-img-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  border-radius: 30px;
+  background-color: black;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row: 2/4;
+} */
 
 .new-bake-img {
   grid-column-start: 2;
   grid-column-end: 3;
-  background-color: black;
   text-align: center;
   padding: 50px;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  max-width: 100%;
+  height: auto;
 }
 
 .new-bake-heading {
   grid-column-start: 3;
   grid-column-end: 4;
-  background-color: black;
+  grid-row-start: 1;
+  grid-row-end: 3;
   padding: 50px;
+  color: black;
 }
 
 /* --------------------------- View Bakes Page ------------------------- */
