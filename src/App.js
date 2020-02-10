@@ -35,17 +35,86 @@ class App extends React.Component {
             name: '',
             date: '',
             notes: [
-              {
-                id: '',
-                bake_id: '',
-                title: '',
-                content: ''
-              }
+              // {
+              //   id: '',
+              //   bake_id: '',
+              //   title: '',
+              //   content: ''
+              // }
             ]
           }
        ]
     }
   }
+
+    // new note post request
+    handleNotePost = event => {
+      console.log('new note post request received with following data: ', event)
+      fetch('http://localhost:3000/notes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+          },
+          body: JSON.stringify(event)
+          })
+          .then(res => res.json())
+          .then(data => { console.log('data returned from note post request', data)
+  
+           console.log('state after note post', this.state)
+           console.log('bakes: ', event)
+
+           let newBake = this.state.bakes.find(bake => bake.id === data.bake_id)
+           newBake.notes.push(data)
+
+           this.setState(prevState => {
+             let newBakes = prevState.bakes.map(bake => {
+               if(bake.id === data.bake_id){
+                  return newBake
+               }else{
+                 return bake
+               }
+             })
+             return {
+               ...prevState,
+               bakes: newBakes
+             }
+           }, () => console.log('IS THIS WORKING???', this.state))
+          })
+        }
+  
+          //  let currentBakes = this.state.bakes
+          //  currentBakes.map(bake => {
+          //   if (bake.id === data.bake_id){
+          //     console.log('THIS MAP FUNCTION FOUND MY ID: ', bake)
+          //       this.setState(prevState => {
+          //         return {
+          //           // bakes: [...prevState.bakes[0].notes, data]
+          //           bakes: [...prevState.bakes]
+          //         }
+          //       })
+          // } 
+          // })
+
+
+
+        //    this.setState(prevState => {
+        //      return {
+        //       //  bakes: [...prevState.bakes[0].notes, data]
+        //       bakes: this.newNoteHelper(...prevState.bakes, data)
+               
+        //       }
+        //     })
+        //     console.log('state after post request for new note', this.state.bakes)
+        // })
+        // this.setCurrentUserData(this.state.userId) 
+  // }
+
+    // newNoteHelper = (prev, obj) => {
+    //   console.log('new note helper function input', prev, obj)
+      
+      // return temp
+    // }
 
   // handle login form submit
   handleLogin = (values) => {
@@ -100,52 +169,9 @@ class App extends React.Component {
       })
   }
 
-  // new note post request
-  handleNotePost = event => {
-    console.log('new note post request received with following data: ', event)
-    fetch('http://localhost:3000/notes', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-        },
-        body: JSON.stringify(event)
-        })
-        .then(res => res.json())
-        .then(data => { console.log('data returned from note post request', data)
 
-         console.log('state after note post', this.state)
-         console.log('bakes: ', event)
 
-         let currentBakes = this.state.bakes
-         currentBakes.map(bake => {
-          if (bake.id === data.bake_id){
-            console.log('THIS MAP FUNCTION FOUND MY ID: ', bake)
-              this.setState(prevState => {
-                return {
-                  bakes: [...prevState.bakes[0].notes, data]
-                }
-              })
-        } 
-        })
-        //  this.setState(prevState => {
-        //    return {
-            //  bakes: [...prevState.bakes[0].notes, data]
-          //   bakes: this.newNoteHelper(...prevState.bakes, data)
-             
-          //   }
-          // })
-          console.log('state after post request for new note', this.state.bakes)
-      })
-      // this.setCurrentUserData(this.state.userId) 
-  }
 
-  newNoteHelper = (prev, obj) => {
-    // console.log('new note helper function input', prev, obj)
-    
-
-    // return temp
-  }
 
   // note delete 
   deleteNote = noteID => {
