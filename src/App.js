@@ -87,7 +87,7 @@ handleNotePost = event => {
   
     // note patch request
     notePatchRequest = values => {
-      console.log('this is note PATCH request!!!', values)
+      console.log('Note PATCH request:', values)
   
       fetch(`http://localhost:3000/notes/${values.id}`, {
         method: 'PATCH',
@@ -101,11 +101,24 @@ handleNotePost = event => {
           .then(data => { 
 
             let newBake = this.state.bakes.find(bake => bake.id === data.bake_id)
-            let newNote = newBake.notes.find(note => note.id === data.id).delete();
+            let uneditedNotes = newBake.notes.filter(note => note.id !== data.id)
+            newBake.notes = uneditedNotes;
             
-      
+            this.setState(prevState => {
+              let newBakes = prevState.bakes.map(bake => {
+                if(bake.id === data.bake_id){
+                  return newBake
+                }else{
+                  return bake
+                }
+              })
+              return {
+                ...prevState,
+                bakes: newBakes 
+              }
+            })
+
             newBake.notes.push(data)
-            console.log('edited note', newNote)
     
             this.setState(prevState => {
               let newBakes = prevState.bakes.map(bake => {
