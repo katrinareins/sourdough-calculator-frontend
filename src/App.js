@@ -74,14 +74,32 @@ handleNotePost = event => {
   }
 
     // note delete 
-    deleteNote = noteID => {
-      console.log('fetch request called with note ID:', noteID)
-      fetch(`http://localhost:3000/notes/${noteID}`, {
+    deleteNote = noteToDelete => {
+      console.log('Delete fetch request called with note info:', noteToDelete)
+      fetch(`http://localhost:3000/notes/${noteToDelete.id}`, {
         method: "DELETE",
       })
       .then(res => res.json())
-      // .then(data => {
+      // .then(data => { console.log('Data coming back from delete request: ', data)
+
+        let newBake = this.state.bakes.find(bake => bake.id === noteToDelete.bake_id)
+        let nonDeletedNotes = newBake.notes.filter(note => note.id !== noteToDelete.id)
+        console.log('Non deleted notes: ', nonDeletedNotes)
+        newBake.notes = nonDeletedNotes;
         
+        this.setState(prevState => {
+          let newBakes = prevState.bakes.map(bake => {
+            if(bake.id === noteToDelete.bake_id){
+              return newBake
+            }else{
+              return bake
+            }
+          })
+          return {
+            ...prevState,
+            bakes: newBakes 
+          }
+        })
       // })
     }
   

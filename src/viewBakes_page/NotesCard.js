@@ -10,10 +10,11 @@ export class ViewBakeNotesComponent extends Component {
     }
 
     handleDeleteClick = () => {
-        this.props.deleteNote(this.props.note.id)
+        this.props.deleteNote(this.props.note)
     }
 
     render() {
+        console.log("THESE ARE PROPS IN NOTES CARD:", this.props)
         const { title, content } = this.props.note
         return (
             <div>
