@@ -19,7 +19,32 @@ class App extends React.Component {
       //  date: '',
        email: '',
        password: '',
-       bakes: []
+       bakes: [
+        {
+            id: '',
+            user_id: '',
+            total_flour_g: '',
+            total_flour_p: '',
+            water_g: '',
+            water_p: '',
+            salt_g: '',
+            salt_p: '',
+            leaven_g: '',
+            leaven_p: '',
+            hydration: '',
+            rating: '',
+            name: '',
+            date: '',
+            notes: [
+              {
+                id: '',
+                bake_id: '',
+                title: '',
+                content: ''
+              }
+            ]
+          }
+       ]
     }
   }
 
@@ -134,11 +159,15 @@ class App extends React.Component {
         })
         .then(res => res.json())
         .then(data => { console.log('data returned from note post request', data)
-          // this.setState(prevState => {
-          //   return {
-          //     bakes: [...prevState.bakes, [...notes, data]]
-          //   }
-          // })
+         console.log('state after note post', this.state)
+         console.log('bakes: ', event)
+         this.setState(prevState => {
+           return {
+             bakes: [...prevState.bakes[0].notes, data]
+             
+            }
+          })
+          console.log('state after post request for new note', this.state.bakes)
       })
       this.setCurrentUserData(this.state.userId) 
   }

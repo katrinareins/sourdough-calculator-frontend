@@ -39,17 +39,17 @@ export class newBakeComponent extends Component {
 
                         <div className='name-your-bake'>
                             <label>Name your bake</label>
-                            <input className="w3-input w3-border w3-round" type='text' name='name' onChange={(e) => this.handleChange(e)} ></input>
+                            <input  type='text' name='name' onChange={(e) => this.handleChange(e)} ></input>
                         </div>
 
                         <div className='hydration-required'>
                             <label>Hydration (%)</label>
-                            <input className="w3-input w3-border w3-round" type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
+                            <input  type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
                         </div>
 
                         <div className='hydration-required'>
                             <label>Total flour (g)</label>
-                            <input className="w3-input w3-border w3-round" type='text' name='total_flour_g' onChange={(e) => this.handleChange(e)}></input>
+                            <input  type='text' name='total_flour_g' onChange={(e) => this.handleChange(e)}></input>
                         </div>
 
                             <div className='new-bake-form'>

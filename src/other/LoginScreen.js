@@ -33,7 +33,7 @@ export class LoginScreen extends Component {
         <div className='home-login-form'>
           <h1 className='home-title'>Absolute Baking Success</h1>
           <h4 className='home-subtitle'>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
-            <img src={require('../images/3-pic-combo.png')}/>
+            <img className='home-pic' src={require('../images/3-pic-combo.png')}/>
           
           <form className='login-form'>
               <label>Email </label>
@@ -42,7 +42,6 @@ export class LoginScreen extends Component {
                 name="email"
                 type="text"
                 placeholder="Enter your email"
-                className="w3-input"
                 onChange={(e) => this.handleInputChange(e)}
               />
             <br></br>
@@ -53,7 +52,6 @@ export class LoginScreen extends Component {
                 name="password"
                 type="password"
                 placeholder="Enter your password"
-                className="w3-input"
                 onChange={(e) => this.handleInputChange(e)}
               />      
               <br></br>
