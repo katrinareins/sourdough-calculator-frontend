@@ -56,7 +56,7 @@ export class uploadImage extends Component {
                 />
 
                 {/* <button onClick={this.fileSelectedHandler} >Pick File</button> */}
-                <button onClick={this.fileUploadHandler}>Upload Photo</button>
+                <button className='buttons-cards' onClick={this.fileUploadHandler}>Upload Photo</button>
             </div>
         )
     }

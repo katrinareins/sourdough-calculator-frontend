@@ -36,22 +36,24 @@ export class LoginScreen extends Component {
             <img src={require('../images/3-pic-combo.png')}/>
           
           <form className='login-form'>
-              <label>Email: </label>
+              <label>Email </label>
               <br></br>
               <input
                 name="email"
                 type="text"
                 placeholder="Enter your email"
+                className="w3-input"
                 onChange={(e) => this.handleInputChange(e)}
               />
             <br></br>
 
-            <label className='password-label'>Password: </label>
+            <label className='password-label'>Password </label>
             <br></br>
               <input
                 name="password"
                 type="password"
                 placeholder="Enter your password"
+                className="w3-input"
                 onChange={(e) => this.handleInputChange(e)}
               />      
               <br></br>

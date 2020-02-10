@@ -113,7 +113,7 @@ export class ViewBakesComponent extends Component {
         const hasNotes = notes.length > 0
 
         return (
-            <div className='bake-item'>
+            <div className='bake-card'>
 
                     <div>
                         <h3>{name}</h3>
@@ -122,11 +122,10 @@ export class ViewBakesComponent extends Component {
                         <p>Total flour (g): {total_flour_g}</p>
                         <p>Salt (p): {salt_p}</p>
                         <p>Leaven (p): {leaven_p}</p>
-                        <button className='button' onClick={this.handleDeleteClick}>Delete</button>
                     </div>
                     
                     <div>
-                        {hasNotes ? <button className='button' onClick={this.handleClick}>View notes +</button>
+                        {hasNotes ? <button className='buttons-cards' onClick={this.handleClick}>View notes +</button>
                         : null}
                     </div>
 
@@ -135,7 +134,7 @@ export class ViewBakesComponent extends Component {
                     </div>
 
                     <div>
-                        <button className='button' onClick={this.handleAddNoteClick}>Add note</button>
+                        <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
                     </div>
 
                     <div>
@@ -148,6 +147,10 @@ export class ViewBakesComponent extends Component {
 
                     <div>
                         <UploadImage />
+                    </div>
+
+                    <div>
+                        <button className='buttons-cards' onClick={this.handleDeleteClick}>Delete</button>
                     </div>
 
 
