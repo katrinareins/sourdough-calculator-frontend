@@ -20,23 +20,23 @@ div h2 {
 
 div h3 {
   font-family: 'Dancing Script', cursive;
-  font-size: 55px;
+  font-size: 40px;
 }
 
 div h4 {
   font-family: 'Noto Sans JP', sans-serif; 
-  font-size: 25px;
+  font-size: 20px;
   font-weight: lighter;
 }
 
 div h5 {
   font-family: 'Noto Sans JP', sans-serif; 
-  font-size: 20px;
+  font-size: 10px;
 }
 
 label {
   font-family: 'Noto Sans JP', sans-serif; 
-  font-size: 25px;
+  font-size: 18px;
   font-weight: lighter;
 }
 
@@ -125,9 +125,14 @@ font-family: 'Dancing Script', cursive;*/
 /* --------------------------- New Bake Form ------------------------- */
 
 .new-bake-container {
-  display: grid;
+  display: flex;
   grid-template-columns: 50px 1fr 1fr 50px;
-  grid-template-rows: 25% 100px auto;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-rows: 25% 100px auto; 
+  margin-left: 3rem;
+  display: grid;
+  grid-template-rows: 1;
+  /* grid-template-columns: auto auto; */
   color: white;
 }
 
@@ -142,27 +147,29 @@ font-family: 'Dancing Script', cursive;*/
 } */
 
 .new-bake-img {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  /* grid-column-start: 2;
+  grid-column-end: 3; */
   text-align: center;
-  padding: 50px;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  max-width: 100%;
-  height: auto;
+  /* grid-row-start: 1;
+  grid-row-end: 3; */
+  max-width:100%;
+  max-height: auto;
+  margin: auto;
+  grid-column: 1;
 }
 
-.new-bake-heading {
-  grid-column-start: 3;
+.new-bake-form {
+  /* grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 3; */
   padding: 50px;
   color: black;
+  grid-column: 2;
 }
 
 .new-form-table {
-  margin-top: 40px;
+  margin-top: 10px;
   border-spacing: 2rem;
 }
 
@@ -196,7 +203,7 @@ font-family: 'Dancing Script', cursive;*/
 /* Main container holding all the bake cards */
 .main-container-view-bakes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, 50px);
   grid-auto-rows: minmax(200px, auto);
   grid-gap: 70px;
   padding: 100px;

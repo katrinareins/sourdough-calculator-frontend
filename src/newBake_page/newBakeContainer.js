@@ -70,7 +70,7 @@ export default class NewBakeContainer extends Component {
     render(){
         return (
             <div>
-                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} getTodaysDate={this.getTodaysDate} calculate={this.calculate} />
+                <NewBakeComponent updateState={this.updateState} sendPostRequest={this.sendPostRequest} getTodaysDate={this.getTodaysDate} calculate={this.calculate} newBake={this.state.newBake} />
             </div>
         )
     }
