@@ -29,49 +29,40 @@ export class LoginScreen extends Component {
   render() {
     return (
       <div className='home-container'>
-          <div className='home-photos'>
-            <img src={require('../images/12385.jpeg')}/>
-          </div>
-          <div className='home-photos'>
-            <img src={require('../images/21400.jpeg')}/>
-          </div>
-          <div className='home-photos'>
-            <img src={require('../images/13652.jpeg')}/>
-          </div>
-          <div className='home-photos'>
-            <img src={require('../images/13636.jpeg')}/>
-          </div>
-          <div className='home-photos'>
-            <img src={require('../images/37449.jpeg')}/>
-          </div>
 
-        {/* <div className='home-login-form'>
-          <h1>Absolute Baking Success</h1>
-          <h4>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
-          <form>
-              <label>Email</label>
+        <div className='home-login-form'>
+          <h1 className='home-title'>Absolute Baking Success</h1>
+          <h4 className='home-subtitle'>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
+            <img src={require('../images/3-pic-combo.png')}/>
+          
+          <form className='login-form'>
+              <label>Email: </label>
+              <br></br>
               <input
                 name="email"
                 type="text"
                 placeholder="Enter your email"
                 onChange={(e) => this.handleInputChange(e)}
               />
+            <br></br>
 
-            <label>Password</label>
+            <label className='password-label'>Password: </label>
+            <br></br>
               <input
                 name="password"
                 type="password"
                 placeholder="Enter your password"
                 onChange={(e) => this.handleInputChange(e)}
               />      
-
+              <br></br>
               <Link to='/viewbakes'>            
-              <button type="submit" onClick={this.handleClick} >
+              <button className='login-button' type="submit" onClick={this.handleClick} >
                   Login
               </button>
               </Link>
           </form> 
-        </div> */}
+        
+        </div>
 
       </div>
     )

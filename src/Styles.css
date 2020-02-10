@@ -1,18 +1,41 @@
 /* ------------------------ Global attributes ------------------------ */
 body {
   background-color: white;
-  font-family: "Montserrat";
+  font-family: 'Noto Sans JP', sans-serif; 
 }
 
 div p {
   font-size: large;
 }
 
-.button {
-  border-radius: 5px;
-  background-color: rgb(212, 131, 179)
+.login-button {
+  display: inline;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  margin-top: 20px;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  color:white;
+  background-color: black;
+  text-align:center;
+  transition: all 0.2s;
+  }
 
+.button:hover{
+  color: #000000;
+  background-color:#FFFFFF;
+  border-color: black;
 }
+
+/* Google font references */
+/* font-family: 'Cedarville Cursive', cursive;
+font-family: 'Noto Sans JP', sans-serif; 
+font-family: 'Dancing Script', cursive;*/
+
 
 /* ------------------------------- Nav ------------------------------- */
 
@@ -45,29 +68,49 @@ div p {
   /* grid-template-columns: repeat(5, 1fr); */
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
   align-items: center;
+  margin-top: 150px;
+  text-align: center;
 }
 
-.home-photos {
-  /* width: 100%;
-  height: max-content; */
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+.home-title {
+  font-size: 140px;
+  font-family: 'Dancing Script', cursive;
 }
 
-/* .home-login-form {
+.home-subtitle{
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.login-form {
+  margin-top: 40px;
+}
 
-} */
+.password-label {
+  /* padding-top: 220px; */
+}
 
 /* --------------------------- New Bake Form ------------------------- */
 
 .new-bake-container {
-  padding: 50px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  background-color: black;
+  grid-template-columns: 400px 1fr 1fr 400px ;
+  grid-template-rows: 6;
   color: white;
+}
+
+.new-bake-img {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  background-color: black;
+  text-align: center;
+  padding: 50px;
+}
+
+.new-bake-heading {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  background-color: black;
+  padding: 50px;
 }
 
 /* --------------------------- View Bakes Page ------------------------- */
@@ -80,8 +123,7 @@ div p {
 
   /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  */
   grid-auto-rows: minmax(200px, auto);
-  grid-gap: 3rem;
-  padding: 50px;
+  grid-gap: 20px;
 }
 
 /* each bake card container */

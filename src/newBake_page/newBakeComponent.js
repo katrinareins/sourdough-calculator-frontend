@@ -31,7 +31,7 @@ export class newBakeComponent extends Component {
         return (
             <div className='new-bake-container'>
                 <div className='new-bake-img'>
-                    <img src={require('../images/bread-square.png')}></img>
+                    <img src={require('../images/pic-combo-2.png')}></img>
                 </div>
 
                 <div className='new-bake-heading'>
