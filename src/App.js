@@ -55,7 +55,24 @@ handleRatingPatch = (bakeID, rating) => {
       })
       })
       .then(res => res.json())
-      .then(data => console.log('what comes back from bake patch request with new rating: ', data))
+      .then(data => {console.log('what comes back from bake patch request with new rating: ', data)
+        let newBake = this.state.bakes.find(bake => bake.id === data.id)
+        newBake.rating=data.rating
+
+        this.setState(prevState => {
+          let newBakes = prevState.bakes.map(bake => {
+            if(bake.id === data.bake_id){
+              return newBake
+            }else{
+              return bake
+            }
+          })
+          return {
+            ...prevState,
+            bakes: newBakes
+          }
+        })
+        })
 }
 
 // new note post request
