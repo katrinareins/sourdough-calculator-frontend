@@ -44,6 +44,18 @@ class App extends React.Component {
 // patch request for new bake rating
 handleRatingPatch = (bakeID, rating) => {
   console.log('Patch request received with bake ID and rating:', bakeID, rating)
+  fetch(`http://localhost:3000/bakes/${bakeID}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        rating: rating
+      })
+      })
+      .then(res => res.json())
+      .then(data => console.log('what comes back from bake patch request with new rating: ', data))
 }
 
 // new note post request
