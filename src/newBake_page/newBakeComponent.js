@@ -53,7 +53,6 @@ export class newBakeComponent extends Component {
                         </div>
 
                             <div className='new-bake-form'>
-                                <form>
                                     <table className='new-form-table'>
                                         <tr>
                                             <th>Ingredients</th>
@@ -82,7 +81,6 @@ export class newBakeComponent extends Component {
                                         </tr>
                                     </table>
                                     <button className='create-bake-button' onClick={this.handleSubmit}>Submit</button> 
-                                </form>
                             </div>
                 </div>
 

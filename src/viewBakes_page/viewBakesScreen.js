@@ -22,6 +22,7 @@ export class ViewBakesScreen extends Component {
                 deleteNote={this.props.deleteNote}
                 notePatchRequest={this.props.notePatchRequest}
                 loggedIn={this.props.loggedIn}
+                handleRatingPatch={this.props.handleRatingPatch}
                 />
             
             </div>

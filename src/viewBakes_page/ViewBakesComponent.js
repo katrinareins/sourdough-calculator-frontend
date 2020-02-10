@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
 import AddNotesForm from './AddNotesForm';
 import EditNotesComponent from './EditNotesForm';
-import UploadImage from './UploadImage'
+import UploadImage from './UploadImage';
 
 
 export class ViewBakesComponent extends Component {
@@ -13,6 +13,7 @@ export class ViewBakesComponent extends Component {
         this.state = {
             loggedIn: true,
             viewNotes: false,
+            // rating: '',
             addNotes: false,
             newNote: {
                 bake_id: this.props.bake.id,
@@ -107,9 +108,19 @@ export class ViewBakesComponent extends Component {
         return < EditNotesComponent noteContent={this.state.editNote} editNoteState={this.editNoteState} sendPatchRequest={this.sendPatchRequest} />
     }
 
+    handleRatingSelection = (event) => {
+        console.log('rating selection:', event.target.value)
+        let bakeID = this.props.bake.id
+        let rating = event.target.value
+        // this.setState({
+        //     rating: rating
+        // })
+        this.props.handleRatingPatch(bakeID, rating)
+    }
+
     render() {
         // console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
-        const { name, rating, hydration, total_flour_g, salt_p, leaven_p, notes } = this.props.bake
+        const { name, rating, hydration, total_flour_g, salt_p, leaven_p, notes, date } = this.props.bake
 
         const hasNotes = notes.length > 0
 
@@ -118,12 +129,28 @@ export class ViewBakesComponent extends Component {
 
                     <div>
                         <h3>{name}</h3>
+                        <p>Date: {date}</p>
                         <p>Hydration: {hydration}</p>
                         <p>Rating: {rating}</p>
+
+                            <div className="rating-select">
+                                <label ></label>
+                                <select onChange={this.handleRatingSelection} name="rating">
+                                <option selected >Rate this bake</option>
+                                <option value="5">*****</option>
+                                <option value="4">****</option>
+                                <option value="3">***</option>
+                                <option value="2">**</option>
+                                <option value="1">*</option>
+                                </select>
+                            </div>
+
                         <p>Total flour (g): {total_flour_g}</p>
                         <p>Salt (p): {salt_p}</p>
                         <p>Leaven (p): {leaven_p}</p>
                     </div>
+
+
                     
                     <div>
                         {hasNotes ? <button className='buttons-cards' onClick={this.handleClick}>View notes +</button>

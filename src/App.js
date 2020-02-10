@@ -41,6 +41,11 @@ class App extends React.Component {
     }
   }
 
+// patch request for new bake rating
+handleRatingPatch = (bakeID, rating) => {
+  console.log('Patch request received with bake ID and rating:', bakeID, rating)
+}
+
 // new note post request
 handleNotePost = event => {
   fetch('http://localhost:3000/notes', {
@@ -292,7 +297,6 @@ handleNotePost = event => {
                   <Route path='/viewbakes' 
                     render={() => 
                       <ViewBakesScreen 
-
                       userId={this.state.userId} 
                       bakes={this.state.bakes} 
                       handleDelete={this.handleDelete} 
@@ -302,6 +306,7 @@ handleNotePost = event => {
                       loggedIn={this.state.loggedIn}
                       loggedInUser={this.state.email} 
                       handleLogOut={this.handleLogOut}
+                      handleRatingPatch={this.handleRatingPatch}
                       alternate="/" exact
                       />
                     } 

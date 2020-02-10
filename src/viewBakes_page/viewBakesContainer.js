@@ -13,6 +13,7 @@ export class ViewBakesContainer extends Component {
             handleNotePost={this.props.handleNotePost} 
             deleteNote={this.props.deleteNote}
             notePatchRequest={this.props.notePatchRequest}
+            handleRatingPatch={this.props.handleRatingPatch}
             />
         } )
     }
