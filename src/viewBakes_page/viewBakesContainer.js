@@ -18,11 +18,33 @@ export class ViewBakesContainer extends Component {
         } )
     }
 
+    handleFilter = (event) => {
+        console.log('filter selection', event.target.value)
+        let value = event.target.value
+        if(value === 'date'){
+            
+        }else if (value === 'ranking'){
+
+        }
+    }
+
     render() {
         console.log('props in container', this.props.bakes) 
         return (
-            <div className='main-container-view-bakes'>
-                {this.mapThroughBakes()} 
+            <div>
+                <div>
+                    <label ></label>
+                        <select onChange={this.handleFilter} name="rating">
+                        <option selected >Filter by date or ranking</option>
+                        <option value="date">Date</option>
+                        <option value="ranking">Ranking</option>
+                        </select>
+                </div>
+
+                <div className='main-container-view-bakes'>
+                    {this.mapThroughBakes()} 
+                </div>
+
             </div>
         )
     }

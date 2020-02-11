@@ -98,7 +98,6 @@ export default class NewBakeContainer extends Component {
                 }
             })
         }
-        
         console.log('state after form entry', this.state.newBake)
     }
 
