@@ -24,10 +24,29 @@ export class ViewBakesContainer extends Component {
             } )
 
         } else if (selection === 'date'){
+            console.log('prompted to sort by date! These are the bake props:', this.props.bakes)
+
+            const sortedArrayDate = this.props.bakes.slice().sort(function(a, b){
+                return new Date(b.date) - new Date(a.date);
+            })
+            console.log('SORTED ARRAY BY DATE', sortedArrayDate)
+
+            return sortedArrayDate.map((bake, index) => {
+                return <ViewBakesComponent 
+                bake={bake} 
+                key={index} 
+                renderNotes={this.renderNotes} 
+                handleDelete={this.props.handleDelete} 
+                handleNotePost={this.props.handleNotePost} 
+                deleteNote={this.props.deleteNote}
+                notePatchRequest={this.props.notePatchRequest}
+                handleRatingPatch={this.props.handleRatingPatch}
+                />
+            } )
 
         } else if (selection === 'rating'){
             console.log('prompted to sort by rating! These are the bake props:', this.props.bakes)
-            const sortedArray = this.props.bakes.slice().sort(function(a, b) {
+            const sortedArrayRating = this.props.bakes.slice().sort(function(a, b) {
                 if(a.rating === null){
                     return 1;
                 } else if (b.rating === null) {
@@ -36,9 +55,9 @@ export class ViewBakesContainer extends Component {
                     return b.rating - a.rating;
                 }
             });
-            console.log('SORTED ARRAY', sortedArray)
+            console.log('SORTED ARRAY BY RATING', sortedArrayRating)
 
-            return sortedArray.map((bake, index) => {
+            return sortedArrayRating.map((bake, index) => {
                 return <ViewBakesComponent 
                 bake={bake} 
                 key={index} 
