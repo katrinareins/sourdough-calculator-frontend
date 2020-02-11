@@ -62,10 +62,43 @@ export default class NewBakeContainer extends Component {
                 return {
                     newBake: {...prevState.newBake, 
                         [item]: value,
-                        water_p: (value*10)}
+                        water_g: (value*10),
+                        water_p: value}
+                }
+            })
+        }else if(item === 'total_flour_g'){
+            this.setState(prevState => {
+                return {
+                    newBake: {...prevState.newBake, 
+                        [item]: value}
+                }
+            })
+        }else if(item === 'leaven_p'){
+            let flourTotal = this.state.newBake.total_flour_g
+            let leavenTotal = (value * flourTotal) / 100
+            console.log('leaven calc', leavenTotal)
+
+            this.setState(prevState => {
+                return {
+                    newBake: {...prevState.newBake, 
+                        [item]: value,
+                        leaven_g: leavenTotal}
+                }
+            })
+        }else if(item === 'salt_p'){
+            let flourTotal = this.state.newBake.total_flour_g
+            let saltG = (value * flourTotal) / 100
+
+            this.setState(prevState => {
+                return {
+                    newBake: {...prevState.newBake, 
+                        [item]: value,
+                        salt_g: saltG}
                 }
             })
         }
+        
+        
         console.log('state after form entry', this.state.newBake)
     }
 
