@@ -46,12 +46,6 @@ export default class NewBakeContainer extends Component {
         })
     }
 
-    // 
-    calculate = (percentage, totalFlour) => {
-
-        // return (100 * partialValue) / totalValue;
-     } 
-
     updateState = event => {
         let value = event.target.value
         let item = event.target.name
@@ -96,8 +90,14 @@ export default class NewBakeContainer extends Component {
                         salt_g: saltG}
                 }
             })
+        }else if(item === 'name'){
+            this.setState(prevState => {
+                return {
+                    newBake: {...prevState.newBake, 
+                        [item]: value}
+                }
+            })
         }
-        
         
         console.log('state after form entry', this.state.newBake)
     }
