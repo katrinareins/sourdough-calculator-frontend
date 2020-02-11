@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-// import LoginHOC from '../other/LoginHOC'
-import '../Styles.css'
+import { Link } from 'react-router-dom';
+import LoginHOC from '../other/LoginHOC';
+import '../Styles.css';
 
 export class LoginScreen extends Component {
 
@@ -69,5 +69,5 @@ export class LoginScreen extends Component {
   }
 }
 
-// export default LoginHOC(LoginScreen)
-export default LoginScreen
+export default LoginHOC(LoginScreen)
+// export default LoginScreen

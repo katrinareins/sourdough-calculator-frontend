@@ -285,26 +285,18 @@ handleNotePost = event => {
   
   render() {
     return (
-
           <div>
-
             <Router>
               <div>
 
-                <Switch>
-                  {/* {<Nav 
-                  loggedInUser={this.state.email} 
-                  handleLogOut={this.handleLogOut} />} */}
-
-                  {/* <Route path='/' exact component={Home} /> */}
-
+                {/* <Switch> */}
                   <Route 
-                    path='/' exact  
+                    exact path="/"  
                     render={() => 
                       <LoginScreen 
-                      // loggedIn={!this.state.loggedIn}
+                      loggedIn={!this.state.loggedIn}
                       handleLogin={this.handleLogin} 
-                      alternate="/" exact />
+                      alternate="/viewbakes" />
                     } 
                     />
 
@@ -313,12 +305,13 @@ handleNotePost = event => {
                       <NewBakeScreen 
                       handlePost={this.handlePost} 
                       userId={this.state.userId} 
+                      email={this.state.email}
                       redirectLogin={this.redirectLogin} 
                       date={this.state.date} 
                       loggedIn={this.state.loggedIn}
                       loggedInUser={this.state.email} 
                       handleLogOut={this.handleLogOut}
-                      alternate="/" exact
+                      alternate="/viewbakes"
                       />
                     }  
                     />
@@ -327,6 +320,7 @@ handleNotePost = event => {
                     render={() => 
                       <ViewBakesScreen 
                       userId={this.state.userId} 
+                      email={this.state.email}
                       bakes={this.state.bakes} 
                       handleDelete={this.handleDelete} 
                       handleNotePost={this.handleNotePost} 
@@ -336,12 +330,12 @@ handleNotePost = event => {
                       loggedInUser={this.state.email} 
                       handleLogOut={this.handleLogOut}
                       handleRatingPatch={this.handleRatingPatch}
-                      alternate="/" exact
+                      alternate="/"
                       />
                     } 
                   />
 
-                </Switch>
+                {/* </Switch> */}
               </div>
             </Router>
           </div>

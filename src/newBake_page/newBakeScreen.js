@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NewBakeContainer from '../newBake_page/NewBakeContainer'
 import Nav from '../other/Nav'
 import '../Styles.css'
+import LoginHOC from '../other/LoginHOC';
 
 export class NewBakeScreen extends Component {
 
@@ -18,4 +19,5 @@ export class NewBakeScreen extends Component {
     }
 }
 
-export default NewBakeScreen
+// export default NewBakeScreen
+export default LoginHOC(NewBakeScreen)

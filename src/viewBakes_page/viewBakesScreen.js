@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ViewBakesContainer from './ViewBakesContainer'
 import '../Styles.css'
 import Nav from '../other/Nav'
+import LoginHOC from '../other/LoginHOC';
 
 export class ViewBakesScreen extends Component {
     
@@ -30,4 +31,5 @@ export class ViewBakesScreen extends Component {
     }
 }
 
-export default ViewBakesScreen
+// export default ViewBakesScreen
+export default LoginHOC(ViewBakesScreen)

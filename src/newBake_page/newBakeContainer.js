@@ -55,11 +55,18 @@ export default class NewBakeContainer extends Component {
     updateState = event => {
         let value = event.target.value
         let item = event.target.name
-        this.setState(prevState => {
-            return {
-                newBake: {...prevState.newBake, [item]: value}
-            }
-        })
+        console.log('getting this from form change:', item, value)
+
+        if(item === 'hydration'){
+            this.setState(prevState => {
+                return {
+                    newBake: {...prevState.newBake, 
+                        [item]: value,
+                        water_p: (value*10)}
+                }
+            })
+        }
+        console.log('state after form entry', this.state.newBake)
     }
 
     sendPostRequest = () => {
