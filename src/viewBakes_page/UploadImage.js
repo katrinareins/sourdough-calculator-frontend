@@ -25,8 +25,8 @@ export class uploadImage extends Component {
             // dirName: 'Enter Folder Name ', /* optional */
             region: 'US West (Oregon)',
             // region: 'us-west-2',
-            accessKeyId: 'AKIAIXAR63Q25JRDH6IQ',
-            secretAccessKey: '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',
+            accessKeyId: '',
+            secretAccessKey: '',
         //             header: "Access-Control-Allow-Origin: *",
         // header: "Access-Control-Allow-Methods: POST",
         // header: "Access-Control-Allow-Headers: Origin, Methods, Content-Type"
