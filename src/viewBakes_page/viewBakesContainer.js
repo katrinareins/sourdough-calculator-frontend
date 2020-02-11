@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 
 export class ViewBakesContainer extends Component { 
 
+    // for sorting --> take in param. If the param is nothing, map cards as normal. 
+    // if the param is date - check each bake and sort by date
+    // if the param is ranking - check each bake and sort by ranking
+    
     mapThroughBakes = () => {
         return this.props.bakes.map((bake, index) => {
             return <ViewBakesComponent 
