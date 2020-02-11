@@ -49,6 +49,7 @@ export default class NewBakeContainer extends Component {
     updateState = event => {
         let value = event.target.value
         let item = event.target.name
+        let flourTotal = this.state.newBake.total_flour_g
         console.log('getting this from form change:', item, value)
 
         if(item === 'hydration'){
@@ -56,19 +57,32 @@ export default class NewBakeContainer extends Component {
                 return {
                     newBake: {...prevState.newBake, 
                         [item]: value,
-                        water_g: (value*10),
+                        // water_g: (value*10),
                         water_p: value}
                 }
             })
         }else if(item === 'total_flour_g'){
+            let flourTotal = value
+            let hydration = this.state.newBake.hydration
+            let totalWaterG = (hydration * flourTotal) / 100
+            console.log('3 things to calculate water grams:', flourTotal, hydration, totalWaterG)
+    
             this.setState(prevState => {
                 return {
                     newBake: {...prevState.newBake, 
-                        [item]: value}
-                }
-            })
+                        [item]: value, 
+                        water_g: totalWaterG}
+                    }
+                })
+                // this.waterCalcHelper()
+            // this.setState(prevState => {
+            //     return {
+            //         newBake: {...prevState.newBake, 
+            //             water_g: totalWaterG}
+            //     }
+            // })
+                
         }else if(item === 'leaven_p'){
-            let flourTotal = this.state.newBake.total_flour_g
             let leavenTotal = (value * flourTotal) / 100
             console.log('leaven calc', leavenTotal)
 
@@ -80,7 +94,6 @@ export default class NewBakeContainer extends Component {
                 }
             })
         }else if(item === 'salt_p'){
-            let flourTotal = this.state.newBake.total_flour_g
             let saltG = (value * flourTotal) / 100
 
             this.setState(prevState => {
@@ -100,6 +113,20 @@ export default class NewBakeContainer extends Component {
         }
         console.log('state after form entry', this.state.newBake)
     }
+
+    // waterCalcHelper = () => {
+    //     let flourTotal = this.state.newBake.total_flour_g
+    //     let hydration = this.state.newBake.hydration
+    //     let totalWaterG = (hydration * flourTotal) / 100
+    //     console.log('3 things to calculate water grams:', flourTotal, waterPerc, totalWaterG)
+
+    //     this.setState(prevState => {
+    //         return {
+    //             newBake: {...prevState.newBake, 
+    //                 water_g: totalWaterG}
+    //         }
+    //     })
+    // }
 
     sendPostRequest = () => {
         let newBake = this.state.newBake

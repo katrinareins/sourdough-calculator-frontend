@@ -31,7 +31,6 @@ export class uploadImage extends Component {
         // header: "Access-Control-Allow-Methods: POST",
         // header: "Access-Control-Allow-Headers: Origin, Methods, Content-Type"
         };
-        console.log('is this working???')
         console.log('selected file: ', this.state.selectedFile)
         console.log(config)
         S3FileUpload.uploadFile(this.state.selectedFile, config)
