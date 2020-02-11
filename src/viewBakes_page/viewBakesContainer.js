@@ -5,10 +5,11 @@ export class ViewBakesContainer extends Component {
 
     // for sorting --> take in param. If the param is nothing, map cards as normal. 
     // if the param is date - check each bake and sort by date
-    // if the param is ranking - check each bake and sort by ranking
+    // if the param is rating - check each bake and sort by rating
 
     mapThroughBakes = (selection) => {
         if (selection === 'none'){
+            // map over sorted array
             return this.props.bakes.map((bake, index) => {
                 return <ViewBakesComponent 
                 bake={bake} 
@@ -24,8 +25,31 @@ export class ViewBakesContainer extends Component {
 
         } else if (selection === 'date'){
 
-        } else if (selection === 'ranking'){
-            
+        } else if (selection === 'rating'){
+            console.log('prompted to sort by rating! These are the bake props:', this.props.bakes)
+            const sortedArray = this.props.bakes.slice().sort(function(a, b) {
+                if(a.rating === null){
+                    return 1;
+                } else if (b.rating === null) {
+                    return -1;
+                } else {
+                    return b.rating - a.rating;
+                }
+            });
+            console.log('SORTED ARRAY', sortedArray)
+
+            return sortedArray.map((bake, index) => {
+                return <ViewBakesComponent 
+                bake={bake} 
+                key={index} 
+                renderNotes={this.renderNotes} 
+                handleDelete={this.props.handleDelete} 
+                handleNotePost={this.props.handleNotePost} 
+                deleteNote={this.props.deleteNote}
+                notePatchRequest={this.props.notePatchRequest}
+                handleRatingPatch={this.props.handleRatingPatch}
+                />
+            } )
         }
 
     }
@@ -35,8 +59,8 @@ export class ViewBakesContainer extends Component {
         let value = event.target.value
         if(value === 'date'){
             this.mapThroughBakes('date')
-        }else if (value === 'ranking'){
-            this.mapThroughBakes('ranking')
+        }else if (value === 'rating'){
+            this.mapThroughBakes('rating')
         }
     }
 
@@ -49,7 +73,7 @@ export class ViewBakesContainer extends Component {
                         <select onChange={this.handleFilter} name="rating">
                         <option selected >Filter by date or ranking</option>
                         <option value="date">Date</option>
-                        <option value="ranking">Ranking</option>
+                        <option value="rating">Rating</option>
                         </select>
                 </div>
 

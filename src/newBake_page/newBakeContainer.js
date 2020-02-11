@@ -65,7 +65,6 @@ export default class NewBakeContainer extends Component {
             let flourTotal = value
             let hydration = this.state.newBake.hydration
             let totalWaterG = (hydration * flourTotal) / 100
-            console.log('3 things to calculate water grams:', flourTotal, hydration, totalWaterG)
     
             this.setState(prevState => {
                 return {
@@ -74,13 +73,6 @@ export default class NewBakeContainer extends Component {
                         water_g: totalWaterG}
                     }
                 })
-                // this.waterCalcHelper()
-            // this.setState(prevState => {
-            //     return {
-            //         newBake: {...prevState.newBake, 
-            //             water_g: totalWaterG}
-            //     }
-            // })
                 
         }else if(item === 'leaven_p'){
             let leavenTotal = (value * flourTotal) / 100
@@ -111,22 +103,7 @@ export default class NewBakeContainer extends Component {
                 }
             })
         }
-        console.log('state after form entry', this.state.newBake)
     }
-
-    // waterCalcHelper = () => {
-    //     let flourTotal = this.state.newBake.total_flour_g
-    //     let hydration = this.state.newBake.hydration
-    //     let totalWaterG = (hydration * flourTotal) / 100
-    //     console.log('3 things to calculate water grams:', flourTotal, waterPerc, totalWaterG)
-
-    //     this.setState(prevState => {
-    //         return {
-    //             newBake: {...prevState.newBake, 
-    //                 water_g: totalWaterG}
-    //         }
-    //     })
-    // }
 
     sendPostRequest = () => {
         let newBake = this.state.newBake
