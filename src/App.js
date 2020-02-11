@@ -5,7 +5,7 @@ import './Styles.css';
 import LoginScreen from './other/LoginScreen';
 import NewBakeScreen from './newBake_page/NewBakeScreen';
 import ViewBakesScreen from './viewBakes_page/ViewBakesScreen';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -110,10 +110,10 @@ handleNotePost = event => {
     // note delete 
     deleteNote = noteToDelete => {
       console.log('Delete fetch request called with note info:', noteToDelete)
-      fetch(`http://localhost:3000/notes/${noteToDelete.id}`, {
-        method: "DELETE",
-      })
-      .then(res => res.json())
+      // fetch(`http://localhost:3000/notes/${noteToDelete.id}`, {
+      //   method: "DELETE",
+      // })
+      // .then(res => res.json())
       // .then(data => { console.log('Data coming back from delete request: ', data)
 
         let newBake = this.state.bakes.find(bake => bake.id === noteToDelete.bake_id)
@@ -242,16 +242,20 @@ handleNotePost = event => {
   }
 
   // delete bake
-  handleDelete = bakeID => {
-    fetch(`http://localhost:3000/bakes/${bakeID}`, {
-      method: "DELETE",
-    })
-    .then(res => res.json())
-    this.setState(prevState => {
-      return{
-        bakes: prevState.bakes.filter(bake => bake.id !== bakeID)
-      }
-    })
+  handleDelete = bakeToDelete => {
+    console.log('delete bake request received with bake info: ', bakeToDelete)
+    // fetch(`http://localhost:3000/bakes/${bakeToDelete.id}`, {
+    //   method: "DELETE",
+    // })
+    // .then(res => res.json())
+
+      let nonDeletedBakes = this.state.bakes.filter(bake => bake.id !== bakeToDelete.id)
+      console.log('Non deleted bakes: ', nonDeletedBakes)
+      
+      this.setState({
+        bakes: nonDeletedBakes
+      })
+      
   }
 
   handleLogOut = () => {

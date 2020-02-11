@@ -17,20 +17,18 @@ export class ViewBakesContainer extends Component {
     // if the param is rating - check each bake and sort by rating
 
     setCardState = (selection) => {
-        console.log('setCardState called')
         if (selection === 'date'){
-            console.log('prompted to sort by date! These are the bake props:', this.props.bakes)
-
+            // console.log('prompted to sort by date! These are the bake props:', this.props.bakes)
             const sortedArrayDate = this.props.bakes.slice().sort(function(a, b){
                 return new Date(b.date) - new Date(a.date);
             })
-            console.log('SORTED ARRAY BY DATE', sortedArrayDate)
+            // console.log('SORTED ARRAY BY DATE', sortedArrayDate)
             this.setState({
                 allBakes: sortedArrayDate,
                 filter: 'date'
             })
         } else if (selection === 'rating'){
-            console.log('prompted to sort by rating! These are the bake props:', this.props.bakes)
+            // console.log('prompted to sort by rating! These are the bake props:', this.props.bakes)
             const sortedArrayRating = this.props.bakes.slice().sort(function(a, b) {
                 if(a.rating === null){
                     return 1;
@@ -40,7 +38,7 @@ export class ViewBakesContainer extends Component {
                     return b.rating - a.rating;
                 }
             });
-            console.log('SORTED ARRAY BY RATING', sortedArrayRating)
+            // console.log('SORTED ARRAY BY RATING', sortedArrayRating)
             this.setState({
                 allBakes: sortedArrayRating,
                 filter: 'rating'
@@ -50,13 +48,11 @@ export class ViewBakesContainer extends Component {
                 allBakes: this.props.bakes,
                 filter: ''
             })
-            console.log('state on null', this.state)
+            // console.log('state on null', this.state)
         }
     }
 
     renderCards = () => {
-        console.log('RENDER CARDS FUNCTION CALLED')
-
         return this.state.allBakes.map((bake, index) => {
             return <ViewBakesComponent 
             bake={bake} 

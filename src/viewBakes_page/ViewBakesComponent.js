@@ -60,14 +60,11 @@ export class ViewBakesComponent extends Component {
 
     // handlesubmit function
     sendPostRequest = () => {
-        // e.preventDefault()
-        console.log(this.state.newNote)
         let newNote = this.state.newNote
         this.props.handleNotePost(newNote)
     }
 
     handleAddNoteClick = () => {
-        console.log('add note clicked')
         this.setState(prevState => {
             return {addNotes: !prevState.addNotes}
           })
@@ -80,8 +77,8 @@ export class ViewBakesComponent extends Component {
     }
 
     handleDeleteClick = () => {
-        console.log('delete bake', this.props.bake.id)
-        this.props.handleDelete(this.props.bake.id)
+        console.log('delete bake', this.props.bake)
+        this.props.handleDelete(this.props.bake)
     }
 
     mapNotes = () => {
@@ -104,22 +101,19 @@ export class ViewBakesComponent extends Component {
     }
 
     showEditNoteForm = () => {
-        console.log('show edit note form clicked')
         return < EditNotesComponent noteContent={this.state.editNote} editNoteState={this.editNoteState} sendPatchRequest={this.sendPatchRequest} />
     }
 
     handleRatingSelection = (event) => {
-        console.log('rating selection:', event.target.value)
         let bakeID = this.props.bake.id
         let rating = event.target.value
-        // this.setState({
-        //     rating: rating
-        // })
         this.props.handleRatingPatch(bakeID, rating)
     }
 
+
+
     render() {
-        // console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
+        console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
         const { name, rating, hydration, total_flour_g, salt_p, leaven_p, notes, date } = this.props.bake
 
         const hasNotes = notes.length > 0
@@ -181,7 +175,7 @@ export class ViewBakesComponent extends Component {
                         <button className='buttons-cards' onClick={this.handleDeleteClick}>Delete</button>
                     </div>
 
-
+            
             </div>
         )
     }
