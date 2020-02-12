@@ -120,7 +120,12 @@ export class ViewBakesComponent extends Component {
         return (
             <div className='bake-card'>
 
-                    <div>
+                <div className='bake-card-img-div'>
+                    <img className='bake-card-img' alt='' src={require('../images/23257.jpeg')} /> 
+                    <img className='bake-card-img' alt='' src={require('../images/23258.jpeg')} />
+                </div>
+
+                <div className='bake-card-info'>
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
                         <p>Rating: {rating}</p>
@@ -141,9 +146,7 @@ export class ViewBakesComponent extends Component {
                         <p>Total flour (g): {total_flour_g}</p>
                         <p>Salt (p): {salt_p}</p>
                         <p>Leaven (p): {leaven_p}</p>
-                        <img alt=''  />
-                    </div>
-                    
+                        
                     <div>
                         {hasNotes ? <button className='buttons-cards' onClick={this.handleClick}>View/Hide notes +</button>
                         : null}
@@ -165,15 +168,11 @@ export class ViewBakesComponent extends Component {
                         {this.state.editing ? this.showEditNoteForm() : null}
                     </div>
 
-                    {/* <div>
-                        <UploadImage bake={this.props.bake}/>
-                    </div> */}
-
                     <div>
                         <button className='buttons-cards' onClick={this.handleDeleteClick}>Delete</button>
                     </div>
 
-            
+                </div>
             </div>
         )
     }
