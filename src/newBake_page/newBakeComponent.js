@@ -33,6 +33,10 @@ export class newBakeComponent extends Component {
         return (
             <div className='new-bake-container'>
 
+                    <div className='new-bake-img-container'>
+                        <img className='new-bake-img' alt='' src={require('../images/pic-combo-2.png')}></img>
+                    </div>
+                    
                     <div className='new-bake-form'>
                         <h1>Create a New Bake</h1>
                         <h4>Adjust the Baker's Percentage to see the required quantity of each ingredient. </h4>
@@ -87,9 +91,6 @@ export class newBakeComponent extends Component {
                             </div>
                 </div>
 
-                <div className='new-bake-img'>
-                    <img alt='' src={require('../images/pic-combo-2.png')}></img>
-                </div>
 
             </div>
         )

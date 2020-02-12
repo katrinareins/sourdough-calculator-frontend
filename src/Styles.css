@@ -131,10 +131,13 @@ font-family: 'Dancing Script', cursive;*/
 
 .new-bake-container {
   margin-left: 3rem;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   color: white;
+  padding: 3rem;
 }
 
 /* .form-img-container {
@@ -150,6 +153,7 @@ font-family: 'Dancing Script', cursive;*/
 .new-bake-img {
   text-align: center;
   padding: 1em;
+  width: 50rem;
 }
 
 .new-bake-form {
