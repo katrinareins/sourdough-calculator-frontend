@@ -86,19 +86,16 @@ export class ViewBakesContainer extends Component {
     handleFilter = (event) => {
         this.setCardState(event.target.value)
     }
-
-    shouldComponentUpdate() {
-        // return this.state.allBakes != nextState.allBakes;
-        console.log("IS THIS WORKING %^YUIUYTYU$%#$%")
-        // this.setState({
-        //     allBakes: this.props.bakes
-        // })
-        // this.state.allBakes.push(this.props.bakes[-1])
-        return true;
-    }
     
+    componentDidUpdate() {
+        if(this.props.bakes !== this.state.allBakes){
+          this.setCardState('');
+        }
+    } 
+
     render() {
-        console.log('props in container', this.props.bakes) 
+        console.log('props in container', this.props.bakes)     
+        
         return (
             <div>
                 <div>
