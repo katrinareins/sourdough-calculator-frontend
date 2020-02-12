@@ -13,6 +13,7 @@ export class ViewBakesComponent extends Component {
         this.state = {
             loggedIn: true,
             viewNotes: false,
+            showPopup: false,
             // rating: '',
             addNotes: false,
             newNote: {
@@ -70,7 +71,7 @@ export class ViewBakesComponent extends Component {
           })
     }
 
-    handleClick = () => {
+    handleViewNotesClick = () => {
         this.setState(prevState => {
             return {viewNotes: !prevState.viewNotes}
           })
@@ -110,15 +111,34 @@ export class ViewBakesComponent extends Component {
         this.props.handleRatingPatch(bakeID, rating)
     }
 
+    showPopup() {  
+        this.togglePopup();
+        // this.setState({  
+        //      showPopup: true 
+        // }, () => console.log("STATE WHEN TRYING TO SHOW POPUP: ", this.state.showPopup));  
+    }  
+
+    // hidePopup() {
+    //     console.log("STATE WHEN TRYING TO CLOSE POPUP: ", this.state.showPopup)
+    //     this.setState({  
+    //         showPopup: false 
+    //    });  
+    // }
+
+    togglePopup = () => {
+        this.setState(prevState => {
+            return {showPopup: !prevState.showPopup}
+          })
+    }
 
     render() {
         console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
         const { name, rating, hydration, total_flour_g, salt_p, leaven_p, notes, date } = this.props.bake
 
-        const hasNotes = notes.length > 0
+        const hasNotes = notes.length > 0 
 
         return (
-            <div className='bake-card'>
+            <div className={this.state.showPopup ? 'modal' : 'bake-card'}>
 
                 <div className='bake-card-img-div'>
                     <img className='bake-card-img' alt='' src={require('../images/23257.jpeg')} /> 
@@ -128,50 +148,57 @@ export class ViewBakesComponent extends Component {
                 <div className='bake-card-info'>
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
-                        <p>Rating: {rating}</p>
+                        <p>Rating: {rating}</p> 
 
-                            <div className="rating-select">
-                                <label ></label>
-                                <select onChange={this.handleRatingSelection} name="rating">
-                                <option selected >Rate this bake</option>
-                                <option value="5">*****</option>
-                                <option value="4">****</option>
-                                <option value="3">***</option>
-                                <option value="2">**</option>
-                                <option value="1">*</option>
-                                </select>
-                            </div>
-
-                        <p>Hydration: {hydration}</p>
-                        <p>Total flour (g): {total_flour_g}</p>
-                        <p>Salt (p): {salt_p}</p>
-                        <p>Leaven (p): {leaven_p}</p>
+                    <div>
+                        <div className="rating-select">
+                            <label ></label>
+                            <select onChange={this.handleRatingSelection} name="rating"> 
+                            <option selected >Rate this bake</option>
+                            <option value="5">*****</option>
+                            <option value="4">****</option>
+                            <option value="3">***</option>
+                            <option value="2">**</option>
+                            <option value="1">*</option>
+                            </select>
+                        </div>
+                        <div>
+                            <p>Hydration: {hydration}</p>
+                            <p>Total flour (g): {total_flour_g}</p>
+                            <p>Salt (p): {salt_p}</p>
+                            <p>Leaven (p): {leaven_p}</p>
+                        </div>
+                    
                         
-                    <div>
-                        {hasNotes ? <button className='buttons-cards' onClick={this.handleClick}>View/Hide notes +</button>
-                        : null}
-                    </div>
+                        <div>
+                            {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View notes +</button>
+                            : null}
+                        </div>
 
-                    <div>
-                        {this.state.viewNotes ? this.mapNotes() : null}
-                    </div>
+                        <div>
+                            {this.state.viewNotes ? this.mapNotes() : null}
+                        </div>
 
-                    <div>
-                        <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
-                    </div>
+                        <div>
+                            <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
+                        </div> 
 
-                    <div>
-                        {this.state.addNotes ? this.showNoteForm() : null}
-                    </div>
+                        <div>
+                            {this.state.addNotes ? this.showNoteForm() : null}
+                        </div>
 
-                    <div>
-                        {this.state.editing ? this.showEditNoteForm() : null}
-                    </div>
+                        <div>
+                            {this.state.editing ? this.showEditNoteForm() : null}
+                        </div>
 
-                    <div>
-                        <button className='buttons-cards' onClick={this.handleDeleteClick}>Delete</button>
-                    </div>
+                        <div>
+                            {this.state.showPopup ? <button onClick={this.togglePopup}>Close</button> : null}
+                        </div>
 
+                        <div>
+                            <button className='delete-button' onClick={this.handleDeleteClick}>Delete</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
