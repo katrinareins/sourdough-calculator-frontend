@@ -57,8 +57,7 @@ export default class NewBakeContainer extends Component {
                 return {
                     newBake: {...prevState.newBake, 
                         [item]: value,
-                        // water_g: (value*10),
-                        water_p: value}
+                        water_p: `${value}%`}
                 }
             })
         }else if(item === 'total_flour_g'){

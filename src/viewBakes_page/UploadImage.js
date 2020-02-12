@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import S3FileUpload from 'react-s3';
+import React, { Component } from 'react';
+import axios from 'axios';
+// import {useDropzone} from 'react-dropzone'
 
 export class uploadImage extends Component {
     
@@ -7,7 +8,7 @@ export class uploadImage extends Component {
         super(props)
         
         this.state = {
-            selectedFile: null
+            photo: null,
         }
     }
     
@@ -15,46 +16,30 @@ export class uploadImage extends Component {
     fileSelectedHandler = (event) => {
         console.log('photo selected', event.target.files[0])
         this.setState({
-            selectedFile: event.target.files[0]
+            photo: event.target.files[0]
         })
     }
+
+    // axios.post(`http://localhost:3000/bakes/${bake.id}`,  photoUpload )
+    // .then(res => {
+    //   console.log(res);
+    //   console.log(res.data);
+    // })
     
     fileUploadHandler = () => {
-        const config = {
-            bucketName: 'sourdoughimageuploader',
-            // dirName: 'Enter Folder Name ', /* optional */
-            region: 'US West (Oregon)',
-            // region: 'us-west-2',
-            accessKeyId: '',
-            secretAccessKey: '',
-        //             header: "Access-Control-Allow-Origin: *",
-        // header: "Access-Control-Allow-Methods: POST",
-        // header: "Access-Control-Allow-Headers: Origin, Methods, Content-Type"
-        };
-        console.log('selected file: ', this.state.selectedFile)
-        console.log(config)
-        S3FileUpload.uploadFile(this.state.selectedFile, config)
-        .then(data => {
-            console.log(data.location)
-        })
-        .catch(err => {
-            alert(err)
-        })
+        const formData = new FormData();
+        formData.append('photos', this.state.photo)
+        
     }
-    
 
     render() {
 
         return (
             <div>
                 <input 
-                // style={{display: 'none'}} 
                 type='file' 
                 onChange={this.fileSelectedHandler} 
-                // ref={fileInput => this.fileInput = fileInput}
                 />
-
-                {/* <button onClick={this.fileSelectedHandler} >Pick File</button> */}
                 <button className='buttons-cards' onClick={this.fileUploadHandler}>Upload Photo</button>
             </div>
         )
@@ -63,18 +48,22 @@ export class uploadImage extends Component {
 
 export default uploadImage
 
+        // axios.post(`http://localhost:3000/bakes/${bake.id}`,  photoUpload )
+        //     .then(res => {
+        //     console.log(res);
+        //     console.log(res.data);
+        //     })
 
-// <?xml version="1.0" encoding="UTF-8"?>
-// <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-// <CORSRule>
-//     <AllowedOrigin>*</AllowedOrigin>
-//     <AllowedMethod>PUT</AllowedMethod>
-//     <AllowedMethod>POST</AllowedMethod>
-//     <AllowedMethod>DELETE</AllowedMethod>
-//     <AllowedHeader>*</AllowedHeader>
-// </CORSRule>
-// <CORSRule>
-//     <AllowedOrigin>*</AllowedOrigin>
-//     <AllowedMethod>GET</AllowedMethod>
-// </CORSRule>
-// </CORSConfiguration>
+        // fetch(`http://localhost:3000/bakes/${bake.id}`, {
+        // method: 'PATCH',
+        // headers: {
+        //     'Content-Type': 'application/json',
+        //     'Accept': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         photos: formData
+        //     })
+        //     })
+        //     .then(res => res.json())
+        //     .then(data => { console.log('data returned from PHOTO post request', data)  
+        // })

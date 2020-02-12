@@ -36,7 +36,7 @@ export class LoginScreen extends Component {
             <img className='home-pic' alt='' src={require('../images/3-pic-combo.png')}/>
           
           <form className='login-form'>
-              <label>Email </label>
+              {/* <label>Email </label> */}
               <br></br>
               <input
                 name="email"
@@ -46,7 +46,7 @@ export class LoginScreen extends Component {
               />
             <br></br>
 
-            <label className='password-label'>Password </label>
+            {/* <label className='password-label'>Password </label>
             <br></br>
               <input
                 name="password"
@@ -54,7 +54,7 @@ export class LoginScreen extends Component {
                 placeholder="Enter your password"
                 onChange={(e) => this.handleInputChange(e)}
               />      
-              <br></br>
+              <br></br> */}
               <Link to='/viewbakes'>            
               <button className='login-button' type="submit" onClick={this.handleClick} >
                   Login

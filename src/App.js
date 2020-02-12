@@ -110,11 +110,11 @@ handleNotePost = event => {
     // note delete 
     deleteNote = noteToDelete => {
       console.log('Delete fetch request called with note info:', noteToDelete)
-      // fetch(`http://localhost:3000/notes/${noteToDelete.id}`, {
-      //   method: "DELETE",
-      // })
-      // .then(res => res.json())
-      // .then(data => { console.log('Data coming back from delete request: ', data)
+      fetch(`http://localhost:3000/notes/${noteToDelete.id}`, {
+        method: "DELETE",
+      })
+      .then(res => res.json())
+      .then(data => { console.log('Data coming back from delete request: ', data)
 
         let newBake = this.state.bakes.find(bake => bake.id === noteToDelete.bake_id)
         let nonDeletedNotes = newBake.notes.filter(note => note.id !== noteToDelete.id)
@@ -134,7 +134,7 @@ handleNotePost = event => {
             bakes: newBakes 
           }
         })
-      // })
+      })
     }
   
     // note patch request
@@ -241,13 +241,17 @@ handleNotePost = event => {
       })
   }
 
+  shouldComponentUpdate(){
+    return true;
+  }
+
   // delete bake
   handleDelete = bakeToDelete => {
     console.log('delete bake request received with bake info: ', bakeToDelete)
-    // fetch(`http://localhost:3000/bakes/${bakeToDelete.id}`, {
-    //   method: "DELETE",
-    // })
-    // .then(res => res.json())
+    fetch(`http://localhost:3000/bakes/${bakeToDelete.id}`, {
+      method: "DELETE",
+    })
+    .then(res => res.json())
 
       let nonDeletedBakes = this.state.bakes.filter(bake => bake.id !== bakeToDelete.id)
       console.log('Non deleted bakes: ', nonDeletedBakes)
@@ -255,7 +259,6 @@ handleNotePost = event => {
       this.setState({
         bakes: nonDeletedBakes
       })
-      
   }
 
   handleLogOut = () => {
@@ -334,6 +337,8 @@ handleNotePost = event => {
                       loggedInUser={this.state.email} 
                       handleLogOut={this.handleLogOut}
                       handleRatingPatch={this.handleRatingPatch}
+                      // addNewBakeToDOM={this.addNewBakeToDOM}
+                      // newBake={this.state.newBake}
                       alternate="/"
                       />
                     } 

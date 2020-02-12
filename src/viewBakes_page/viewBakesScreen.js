@@ -24,6 +24,8 @@ export class ViewBakesScreen extends Component {
                 notePatchRequest={this.props.notePatchRequest}
                 loggedIn={this.props.loggedIn}
                 handleRatingPatch={this.props.handleRatingPatch}
+                // newBake={this.props.newBake}
+                // addNewBakeToDOM={this.props.addNewBakeToDOM}
                 />
             
             </div>

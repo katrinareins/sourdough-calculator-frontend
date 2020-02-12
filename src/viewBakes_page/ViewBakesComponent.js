@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
 import AddNotesForm from './AddNotesForm';
 import EditNotesComponent from './EditNotesForm';
-import UploadImage from './UploadImage';
+// import UploadImage from './UploadImage';
 
 
 export class ViewBakesComponent extends Component {
@@ -78,7 +78,7 @@ export class ViewBakesComponent extends Component {
 
     handleDeleteClick = () => {
         console.log('delete bake', this.props.bake)
-        this.props.handleDelete(this.props.bake)
+        this.props.handleDeleteBake(this.props.bake)
     }
 
     mapNotes = () => {
@@ -111,7 +111,6 @@ export class ViewBakesComponent extends Component {
     }
 
 
-
     render() {
         console.log('THESE ARE PROPS IN VIEW BAKE COMPONENT: ', this.props)
         const { name, rating, hydration, total_flour_g, salt_p, leaven_p, notes, date } = this.props.bake
@@ -124,7 +123,6 @@ export class ViewBakesComponent extends Component {
                     <div>
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
-                        <p>Hydration: {hydration}</p>
                         <p>Rating: {rating}</p>
 
                             <div className="rating-select">
@@ -139,15 +137,15 @@ export class ViewBakesComponent extends Component {
                                 </select>
                             </div>
 
+                        <p>Hydration: {hydration}</p>
                         <p>Total flour (g): {total_flour_g}</p>
                         <p>Salt (p): {salt_p}</p>
                         <p>Leaven (p): {leaven_p}</p>
+                        <img alt=''  />
                     </div>
-
-
                     
                     <div>
-                        {hasNotes ? <button className='buttons-cards' onClick={this.handleClick}>View notes +</button>
+                        {hasNotes ? <button className='buttons-cards' onClick={this.handleClick}>View/Hide notes +</button>
                         : null}
                     </div>
 
@@ -167,9 +165,9 @@ export class ViewBakesComponent extends Component {
                         {this.state.editing ? this.showEditNoteForm() : null}
                     </div>
 
-                    <div>
-                        <UploadImage />
-                    </div>
+                    {/* <div>
+                        <UploadImage bake={this.props.bake}/>
+                    </div> */}
 
                     <div>
                         <button className='buttons-cards' onClick={this.handleDeleteClick}>Delete</button>

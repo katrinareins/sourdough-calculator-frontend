@@ -28,14 +28,15 @@ export class newBakeComponent extends Component {
             return <Redirect to='/viewbakes' />
         }
         console.log('props in new bake page', this.props.newBake)
-        const { name, rating, hydration, salt_g, leaven_g, total_flour_g, salt_p, leaven_p, water_p, water_g, notes, date } = this.props.newBake
+        const { salt_g, leaven_g, total_flour_g, water_p, water_g } = this.props.newBake
         
         return (
             <div className='new-bake-container'>
 
                     <div className='new-bake-form'>
                         <h1>Create a New Bake</h1>
-                        <h4>Quantities are calculated based on a basic recipe that calls for 20% leaven and 2% salt. Adjust the Baker's Percentage to see the required quantity of each ingredient. </h4>
+                        <h4>Adjust the Baker's Percentage to see the required quantity of each ingredient. </h4>
+                        <h5>A basic naturally leavened bread recipe typically calls for 20% leaven and 2% salt. </h5>
                         <p>Novice bakers - begin with lower hydration doughs (between 70-75%).</p>
 
                         <div className='name-your-bake'>
