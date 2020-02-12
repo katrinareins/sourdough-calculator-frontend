@@ -80,6 +80,7 @@ export class ViewBakesComponent extends Component {
     handleDeleteClick = () => {
         console.log('delete bake', this.props.bake)
         this.props.handleDeleteBake(this.props.bake)
+        this.togglePopup()
     }
 
     mapNotes = () => {
@@ -112,18 +113,8 @@ export class ViewBakesComponent extends Component {
     }
 
     showPopup() {  
-        this.togglePopup();
-        // this.setState({  
-        //      showPopup: true 
-        // }, () => console.log("STATE WHEN TRYING TO SHOW POPUP: ", this.state.showPopup));  
+        this.togglePopup();  
     }  
-
-    // hidePopup() {
-    //     console.log("STATE WHEN TRYING TO CLOSE POPUP: ", this.state.showPopup)
-    //     this.setState({  
-    //         showPopup: false 
-    //    });  
-    // }
 
     togglePopup = () => {
         this.setState(prevState => {
@@ -178,7 +169,7 @@ export class ViewBakesComponent extends Component {
                                 </div>
                             
                                 <div>
-                                    {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View notes +</button>
+                                    {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View / Hide Notes +</button>
                                     : null}
                                 </div>
 

@@ -25,37 +25,22 @@ div h3 {
 
 div h4 {
   font-family: 'Noto Sans JP', sans-serif; 
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 
 div h5 {
   font-family: 'Noto Sans JP', sans-serif; 
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: lighter;
 }
 
 label {
   font-family: 'Noto Sans JP', sans-serif; 
-  font-size: 18px;
-  font-weight: lighter;
+  font-size: 15px;
+  font-weight: normal;
+  margin-right: 0.7rem;
 }
-
-.login-button {
-  display: inline;
-  padding: 0.05em 1.5em;
-  border: 0.1em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
-  margin-top: 20px;
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family: 'Dancing Script', cursive;
-  font-size: 35px;
-  color:white;
-  background-color: black;
-  text-align:center;
-  transition: all 0.2s;
-  }
 
 .button:hover{
   color: #000000;
@@ -127,6 +112,23 @@ font-family: 'Dancing Script', cursive;*/
   width: 50rem;
 }
 
+.login-button {
+  display: inline;
+  padding: 0.05em 1em;
+  border: 0.1em solid #FFFFFF;
+  margin:0 0.2em 0.2em 0;
+  margin-top: 10px;
+  border-radius:0.5em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  color:white;
+  background-color: black;
+  text-align:center;
+  transition: all 0.2s;
+  }
+
 /* --------------------------- New Bake Form ------------------------- */
 
 .new-bake-container {
@@ -158,12 +160,10 @@ font-family: 'Dancing Script', cursive;*/
 
 .new-bake-form {
   color: black;
-  padding: 1em;
 }
 
 .new-form-table {
   margin-top: 10px;
-  border-spacing: 2rem;
 }
 
 .name-your-bake {
@@ -199,8 +199,7 @@ font-family: 'Dancing Script', cursive;*/
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  
+  justify-content: space-around;
 }
 
 /* each bake card container */
@@ -212,25 +211,6 @@ font-family: 'Dancing Script', cursive;*/
   width: 30rem;
   margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  grid-column-gap: 20px;
-}
-
-.modal {
-  /* Positioning */
-  /* position: fixed; */
-  position: absolute;
-  top: 20%;
-  left: 33%;
-
-  /* Styling */
-  background-color: whitesmoke;
-  border: 2px solid #241f1f;
-  border-radius: 0.8rem;
-  padding: 1.5rem;
-  width: 35%;
-  height: auto;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   grid-column-gap: 20px;
@@ -267,6 +247,27 @@ font-family: 'Dancing Script', cursive;*/
   transition: all 0.2s;
 }
 
+/* --------------------------- Popup to edit bake card ------------------------- */
+
+.modal {
+  /* Positioning */
+  /* position: fixed; */
+  position: absolute;
+  top: 20%;
+  left: 33%;
+
+  /* Styling */
+  background-color: whitesmoke;
+  border: 2px solid #241f1f;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  width: 35%;
+  height: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-column-gap: 20px;
+}
+
 .delete-button {
   display: inline;
   padding: 2px 0.8em;
@@ -299,8 +300,35 @@ font-family: 'Dancing Script', cursive;*/
   transition: all 0.2s;
 }
 
-/* bake card elements */
-/* .bake-card-items {
-  background-color: darkslateblue;
-  grid-column: 1;
-} */
+.note-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+.view-notes-div {
+  border-radius: 10%;
+  border-color: darkgray;
+}
+
+.note-content {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.7rem;
+  font-weight: lighter;
+}
+
+.edit-delete-note {
+  display: inline;
+  padding: 2px 0.5em;
+  border: 0.1em solid black;
+  margin:0 0.3em 0.3em 0;
+  margin-top: 15px;
+  border-radius:0.5em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: .8rem;
+  color:black;
+  text-align:center;
+  transition: all 0.2s;
+}

@@ -41,7 +41,7 @@ export class newBakeComponent extends Component {
                         <h1>Create a New Bake</h1>
                         <h4>Adjust the Baker's Percentage to see the required quantity of each ingredient. </h4>
                         <h5>A basic naturally leavened bread recipe typically calls for 20% leaven and 2% salt. </h5>
-                        <p>Novice bakers - begin with lower hydration doughs (between 70-75%).</p>
+                        <h5>Novice bakers - begin with lower hydration doughs (between 70-75%).</h5>
 
                         <div className='name-your-bake'>
                             <label>Name your bake</label>
@@ -87,7 +87,7 @@ export class newBakeComponent extends Component {
                                             <td><input type='text' name='salt_p' placeholder='salt percentage' onChange={(e) => this.handleChange(e)} ></input></td>
                                         </tr>
                                     </table>
-                                    <button className='create-bake-button' onClick={this.handleSubmit}>Submit</button> 
+                                    <button className='buttons-cards' onClick={this.handleSubmit}>Submit</button> 
                             </div>
                 </div>
 

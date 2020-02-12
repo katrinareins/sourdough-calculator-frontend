@@ -17,11 +17,11 @@ export class ViewBakeNotesComponent extends Component {
         console.log("THESE ARE PROPS IN NOTES CARD:", this.props)
         const { title, content } = this.props.note
         return (
-            <div>
-                <h4>{title}</h4>
-                <p>{content}</p>
-                <button onClick={this.handleEditClick}>Edit</button>
-                <button onClick={this.handleDeleteClick}>Delete</button>
+            <div className='view-notes-div'>
+                <h4 className='note-title'>{title}</h4>
+                <p className='note-content'>{content}</p>
+                <button className='edit-delete-note' onClick={this.handleEditClick}>Edit</button>
+                <button className='edit-delete-note' onClick={this.handleDeleteClick}>Delete</button>
             </div>
         )
     }

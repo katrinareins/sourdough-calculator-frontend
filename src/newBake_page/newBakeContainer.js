@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NewBakeComponent from './NewBakeComponent';
-// import UploadImage from '../viewBakes_page/UploadImage'
 
 export default class NewBakeContainer extends Component {
     constructor(props) {
