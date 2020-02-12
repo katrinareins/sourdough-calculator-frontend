@@ -140,24 +140,23 @@ export class ViewBakesComponent extends Component {
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
                         <p>Rating: {rating}</p> 
-                        {(rating === 5) ? <img alt='' src='star'></img> : null}
                          
                         <button className='buttons-cards' onClick={this.togglePopup} >Edit bake</button>
 
                     <div >
                         {this.state.showPopup ? 
                             <div className='modal'> 
-                                
-                                <div>
-                                    <h3>Ingredients</h3>
+
+                                <div className='popup-sections'>
+                                    <h4 className='popup-titles'>Ingredients</h4>
                                     <p>Hydration: {hydration}</p>
                                     <p>Total flour (g): {total_flour_g}</p>
                                     <p>Salt (p): {salt_p}</p>
                                     <p>Leaven (p): {leaven_p}</p>
                                 </div>
 
-                                <div className="rating-select">
-                                    <label ></label>
+                                <div className="popup-sections">
+                                    <h4 className='popup-titles'>Rating</h4>
                                     <select onChange={this.handleRatingSelection} name="rating"> 
                                     <option selected >Rate this bake</option>
                                     <option value="5">*****</option>
@@ -168,33 +167,24 @@ export class ViewBakesComponent extends Component {
                                     </select>
                                 </div>
                             
-                                <div>
-                                    {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View / Hide Notes +</button>
-                                    : null}
+                                <div className='popup-sections'>
+                                    <h4 className='popup-titles'>Notes</h4>
+                                        {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View / Hide Notes +</button>
+                                        : null}
+                                    
+                                        <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
+                                        
+                                        {this.state.viewNotes ? this.mapNotes() : null}
+                                        {this.state.addNotes ? this.showNoteForm() : null}
+                                        {this.state.editing ? this.showEditNoteForm() : null}
+                                    <div>
+                                    </div>
+
                                 </div>
 
-                                <div>
-                                    {this.state.viewNotes ? this.mapNotes() : null}
-                                </div>
-
-                                <div>
-                                    <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
-                                </div> 
-
-                                <div>
-                                    {this.state.addNotes ? this.showNoteForm() : null}
-                                </div>
-
-                                <div>
-                                    {this.state.editing ? this.showEditNoteForm() : null}
-                                </div>
-
-                                <div>
+                                <div className='save-or-delete '>
                                     <button className='save-button' onClick={this.togglePopup}>Save</button> 
-                                </div>
-
-                                <div>
-                                    <button className='delete-button' onClick={this.handleDeleteClick}>Delete bake</button>
+                                    <button className='delete-button' onClick={this.handleDeleteClick}>Delete</button>
                                 </div>
 
                             </div>

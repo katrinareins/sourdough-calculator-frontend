@@ -99,6 +99,7 @@ font-family: 'Dancing Script', cursive;*/
   font-size: 1.4rem;
   margin-bottom: 40px;
 }
+
 .login-form {
   margin-top: 40px;
 }
@@ -133,24 +134,11 @@ font-family: 'Dancing Script', cursive;*/
 
 .new-bake-container {
   margin-left: 3rem;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   color: white;
   padding: 3rem;
 }
-
-/* .form-img-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  border-radius: 30px;
-  background-color: black;
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row: 2/4;
-} */
 
 .new-bake-img {
   text-align: center;
@@ -268,12 +256,42 @@ font-family: 'Dancing Script', cursive;*/
   grid-column-gap: 20px;
 }
 
+.popup-sections {
+  margin: 0.5rem;
+
+}
+
+.popup-titles {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color:black;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+/* .popup-ingredients {
+  border: 0.1em solid blue;
+}
+
+.rating-select {
+  border: 0.1em solid purple;
+}
+
+.notes-popup-section {
+  border: 0.1em solid fuchsia;
+}*/
+
+.save-or-delete {
+  margin-top: 1.5rem;
+  text-align: center;
+} 
+
 .delete-button {
   display: inline;
   padding: 2px 0.8em;
   border: 0.1em solid black;
   margin:0 0.3em 0.3em 0;
-  margin-top: 0.1rem;
   border-radius:0.5em;
   box-sizing: border-box;
   text-decoration:none;
@@ -289,7 +307,6 @@ font-family: 'Dancing Script', cursive;*/
   padding: 2px 0.8em;
   border: 0.1em solid black;
   margin:0 0.3em 0.3em 0;
-  margin-top: 15px;
   border-radius:0.5em;
   box-sizing: border-box;
   text-decoration:none;
@@ -317,12 +334,11 @@ font-family: 'Dancing Script', cursive;*/
   font-weight: lighter;
 }
 
-.edit-delete-note {
+.edit-delete-note-button {
   display: inline;
   padding: 2px 0.5em;
   border: 0.1em solid black;
   margin:0 0.3em 0.3em 0;
-  margin-top: 15px;
   border-radius:0.5em;
   box-sizing: border-box;
   text-decoration:none;

@@ -20,8 +20,8 @@ export class ViewBakeNotesComponent extends Component {
             <div className='view-notes-div'>
                 <h4 className='note-title'>{title}</h4>
                 <p className='note-content'>{content}</p>
-                <button className='edit-delete-note' onClick={this.handleEditClick}>Edit</button>
-                <button className='edit-delete-note' onClick={this.handleDeleteClick}>Delete</button>
+                <button className='edit-delete-note-button' onClick={this.handleEditClick}>Edit</button>
+                <button className='edit-delete-note-button' onClick={this.handleDeleteClick}>Delete</button>
             </div>
         )
     }
