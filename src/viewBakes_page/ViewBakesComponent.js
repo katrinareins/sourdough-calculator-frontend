@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
 import AddNotesForm from './AddNotesForm';
 import EditNotesComponent from './EditNotesForm';
-import { star } from '../images/star.png'
+import star from '../images/star.png'
 
 
 export class ViewBakesComponent extends Component {
@@ -148,7 +148,8 @@ export class ViewBakesComponent extends Component {
                 <div className='bake-card-info'>
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
-                        <p>Rating: </p> 
+                        <p>Rating: {rating}</p> 
+                        {(rating === 5) ? <img alt='' src='star'></img> : null}
                          
                         <button className='buttons-cards' onClick={this.togglePopup} >Edit bake</button>
 
@@ -202,7 +203,7 @@ export class ViewBakesComponent extends Component {
                                 </div>
 
                                 <div>
-                                    <button className='delete-button' onClick={this.handleDeleteClick}>Delete</button>
+                                    <button className='delete-button' onClick={this.handleDeleteClick}>Delete bake</button>
                                 </div>
 
                             </div>

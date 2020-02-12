@@ -219,7 +219,8 @@ font-family: 'Dancing Script', cursive;*/
 
 .modal {
   /* Positioning */
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   top: 20%;
   left: 33%;
 
