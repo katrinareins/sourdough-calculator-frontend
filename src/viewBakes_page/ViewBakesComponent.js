@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
 import AddNotesForm from './AddNotesForm';
 import EditNotesComponent from './EditNotesForm';
-// import UploadImage from './UploadImage';
+import { star } from '../images/star.png'
 
 
 export class ViewBakesComponent extends Component {
@@ -138,7 +138,7 @@ export class ViewBakesComponent extends Component {
         const hasNotes = notes.length > 0 
 
         return (
-            <div className={this.state.showPopup ? 'modal' : 'bake-card'}>
+            <div className='bake-card'>
 
                 <div className='bake-card-img-div'>
                     <img className='bake-card-img' alt='' src={require('../images/23257.jpeg')} /> 
@@ -148,57 +148,69 @@ export class ViewBakesComponent extends Component {
                 <div className='bake-card-info'>
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
-                        <p>Rating: {rating}</p> 
+                        <p>Rating: </p> 
+                         
+                        <button className='buttons-cards' onClick={this.togglePopup} >Edit bake</button>
 
-                    <div>
-                        <div className="rating-select">
-                            <label ></label>
-                            <select onChange={this.handleRatingSelection} name="rating"> 
-                            <option selected >Rate this bake</option>
-                            <option value="5">*****</option>
-                            <option value="4">****</option>
-                            <option value="3">***</option>
-                            <option value="2">**</option>
-                            <option value="1">*</option>
-                            </select>
-                        </div>
-                        <div>
-                            <p>Hydration: {hydration}</p>
-                            <p>Total flour (g): {total_flour_g}</p>
-                            <p>Salt (p): {salt_p}</p>
-                            <p>Leaven (p): {leaven_p}</p>
-                        </div>
-                    
-                        
-                        <div>
-                            {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View notes +</button>
-                            : null}
-                        </div>
+                    <div >
+                        {this.state.showPopup ? 
+                            <div className='modal'> 
+                                
+                                <div>
+                                    <h3>Ingredients</h3>
+                                    <p>Hydration: {hydration}</p>
+                                    <p>Total flour (g): {total_flour_g}</p>
+                                    <p>Salt (p): {salt_p}</p>
+                                    <p>Leaven (p): {leaven_p}</p>
+                                </div>
 
-                        <div>
-                            {this.state.viewNotes ? this.mapNotes() : null}
-                        </div>
+                                <div className="rating-select">
+                                    <label ></label>
+                                    <select onChange={this.handleRatingSelection} name="rating"> 
+                                    <option selected >Rate this bake</option>
+                                    <option value="5">*****</option>
+                                    <option value="4">****</option>
+                                    <option value="3">***</option>
+                                    <option value="2">**</option>
+                                    <option value="1">*</option>
+                                    </select>
+                                </div>
+                            
+                                <div>
+                                    {hasNotes ? <button className={'buttons-cards'} onClick={this.handleViewNotesClick}>View notes +</button>
+                                    : null}
+                                </div>
 
-                        <div>
-                            <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
-                        </div> 
+                                <div>
+                                    {this.state.viewNotes ? this.mapNotes() : null}
+                                </div>
 
-                        <div>
-                            {this.state.addNotes ? this.showNoteForm() : null}
-                        </div>
+                                <div>
+                                    <button className='buttons-cards' onClick={this.handleAddNoteClick}>Add note</button>
+                                </div> 
 
-                        <div>
-                            {this.state.editing ? this.showEditNoteForm() : null}
-                        </div>
+                                <div>
+                                    {this.state.addNotes ? this.showNoteForm() : null}
+                                </div>
 
-                        <div>
-                            {this.state.showPopup ? <button onClick={this.togglePopup}>Close</button> : null}
-                        </div>
+                                <div>
+                                    {this.state.editing ? this.showEditNoteForm() : null}
+                                </div>
 
-                        <div>
-                            <button className='delete-button' onClick={this.handleDeleteClick}>Delete</button>
-                        </div>
+                                <div>
+                                    <button className='save-button' onClick={this.togglePopup}>Save</button> 
+                                </div>
+
+                                <div>
+                                    <button className='delete-button' onClick={this.handleDeleteClick}>Delete</button>
+                                </div>
+
+                            </div>
+
+                        : null}
+
                     </div>
+
                 </div>
             </div>
         )

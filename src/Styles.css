@@ -218,15 +218,17 @@ font-family: 'Dancing Script', cursive;*/
 }
 
 .modal {
+  /* Positioning */
+  position: fixed;
+  top: 20%;
+  left: 33%;
+
+  /* Styling */
   background-color: whitesmoke;
   border: 2px solid #241f1f;
   border-radius: 0.8rem;
   padding: 1.5rem;
-  text-align: center;
-  position: fixed;
-  top: 0;
-
-  width: 35rem;
+  width: 35%;
   height: auto;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
@@ -246,7 +248,6 @@ font-family: 'Dancing Script', cursive;*/
   grid-column-start: 2;
   grid-column-end: 3;
 }
-
 
 .buttons-cards {
   display: inline;
@@ -270,13 +271,29 @@ font-family: 'Dancing Script', cursive;*/
   padding: 2px 0.8em;
   border: 0.1em solid black;
   margin:0 0.3em 0.3em 0;
-  margin-top: 15px;
+  margin-top: 0.1rem;
   border-radius:0.5em;
   box-sizing: border-box;
   text-decoration:none;
   font-family: 'Dancing Script', cursive;
   font-size: 1.4rem;
   color:red;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+.save-button {
+  display: inline;
+  padding: 2px 0.8em;
+  border: 0.1em solid black;
+  margin:0 0.3em 0.3em 0;
+  margin-top: 15px;
+  border-radius:0.5em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color:blue;
   text-align:center;
   transition: all 0.2s;
 }
