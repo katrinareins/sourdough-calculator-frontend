@@ -23,15 +23,11 @@ export class Nav extends Component {
             return <Redirect to='/' />
         }
         return (
-            <div className='nav-container'>
+            <div className='nav'>
                 {
                     <div> 
-                        <nav className='nav'>
+                        <nav className=''>
                             <div>
-                                {/* <Link to='/'>
-                                    <h3>Absolute Baking Success</h3>
-                                </Link> */}
-
                                 <img className='nav-logo' alt='' src={require('../images/Absolute BS Logo v5.png')}/>
 
                                 <Link to='/newBake'>

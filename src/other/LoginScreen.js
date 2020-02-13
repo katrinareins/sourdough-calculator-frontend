@@ -35,27 +35,16 @@ export class LoginScreen extends Component {
           <img className='home-logo' alt='' src={require('../images/Absolute BS Logo v5.png')}/>
           <h4 className='home-subtitle'>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
             <img className='home-pic' alt='' src={require('../images/3-pic-combo.png')}/>
-          
+
+
           <form className='login-form'>
-              {/* <label>Email </label> */}
-              <br></br>
               <input
                 name="email"
                 type="text"
                 placeholder="Enter your email"
                 onChange={(e) => this.handleInputChange(e)}
               />
-            <br></br>
-
-            {/* <label className='password-label'>Password </label>
-            <br></br>
-              <input
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                onChange={(e) => this.handleInputChange(e)}
-              />      
-              <br></br> */}
+              
               <Link to='/viewbakes'>            
               <button className='login-button' type="submit" onClick={this.handleClick} >
                   Login

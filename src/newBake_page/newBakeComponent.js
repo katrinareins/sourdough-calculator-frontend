@@ -43,23 +43,23 @@ export class newBakeComponent extends Component {
                         <h5>A basic naturally leavened bread recipe typically calls for 20% leaven and 2% salt. </h5>
                         <h5>Novice bakers - begin with lower hydration doughs (between 70-75%).</h5>
 
-                        <div className='name-your-bake'>
+                        <div className='ui input focus'>
                             <label>Name your bake</label>
                             <input  type='text' name='name' onChange={(e) => this.handleChange(e)}></input>
                         </div>
 
-                        <div className='hydration-required'>
+                        <div className='ui input focus'>
                             <label>Hydration (%)</label>
-                            <input  type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
+                            <input type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
                         </div>
 
-                        <div className='hydration-required'>
+                        <div className='ui input focus'>
                             <label>Total flour (g)</label>
                             <input  type='text' name='total_flour_g' onChange={(e) => this.handleChange(e)}></input>
                         </div>
 
                             <div className='new-bake-form'>
-                                    <table className='new-form-table'>
+                                    <table className='ui celled padded table'>
                                         <tr>
                                             <th>Ingredients</th>
                                             <th>Weight(g)</th> 

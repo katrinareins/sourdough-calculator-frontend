@@ -103,7 +103,7 @@ export class ViewBakesContainer extends Component {
         return (
             <div>
                 <div className='filter-bakes-container'>
-                        <select className='filter-dropdown' onChange={this.handleFilter} name="rating">
+                        <select className='ui search dropdown' onChange={this.handleFilter} name="rating">
                             <option  selected >Filter by date or rating</option>
                             <option value="date">Date</option>
                             <option value="rating">Rating</option>

@@ -58,18 +58,22 @@ font-family: 'Dancing Script', cursive;*/
 
 .nav {
   background-color: #e3caab;
-  padding: 1rem;
+  padding: 0.5rem;
+  display: flex;
 }
 
 .nav-button {
-  padding: 10px;
+  background-color: transparent;
+  border-bottom: thin solid black;
+  align-content: right;
+  margin: 1rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 .nav-container {
   color: #e3caab;
-  display: grid;
-  grid-template-columns:  6;    
-  grid-template-rows: 1;
 }
 
 .nav-ul {
@@ -111,7 +115,7 @@ font-family: 'Dancing Script', cursive;*/
 }
 
 .login-form {
-  margin-top: 40px;
+  margin-top: 0.5rem
 }
 
 .home-login-form {
