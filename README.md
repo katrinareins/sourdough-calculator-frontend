@@ -42,4 +42,6 @@ $ npm start
 
 ## Demo ## 
 
-https://www.dropbox.com/s/3fim9x9qqqo405c/Sourdough-app-demo-small.mov?dl=0
+![Demo part 1](https://github.com/learn-co-kat/sourdough-calculator-frontend/blob/master/src/images/sourdough-app-part1.gif)
+
+![Demo part 2](https://github.com/learn-co-kat/sourdough-calculator-frontend/blob/master/src/images/sourdough-app-part2.gif)
