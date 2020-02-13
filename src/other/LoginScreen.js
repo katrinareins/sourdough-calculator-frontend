@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LoginHOC from '../other/LoginHOC';
 import '../Styles.css';
+import Footer from '../other/Footer'
 
 export class LoginScreen extends Component {
 
@@ -54,7 +55,7 @@ export class LoginScreen extends Component {
           </form> 
         
         </div>
-
+      {/* <Footer /> */}
       </div>
     )
   }

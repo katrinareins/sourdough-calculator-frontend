@@ -104,8 +104,7 @@ export class newBakeComponent extends Component {
                                 <button className='buttons-cards' onClick={this.handleSubmit}>Submit</button> 
                         </div>
                 </div>
-
-
+                
             </div>
         )
     }

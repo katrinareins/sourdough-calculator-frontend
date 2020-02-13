@@ -3,6 +3,7 @@ import NewBakeContainer from '../newBake_page/NewBakeContainer'
 import Nav from '../other/Nav'
 import '../Styles.css'
 import LoginHOC from '../other/LoginHOC';
+import Footer from '../other/Footer'
 
 export class NewBakeScreen extends Component {
 
@@ -14,6 +15,7 @@ export class NewBakeScreen extends Component {
                     handleLogOut={this.props.handleLogOut} />
 
                 <NewBakeContainer handlePost={this.props.handlePost} userId={this.props.userId} />
+                <Footer />
             </div>
         )
     }

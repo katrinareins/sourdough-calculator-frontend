@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ViewBakeNotesComponent from './NotesCard';
 import AddNotesForm from './AddNotesForm';
 import EditNotesComponent from './EditNotesForm';
-import star from '../images/star.png'
+
 
 
 export class ViewBakesComponent extends Component {
@@ -142,7 +142,7 @@ export class ViewBakesComponent extends Component {
                         <p>Rating: {rating}</p> 
 
                             <div className='popup-sections'>
-                                <h4 className='popup-titles'>Baker's Percentage and Total Flour</h4>
+                                <h4 className='popup-titles'>Baker's Percentage & Total Flour</h4>
                                 <p>Total flour: 100%</p>
                                 <p>Hydration: {hydration}%</p>
                                 <p>Salt: {salt_p}%</p>
@@ -194,6 +194,7 @@ export class ViewBakesComponent extends Component {
                     </div>
 
                 </div>
+                
             </div>
         )
     }

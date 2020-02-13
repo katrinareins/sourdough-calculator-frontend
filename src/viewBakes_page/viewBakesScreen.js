@@ -3,6 +3,7 @@ import ViewBakesContainer from './ViewBakesContainer'
 import '../Styles.css'
 import Nav from '../other/Nav'
 import LoginHOC from '../other/LoginHOC';
+import Footer from '../other/Footer'
 
 export class ViewBakesScreen extends Component {
     
@@ -27,7 +28,7 @@ export class ViewBakesScreen extends Component {
                 // newBake={this.props.newBake}
                 // addNewBakeToDOM={this.props.addNewBakeToDOM}
                 />
-            
+                <Footer />
             </div>
         )
     }
