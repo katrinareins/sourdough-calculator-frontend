@@ -107,12 +107,13 @@ font-family: 'Dancing Script', cursive;*/
 .home-logo {
   border-radius: 50%;
   width: 35%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .home-subtitle{
-  font-size: 1rem;
-  margin-bottom: 40px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Dancing Script', cursive;
 }
 
 .login-form {
@@ -143,6 +144,16 @@ font-family: 'Dancing Script', cursive;*/
   background-color: black;
   text-align:center;
   transition: all 0.2s;
+  }
+
+  .login-input[type=text], select {
+    width: auto;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }
 
 /* --------------------------- New Bake Form ------------------------- */

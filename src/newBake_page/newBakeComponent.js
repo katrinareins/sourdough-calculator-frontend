@@ -83,12 +83,22 @@ export class newBakeComponent extends Component {
                                     <tr>
                                         <td>Leaven</td>
                                         <td>{leaven_g}</td>
-                                        <td><input type='text' name='leaven_p' placeholder='leaven percentage' onChange={(e) => this.handleChange(e)} ></input></td>
+                                        <td><input 
+                                        type='text' 
+                                        name='leaven_p' 
+                                        placeholder='leaven percentage' 
+                                        className='login-input'
+                                        onChange={(e) => this.handleChange(e)} ></input></td>
                                     </tr>
                                     <tr>
                                         <td>Salt</td>
                                         <td>{salt_g}</td>
-                                        <td><input type='text' name='salt_p' placeholder='salt percentage' onChange={(e) => this.handleChange(e)} ></input></td>
+                                        <td><input 
+                                        type='text' 
+                                        name='salt_p' 
+                                        placeholder='salt percentage' 
+                                        className='login-input'
+                                        onChange={(e) => this.handleChange(e)} ></input></td>
                                     </tr>
                                 </table>
                                 <button className='buttons-cards' onClick={this.handleSubmit}>Submit</button> 
