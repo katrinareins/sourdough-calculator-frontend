@@ -140,20 +140,20 @@ export class ViewBakesComponent extends Component {
                         <h3>{name}</h3>
                         <p>Date: {date}</p>
                         <p>Rating: {rating}</p> 
+
+                            <div className='popup-sections'>
+                                <h4 className='popup-titles'>Baker's Percentage and Total Flour</h4>
+                                <p>Total flour: 100%</p>
+                                <p>Hydration: {hydration}%</p>
+                                <p>Salt: {salt_p}%</p>
+                                <p>Leaven: {leaven_p}%</p>
+                            </div>
                          
                         <button className='buttons-cards' onClick={this.togglePopup} >Edit bake</button>
 
                     <div >
                         {this.state.showPopup ? 
                             <div className='modal'> 
-
-                                <div className='popup-sections'>
-                                    <h4 className='popup-titles'>Ingredients</h4>
-                                    <p>Hydration: {hydration}</p>
-                                    <p>Total flour (g): {total_flour_g}</p>
-                                    <p>Salt (p): {salt_p}</p>
-                                    <p>Leaven (p): {leaven_p}</p>
-                                </div>
 
                                 <div className="popup-sections">
                                     <h4 className='popup-titles'>Rating</h4>

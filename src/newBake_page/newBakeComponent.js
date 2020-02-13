@@ -67,7 +67,7 @@ export class newBakeComponent extends Component {
                                     <tr>
                                         <th>Ingredients</th>
                                         <th>Weight(g)</th> 
-                                        <th>Baker's Percentage</th>
+                                        <th>Baker's Percentage (%)</th>
                                     </tr>
                                     <tr>
                                         <td>Total Flour</td>

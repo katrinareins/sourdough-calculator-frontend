@@ -28,17 +28,17 @@ export class Nav extends Component {
                     <div> 
                         <nav className=''>
                             <div>
-                                <img className='nav-logo' alt='' src={require('../images/Absolute BS Logo v5.png')}/>
+                                <img className='nav-logo' alt='' src={require('../images/Absolute BS logo-v6.png')}/>
 
                                 <Link to='/newBake'>
-                                    <button className='nav-button' >Create new bake</button>
+                                    <button className='nav-button' >CREATE NEW BAKE</button>
                                 </Link>
 
                                 <Link to='/viewbakes'>
-                                    <button className='nav-button'>View my bakes</button>
+                                    <button className='nav-button'>VIEW MY BAKES</button>
                                 </Link>
-                                <button className='nav-button'>Logged in as: {this.props.loggedInUser}</button>
-                                <button className='nav-button' onClick={this.handleClick}>Log out</button>
+                                <button className='nav-button'>LOGGED IN AS: {this.props.loggedInUser}</button>
+                                <button className='nav-button' onClick={this.handleClick}>LOG OUT</button>
                             </div>
                         </nav>
                     </div>
