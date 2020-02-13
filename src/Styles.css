@@ -110,7 +110,7 @@ font-family: 'Dancing Script', cursive;*/
 }
 
 .home-subtitle{
-  font-size: 1.4rem;
+  font-size: 1rem;
   margin-bottom: 40px;
 }
 
@@ -162,18 +162,15 @@ font-family: 'Dancing Script', cursive;*/
 
 .new-bake-form {
   color: black;
+  display: grid;
+  grid-template-rows: repeat(3);
+  row-gap: 2rem;
 }
 
-.new-form-table {
-  margin-top: 10px;
-}
-
-.name-your-bake {
- margin-top: 30px;
-}
-
-.hydration-required {
-  margin-top: 30px;
+.user-inputs-bake {
+  display: grid;
+  grid-template-rows: repeat(3);
+  row-gap: 1rem;
 }
 
 .create-bake-button {

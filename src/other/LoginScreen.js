@@ -44,7 +44,7 @@ export class LoginScreen extends Component {
                 placeholder="Enter your email"
                 onChange={(e) => this.handleInputChange(e)}
               />
-              
+            <br></br>
               <Link to='/viewbakes'>            
               <button className='login-button' type="submit" onClick={this.handleClick} >
                   Login

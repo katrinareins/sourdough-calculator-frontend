@@ -38,57 +38,61 @@ export class newBakeComponent extends Component {
                     </div>
                     
                     <div className='new-bake-form'>
-                        <h1>Create a New Bake</h1>
-                        <h4>Adjust the Baker's Percentage to see the required quantity of each ingredient. </h4>
-                        <h5>A basic naturally leavened bread recipe typically calls for 20% leaven and 2% salt. </h5>
-                        <h5>Novice bakers - begin with lower hydration doughs (between 70-75%).</h5>
-
-                        <div className='ui input focus'>
-                            <label>Name your bake</label>
-                            <input  type='text' name='name' onChange={(e) => this.handleChange(e)}></input>
+                        <div>
+                            <h1>Create a New Bake</h1>
+                            <h4>Adjust the Baker's Percentage to see the required quantity of each ingredient. </h4>
+                            <h5>A basic naturally leavened bread recipe typically calls for 20% leaven and 2% salt. </h5>
+                            <h5>Novice bakers - begin with lower hydration doughs (between 70-75%).</h5>
                         </div>
 
-                        <div className='ui input focus'>
-                            <label>Hydration (%)</label>
-                            <input type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
-                        </div>
-
-                        <div className='ui input focus'>
-                            <label>Total flour (g)</label>
-                            <input  type='text' name='total_flour_g' onChange={(e) => this.handleChange(e)}></input>
-                        </div>
-
-                            <div className='new-bake-form'>
-                                    <table className='ui celled padded table'>
-                                        <tr>
-                                            <th>Ingredients</th>
-                                            <th>Weight(g)</th> 
-                                            <th>Baker's Percentage</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Flour</td>
-                                            <td><p>{total_flour_g}</p></td>
-                                            <td>100%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Water</td>
-                                            {/* <td><input type='text' name='water_g' placeholder='water grams' onChange={(e) => this.handleChange(e)}></input></td> */}
-                                            <td>{water_g}</td>
-                                            <td>{water_p}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Leaven</td>
-                                            <td>{leaven_g}</td>
-                                            <td><input type='text' name='leaven_p' placeholder='leaven percentage' onChange={(e) => this.handleChange(e)} ></input></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Salt</td>
-                                            <td>{salt_g}</td>
-                                            <td><input type='text' name='salt_p' placeholder='salt percentage' onChange={(e) => this.handleChange(e)} ></input></td>
-                                        </tr>
-                                    </table>
-                                    <button className='buttons-cards' onClick={this.handleSubmit}>Submit</button> 
+                        <div className='user-inputs-bake'>
+                            <div className='ui input'>
+                                <label>Name your bake</label>
+                                <input  type='text' name='name' onChange={(e) => this.handleChange(e)}></input>
                             </div>
+
+                            <div className='ui input'>
+                                <label>Hydration (%)</label>
+                                <input type='text' name='hydration' onChange={(e) => this.handleChange(e)}></input>
+                            </div>
+
+                            <div className='ui input'>
+                                <label>Total flour (g)</label>
+                                <input  type='text' name='total_flour_g' onChange={(e) => this.handleChange(e)}></input>
+                            </div>
+                        </div>
+
+                        <div>
+                                <table className='ui celled padded table'>
+                                    <tr>
+                                        <th>Ingredients</th>
+                                        <th>Weight(g)</th> 
+                                        <th>Baker's Percentage</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Flour</td>
+                                        <td><p>{total_flour_g}</p></td>
+                                        <td>100%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Water</td>
+                                        {/* <td><input type='text' name='water_g' placeholder='water grams' onChange={(e) => this.handleChange(e)}></input></td> */}
+                                        <td>{water_g}</td>
+                                        <td>{water_p}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Leaven</td>
+                                        <td>{leaven_g}</td>
+                                        <td><input type='text' name='leaven_p' placeholder='leaven percentage' onChange={(e) => this.handleChange(e)} ></input></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salt</td>
+                                        <td>{salt_g}</td>
+                                        <td><input type='text' name='salt_p' placeholder='salt percentage' onChange={(e) => this.handleChange(e)} ></input></td>
+                                    </tr>
+                                </table>
+                                <button className='buttons-cards' onClick={this.handleSubmit}>Submit</button> 
+                        </div>
                 </div>
 
 
