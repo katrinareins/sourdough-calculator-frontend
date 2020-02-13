@@ -28,9 +28,11 @@ export class Nav extends Component {
                     <div> 
                         <nav className='nav'>
                             <div>
-                                <Link to='/'>
+                                {/* <Link to='/'>
                                     <h3>Absolute Baking Success</h3>
-                                </Link>
+                                </Link> */}
+
+                                <img className='nav-logo' alt='' src={require('../images/Absolute BS Logo v5.png')}/>
 
                                 <Link to='/newBake'>
                                     <button className='nav-button' >Create new bake</button>
