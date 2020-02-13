@@ -87,9 +87,13 @@ export class ViewBakesContainer extends Component {
         this.setCardState(event.target.value)
     }
     
+    // this.renderCards () allows filter but not newly created cards to appear right away
+    // this.setCardState('') allows newly created cards to appear right away but filter doesn't work
+
     componentDidUpdate() {
         if(this.props.bakes !== this.state.allBakes){
-          this.setCardState('');
+        //   this.setCardState('');
+        this.renderCards()
         }
     } 
 
@@ -98,12 +102,11 @@ export class ViewBakesContainer extends Component {
         
         return (
             <div>
-                <div>
-                    <label ></label>
-                        <select onChange={this.handleFilter} name="rating">
-                        <option selected >Filter by date or rating</option>
-                        <option value="date">Date</option>
-                        <option value="rating">Rating</option>
+                <div className='filter-bakes-container'>
+                        <select className='filter-dropdown' onChange={this.handleFilter} name="rating">
+                            <option  selected >Filter by date or rating</option>
+                            <option value="date">Date</option>
+                            <option value="rating">Rating</option>
                         </select>
                 </div>
 

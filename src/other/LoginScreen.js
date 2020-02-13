@@ -31,7 +31,8 @@ export class LoginScreen extends Component {
       <div className='home-container'>
 
         <div className='home-login-form'>
-          <h1 className='home-title'>Absolute Baking Success</h1>
+          {/* <h1 className='home-title'>Absolute Baking Success</h1> */}
+          <img className='home-logo' alt='' src={require('../images/Absolute BS Logo v5.png')}/>
           <h4 className='home-subtitle'>A sourdough bread ingredient calculator and a place to hold all your important baking notes</h4>
             <img className='home-pic' alt='' src={require('../images/3-pic-combo.png')}/>
           
