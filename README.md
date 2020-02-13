@@ -28,7 +28,6 @@ Server:
 $ bundle install
 $ rails db:create
 $ rails db:migrate
-$ rails db:seed //if you want dummy data
 
 $ rails s //start server 
 
@@ -40,3 +39,7 @@ $ npm install
 
 $ npm start
 ```
+
+## Demo ## 
+
+https://www.dropbox.com/s/3fim9x9qqqo405c/Sourdough-app-demo-small.mov?dl=0

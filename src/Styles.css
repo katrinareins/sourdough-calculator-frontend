@@ -1,4 +1,5 @@
 /* ------------------------ Global attributes ------------------------ */
+
 body {
   background-color: white;
   font-family: 'Noto Sans JP', sans-serif; 
@@ -111,7 +112,7 @@ font-family: 'Dancing Script', cursive;*/
   /* grid-template-columns: repeat(5, 1fr); */
   grid-template-columns: 10% 80% 10%;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -133,7 +134,7 @@ font-family: 'Dancing Script', cursive;*/
 }
 
 .login-form {
-  margin-top: 0.5rem
+  margin-top: 0.1rem
 }
 
 .home-login-form {
@@ -142,7 +143,7 @@ font-family: 'Dancing Script', cursive;*/
 }
 
 .home-pic {
-  width: 50rem;
+  width: 45rem;
 }
 
 .login-button {
@@ -150,7 +151,6 @@ font-family: 'Dancing Script', cursive;*/
   padding: 0.05em 1em;
   border: 0.1em solid #FFFFFF;
   margin:0 0.2em 0.2em 0;
-  margin-top: 10px;
   border-radius:0.5em;
   box-sizing: border-box;
   text-decoration:none;
