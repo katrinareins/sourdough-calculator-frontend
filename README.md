@@ -23,13 +23,6 @@ This also requires that you have a node package manager ```npm``` or ```yarn``` 
 
 Please also make sure to clone down the backend API, which requires Ruby and PostGreSQL: https://github.com/learn-co-kat/sourdough-calculator-backend
 
-Client:
-```javascript
-$ npm install
-
-$ npm start
-```
-
 Server:
 ```ruby
 $ bundle install
@@ -41,3 +34,9 @@ $ rails s //start server
 
 ```
 
+Client:
+```javascript
+$ npm install
+
+$ npm start
+```
